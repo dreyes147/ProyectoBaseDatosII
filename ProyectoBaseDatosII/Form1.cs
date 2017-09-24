@@ -14,6 +14,7 @@ namespace ProyectoBaseDatosII
     {
         public Form1()
         {
+            //
             InitializeComponent();
         }
     }
