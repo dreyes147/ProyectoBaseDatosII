@@ -97,5 +97,11 @@
   <ItemGroup>
     <None Include="Resources\IconoCalendario.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaNegocios\CapaNegocios.csproj">
+      <Project>{9195e6b3-c801-4b5e-984a-38ae6e485c2b}</Project>
+      <Name>CapaNegocios</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
