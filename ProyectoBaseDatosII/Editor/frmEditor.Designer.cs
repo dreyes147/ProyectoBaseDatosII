@@ -36,32 +36,39 @@
             this.tlblFecha = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.guardarComoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.radEditor = new Telerik.WinControls.UI.Docking.RadDock();
-            this.dwsEditor = new Telerik.WinControls.UI.Docking.DocumentWindow();
-            this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.twsBasesDatos = new Telerik.WinControls.UI.Docking.ToolWindow();
             this.TrvDatos = new System.Windows.Forms.TreeView();
+            this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.documentContainer1 = new Telerik.WinControls.UI.Docking.DocumentContainer();
             this.documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
+            this.dwsEditor = new Telerik.WinControls.UI.Docking.DocumentWindow();
             this.radThemeManager1 = new Telerik.WinControls.RadThemeManager();
             this.windows8Theme1 = new Telerik.WinControls.Themes.Windows8Theme();
             this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
             this.breezeTheme1 = new Telerik.WinControls.Themes.BreezeTheme();
             this.office2013LightTheme1 = new Telerik.WinControls.Themes.Office2013LightTheme();
             this.btnRefreshTrv = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.ptbNumeros)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radEditor)).BeginInit();
             this.radEditor.SuspendLayout();
-            this.dwsEditor.SuspendLayout();
+            this.twsBasesDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).BeginInit();
             this.toolTabStrip1.SuspendLayout();
-            this.twsBasesDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).BeginInit();
             this.documentContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).BeginInit();
             this.documentTabStrip1.SuspendLayout();
+            this.dwsEditor.SuspendLayout();
             this.SuspendLayout();
             // 
             // rtbEditor
@@ -120,13 +127,33 @@
             // 
             // archivoToolStripMenuItem
             // 
+            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nuevoToolStripMenuItem,
+            this.abrirToolStripMenuItem,
+            this.guardarComoToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
+            // abrirToolStripMenuItem
+            // 
+            this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
+            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.abrirToolStripMenuItem.Text = "Abrir";
+            this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
+            // 
+            // guardarComoToolStripMenuItem
+            // 
+            this.guardarComoToolStripMenuItem.Name = "guardarComoToolStripMenuItem";
+            this.guardarComoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.guardarComoToolStripMenuItem.Text = "Guardar ";
+            this.guardarComoToolStripMenuItem.Click += new System.EventHandler(this.guardarComoToolStripMenuItem_Click);
+            // 
             // radEditor
             // 
-            this.radEditor.ActiveWindow = this.dwsEditor;
+            this.radEditor.ActiveWindow = this.twsBasesDatos;
             this.radEditor.CausesValidation = false;
             this.radEditor.Controls.Add(this.toolTabStrip1);
             this.radEditor.Controls.Add(this.documentContainer1);
@@ -145,17 +172,24 @@
             this.radEditor.Text = "radDock1";
             this.radEditor.ThemeName = "Office2013Light";
             // 
-            // dwsEditor
+            // twsBasesDatos
             // 
-            this.dwsEditor.Controls.Add(this.rtbEditor);
-            this.dwsEditor.Controls.Add(this.ptbNumeros);
-            this.dwsEditor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.dwsEditor.Location = new System.Drawing.Point(5, 31);
-            this.dwsEditor.Name = "dwsEditor";
-            this.dwsEditor.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            this.dwsEditor.Size = new System.Drawing.Size(789, 663);
-            this.dwsEditor.Text = "Query";
-            this.dwsEditor.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
+            this.twsBasesDatos.Caption = null;
+            this.twsBasesDatos.Controls.Add(this.TrvDatos);
+            this.twsBasesDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.twsBasesDatos.Location = new System.Drawing.Point(4, 26);
+            this.twsBasesDatos.Name = "twsBasesDatos";
+            this.twsBasesDatos.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
+            this.twsBasesDatos.Size = new System.Drawing.Size(192, 669);
+            this.twsBasesDatos.Text = "Bases de Datos";
+            this.twsBasesDatos.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
+            // 
+            // TrvDatos
+            // 
+            this.TrvDatos.Location = new System.Drawing.Point(-4, 7);
+            this.TrvDatos.Name = "TrvDatos";
+            this.TrvDatos.Size = new System.Drawing.Size(196, 635);
+            this.TrvDatos.TabIndex = 0;
             // 
             // toolTabStrip1
             // 
@@ -173,25 +207,6 @@
             this.toolTabStrip1.TabIndex = 1;
             this.toolTabStrip1.TabStop = false;
             this.toolTabStrip1.ThemeName = "Office2013Light";
-            // 
-            // twsBasesDatos
-            // 
-            this.twsBasesDatos.Caption = null;
-            this.twsBasesDatos.Controls.Add(this.TrvDatos);
-            this.twsBasesDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.twsBasesDatos.Location = new System.Drawing.Point(4, 26);
-            this.twsBasesDatos.Name = "twsBasesDatos";
-            this.twsBasesDatos.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            this.twsBasesDatos.Size = new System.Drawing.Size(192, 669);
-            this.twsBasesDatos.Text = "Bases de Datos";
-            this.twsBasesDatos.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
-            // 
-            // TrvDatos
-            // 
-            this.TrvDatos.Location = new System.Drawing.Point(-4, 7);
-            this.TrvDatos.Name = "TrvDatos";
-            this.TrvDatos.Size = new System.Drawing.Size(197, 635);
-            this.TrvDatos.TabIndex = 0;
             // 
             // documentContainer1
             // 
@@ -221,6 +236,18 @@
             this.documentTabStrip1.TabStop = false;
             this.documentTabStrip1.ThemeName = "Office2013Light";
             // 
+            // dwsEditor
+            // 
+            this.dwsEditor.Controls.Add(this.rtbEditor);
+            this.dwsEditor.Controls.Add(this.ptbNumeros);
+            this.dwsEditor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.dwsEditor.Location = new System.Drawing.Point(5, 31);
+            this.dwsEditor.Name = "dwsEditor";
+            this.dwsEditor.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
+            this.dwsEditor.Size = new System.Drawing.Size(789, 663);
+            this.dwsEditor.Text = "Query";
+            this.dwsEditor.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
+            // 
             // btnRefreshTrv
             // 
             this.btnRefreshTrv.Location = new System.Drawing.Point(0, 39);
@@ -230,6 +257,29 @@
             this.btnRefreshTrv.Text = "Refresh";
             this.btnRefreshTrv.UseVisualStyleBackColor = true;
             this.btnRefreshTrv.Click += new System.EventHandler(this.btnRefreshTrv_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // nuevoToolStripMenuItem
+            // 
+            this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nuevoToolStripMenuItem.Text = "Nuevo";
+            this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // frmEditor
             // 
@@ -251,14 +301,14 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radEditor)).EndInit();
             this.radEditor.ResumeLayout(false);
-            this.dwsEditor.ResumeLayout(false);
+            this.twsBasesDatos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).EndInit();
             this.toolTabStrip1.ResumeLayout(false);
-            this.twsBasesDatos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).EndInit();
             this.documentContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).EndInit();
             this.documentTabStrip1.ResumeLayout(false);
+            this.dwsEditor.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,5 +336,12 @@
         private Telerik.WinControls.Themes.Office2013LightTheme office2013LightTheme1;
         private System.Windows.Forms.TreeView TrvDatos;
         private System.Windows.Forms.Button btnRefreshTrv;
+        private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem guardarComoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
     }
 }

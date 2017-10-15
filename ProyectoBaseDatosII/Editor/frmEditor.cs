@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+
 
 namespace ProyectoBaseDatosII.Editor
 {
@@ -20,6 +22,7 @@ namespace ProyectoBaseDatosII.Editor
         #region Declaración de Variables
 
         int vCaracter;
+        string vFileDialog;
 
         #endregion
 
@@ -134,7 +137,60 @@ namespace ProyectoBaseDatosII.Editor
         }
 
 
+        //metodo para abrir documentos
+        private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog oFD = new OpenFileDialog();
+            oFD.Filter = "Query|*.sql";    // Se define el tipo de dato a guardar
 
+            if (oFD.ShowDialog() == DialogResult.OK)  //si se selecciona OK
+            {
+                vFileDialog = oFD.FileName;   // guardamos en la variable el documento seleccionado
+
+                using (StreamReader sReader = new StreamReader(vFileDialog))
+                {
+                    rtbEditor.Text = sReader.ReadToEnd();  // se escribe el documento
+                }
+            }
+        }
         
+        //metodos para guardar documentos
+        private void guardarComoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sFD = new SaveFileDialog();
+            sFD.Filter = "Query|*.sql";     //se definen los tipos de datos
+
+            if(vFileDialog != null)  // si el archivo ya existe
+            {
+                using (StreamWriter sWriter = new StreamWriter(vFileDialog))
+                {
+                    sWriter.Write(rtbEditor.Text); // se sobreescribe
+                }
+            }
+            else // si el archivo no existe
+            {
+                if(sFD.ShowDialog() == DialogResult.OK)
+                {
+                    vFileDialog = sFD.FileName;  //se le asigna un nombre
+                    using (StreamWriter sWriter = new StreamWriter(sFD.FileName))
+                    {
+                        sWriter.Write(rtbEditor.Text); //lo guarda el archivo con el nombre asignado con anterioridad
+                    }
+                }
+            }
+        }
+
+        //metodo para cerrar el editor
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        // metodo para crear un archivo nuevo
+        private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtbEditor.Clear();
+            vFileDialog = null;
+        }
     }
 }
