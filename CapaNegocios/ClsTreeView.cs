@@ -19,7 +19,7 @@ namespace CapaNegocios
             {
                 DataTable vResultado = new DataTable();
                 CapaDatos.Clases.ClsTreeView vTreeView = new CapaDatos.Clases.ClsTreeView();
-                vResultado = vTreeView.Nodo(id);
+                vResultado = vTreeView.Nodo();
                 return vResultado;
             }
             catch(Exception ex)
