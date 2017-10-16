@@ -36,8 +36,11 @@
             this.tlblFecha = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarComoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.radEditor = new Telerik.WinControls.UI.Docking.RadDock();
             this.twsBasesDatos = new Telerik.WinControls.UI.Docking.ToolWindow();
             this.TrvDatos = new System.Windows.Forms.TreeView();
@@ -53,9 +56,6 @@
             this.btnRefreshTrv = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.ptbNumeros)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -79,7 +79,7 @@
             this.rtbEditor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbEditor.Location = new System.Drawing.Point(51, 3);
             this.rtbEditor.Name = "rtbEditor";
-            this.rtbEditor.Size = new System.Drawing.Size(735, 687);
+            this.rtbEditor.Size = new System.Drawing.Size(735, 601);
             this.rtbEditor.TabIndex = 0;
             this.rtbEditor.Text = "";
             // 
@@ -90,7 +90,7 @@
             this.ptbNumeros.BackColor = System.Drawing.Color.White;
             this.ptbNumeros.Location = new System.Drawing.Point(3, 2);
             this.ptbNumeros.Name = "ptbNumeros";
-            this.ptbNumeros.Size = new System.Drawing.Size(42, 688);
+            this.ptbNumeros.Size = new System.Drawing.Size(42, 602);
             this.ptbNumeros.TabIndex = 1;
             this.ptbNumeros.TabStop = false;
             this.ptbNumeros.Paint += new System.Windows.Forms.PaintEventHandler(this.ptbNumeros_Paint);
@@ -137,6 +137,13 @@
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
+            // nuevoToolStripMenuItem
+            // 
+            this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nuevoToolStripMenuItem.Text = "Nuevo";
+            this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
+            // 
             // abrirToolStripMenuItem
             // 
             this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
@@ -150,6 +157,18 @@
             this.guardarComoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.guardarComoToolStripMenuItem.Text = "Guardar ";
             this.guardarComoToolStripMenuItem.Click += new System.EventHandler(this.guardarComoToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // radEditor
             // 
@@ -166,7 +185,7 @@
             // 
             // 
             this.radEditor.RootElement.MinSize = new System.Drawing.Size(25, 25);
-            this.radEditor.Size = new System.Drawing.Size(1003, 699);
+            this.radEditor.Size = new System.Drawing.Size(1003, 642);
             this.radEditor.TabIndex = 4;
             this.radEditor.TabStop = false;
             this.radEditor.Text = "radDock1";
@@ -180,15 +199,15 @@
             this.twsBasesDatos.Location = new System.Drawing.Point(4, 26);
             this.twsBasesDatos.Name = "twsBasesDatos";
             this.twsBasesDatos.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            this.twsBasesDatos.Size = new System.Drawing.Size(192, 669);
+            this.twsBasesDatos.Size = new System.Drawing.Size(192, 612);
             this.twsBasesDatos.Text = "Bases de Datos";
             this.twsBasesDatos.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
             // TrvDatos
             // 
-            this.TrvDatos.Location = new System.Drawing.Point(-4, 7);
+            this.TrvDatos.Location = new System.Drawing.Point(-1, 7);
             this.TrvDatos.Name = "TrvDatos";
-            this.TrvDatos.Size = new System.Drawing.Size(196, 635);
+            this.TrvDatos.Size = new System.Drawing.Size(194, 605);
             this.TrvDatos.TabIndex = 0;
             // 
             // toolTabStrip1
@@ -203,7 +222,7 @@
             // 
             this.toolTabStrip1.RootElement.MinSize = new System.Drawing.Size(25, 25);
             this.toolTabStrip1.SelectedIndex = 0;
-            this.toolTabStrip1.Size = new System.Drawing.Size(200, 699);
+            this.toolTabStrip1.Size = new System.Drawing.Size(200, 642);
             this.toolTabStrip1.TabIndex = 1;
             this.toolTabStrip1.TabStop = false;
             this.toolTabStrip1.ThemeName = "Office2013Light";
@@ -231,7 +250,7 @@
             // 
             this.documentTabStrip1.RootElement.MinSize = new System.Drawing.Size(25, 25);
             this.documentTabStrip1.SelectedIndex = 0;
-            this.documentTabStrip1.Size = new System.Drawing.Size(799, 699);
+            this.documentTabStrip1.Size = new System.Drawing.Size(799, 642);
             this.documentTabStrip1.TabIndex = 0;
             this.documentTabStrip1.TabStop = false;
             this.documentTabStrip1.ThemeName = "Office2013Light";
@@ -244,7 +263,7 @@
             this.dwsEditor.Location = new System.Drawing.Point(5, 31);
             this.dwsEditor.Name = "dwsEditor";
             this.dwsEditor.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            this.dwsEditor.Size = new System.Drawing.Size(789, 663);
+            this.dwsEditor.Size = new System.Drawing.Size(789, 606);
             this.dwsEditor.Text = "Query";
             this.dwsEditor.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
@@ -261,25 +280,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // nuevoToolStripMenuItem
-            // 
-            this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.nuevoToolStripMenuItem.Text = "Nuevo";
-            this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // frmEditor
             // 
