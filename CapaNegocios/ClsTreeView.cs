@@ -13,13 +13,13 @@ namespace CapaNegocios
     public class ClsTreeView
     {
         CapaDatos.Conexion.ClsConexion con = new CapaDatos.Conexion.ClsConexion();
-        public DataTable Nodo(int id)
+        public DataTable DatosTreeview()
         {
             try
             {
                 DataTable vResultado = new DataTable();
                 CapaDatos.Clases.ClsTreeView vTreeView = new CapaDatos.Clases.ClsTreeView();
-                vResultado = vTreeView.Nodo();
+                vResultado = vTreeView.DatosTreeview();
                 return vResultado;
             }
             catch(Exception ex)

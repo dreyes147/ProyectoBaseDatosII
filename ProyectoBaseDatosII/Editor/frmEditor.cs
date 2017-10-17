@@ -29,27 +29,29 @@ namespace ProyectoBaseDatosII.Editor
         #region Declaración de Métodos
 
         public void CargarTreeView()
-        {
+        {  
+            CapaNegocios.ClsTreeView vNegocioTreeview = new CapaNegocios.ClsTreeView();
+            DataTable dtDatosTreeview = new DataTable();
+            TreeNode vNodoRaiz;
+            TreeNode vNodoPadre;
+            TreeNode vNodoHijo;
             try
             {
                 TrvDatos.Nodes.Clear(); //Se limpia el tree
-                CapaNegocios.ClsTreeView tw = new CapaNegocios.ClsTreeView();
-                DataTable dt = (DataTable)tw.Nodo(0);
-                TreeNode padre = null;
-                TreeNode hijo = null;
-                if (dt != null)
+                dtDatosTreeview = vNegocioTreeview.DatosTreeview();
+                if (dtDatosTreeview.Rows.Count != 0)
                 {
-                    foreach (DataRow dr in dt.Rows) //se recorren todas las linea de la tabla 
+                    vNodoRaiz = new TreeNode("Bases de Datos"); //se utiliza para que el nodo padre tenga un nombre
+                    foreach (DataRow vRow in dtDatosTreeview.Select("CodigoPadre = 0")) //se recorren todas las linea de la tabla 
                     {
-                        padre = new TreeNode(dr.ItemArray[1].ToString()); //se utiliza para que el nodo padre tenga un nombre
-                        DataTable dthijo = (DataTable)tw.Nodo(int.Parse(dr.ItemArray[0].ToString())); // se llaman a los nodos hijos
-                        foreach (DataRow dr2 in dthijo.Rows) // se recorre la tabla
-                        {
-                            hijo = new TreeNode(dr2.ItemArray[1].ToString());
-                            padre.Nodes.Add(hijo); // se le asignan los nodos hijos al nodo padre
+                        vNodoPadre = new TreeNode(vRow["Descripcion"].ToString());
+                        foreach (DataRow vItem in dtDatosTreeview.Select("CodigoPadre <> 0")) {
+                            vNodoHijo = new TreeNode(vItem["Descripcion"].ToString());
+                            vNodoPadre.Nodes.Add(vNodoHijo);
                         }
-                        TrvDatos.Nodes.Add(padre); // se agrega el nodo padre con todos los hijos
+                        vNodoRaiz.Nodes.Add(vNodoPadre);
                     }
+                    TrvDatos.Nodes.Add(vNodoRaiz); 
                 }
                 else MessageBox.Show("No hay Elementos");
             }

@@ -10,7 +10,7 @@ namespace CapaDatos.Clases
 {
     public class ClsTreeView
     {
-        public DataTable Nodo()
+        public DataTable DatosTreeview()
         {
             DataTable vResultado = new DataTable();
             string sql = "";
