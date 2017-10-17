@@ -45,7 +45,7 @@ namespace ProyectoBaseDatosII.Editor
                     foreach (DataRow vRow in dtDatosTreeview.Select("CodigoPadre = 0")) //se recorren todas las linea de la tabla 
                     {
                         vNodoPadre = new TreeNode(vRow["Descripcion"].ToString());
-                        foreach (DataRow vItem in dtDatosTreeview.Select("CodigoPadre <> 0")) {
+                        foreach (DataRow vItem in dtDatosTreeview.Select("CodigoPadre = " + vRow["Codigo"].ToString())) {
                             vNodoHijo = new TreeNode(vItem["Descripcion"].ToString());
                             vNodoPadre.Nodes.Add(vNodoHijo);
                         }
