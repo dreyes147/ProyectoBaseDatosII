@@ -38,7 +38,7 @@ namespace ProyectoBaseDatosII
 
         public string alter()
         {
-            return "ALTER TABLE nombre_tabla\nADD nombre_columna tipo_de_dato \n";
+            return "ALTER TABLE nombre_tabla\nADD nombre_columna tipo_de_dato; \n";
         }
 
 
