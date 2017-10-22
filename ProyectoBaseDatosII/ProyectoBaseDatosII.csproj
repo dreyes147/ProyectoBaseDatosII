@@ -79,6 +79,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="snippets.cs" />
     <EmbeddedResource Include="Conexion\frmServerConnect.resx">
       <DependentUpon>frmServerConnect.cs</DependentUpon>
     </EmbeddedResource>

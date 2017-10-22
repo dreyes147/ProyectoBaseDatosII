@@ -56,6 +56,10 @@
             this.btnRefreshTrv = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.cbDatos = new System.Windows.Forms.ComboBox();
+            this.lbDML = new System.Windows.Forms.Label();
+            this.cbDDL = new System.Windows.Forms.ComboBox();
+            this.lbDDL = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptbNumeros)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -82,6 +86,7 @@
             this.rtbEditor.Size = new System.Drawing.Size(735, 601);
             this.rtbEditor.TabIndex = 0;
             this.rtbEditor.Text = "";
+            this.rtbEditor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.rtbEditor_KeyUp);
             // 
             // ptbNumeros
             // 
@@ -172,7 +177,7 @@
             // 
             // radEditor
             // 
-            this.radEditor.ActiveWindow = this.twsBasesDatos;
+            this.radEditor.ActiveWindow = this.dwsEditor;
             this.radEditor.CausesValidation = false;
             this.radEditor.Controls.Add(this.toolTabStrip1);
             this.radEditor.Controls.Add(this.documentContainer1);
@@ -281,11 +286,55 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // cbDatos
+            // 
+            this.cbDatos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDatos.FormattingEnabled = true;
+            this.cbDatos.Location = new System.Drawing.Point(608, 27);
+            this.cbDatos.Name = "cbDatos";
+            this.cbDatos.Size = new System.Drawing.Size(121, 21);
+            this.cbDatos.TabIndex = 6;
+            this.cbDatos.SelectedIndexChanged += new System.EventHandler(this.cbDatos_SelectedIndexChanged);
+            // 
+            // lbDML
+            // 
+            this.lbDML.AutoSize = true;
+            this.lbDML.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDML.Location = new System.Drawing.Point(544, 31);
+            this.lbDML.Name = "lbDML";
+            this.lbDML.Size = new System.Drawing.Size(48, 13);
+            this.lbDML.TabIndex = 7;
+            this.lbDML.Text = "DML ->";
+            // 
+            // cbDDL
+            // 
+            this.cbDDL.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDDL.FormattingEnabled = true;
+            this.cbDDL.Location = new System.Drawing.Point(853, 27);
+            this.cbDDL.Name = "cbDDL";
+            this.cbDDL.Size = new System.Drawing.Size(121, 21);
+            this.cbDDL.TabIndex = 8;
+            this.cbDDL.SelectedIndexChanged += new System.EventHandler(this.cbDDL_SelectedIndexChanged);
+            // 
+            // lbDDL
+            // 
+            this.lbDDL.AutoSize = true;
+            this.lbDDL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDDL.Location = new System.Drawing.Point(788, 31);
+            this.lbDDL.Name = "lbDDL";
+            this.lbDDL.Size = new System.Drawing.Size(47, 13);
+            this.lbDDL.TabIndex = 9;
+            this.lbDDL.Text = "DDL ->";
+            // 
             // frmEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 733);
+            this.Controls.Add(this.lbDDL);
+            this.Controls.Add(this.cbDDL);
+            this.Controls.Add(this.lbDML);
+            this.Controls.Add(this.cbDatos);
             this.Controls.Add(this.btnRefreshTrv);
             this.Controls.Add(this.radEditor);
             this.Controls.Add(this.statusStrip1);
@@ -343,5 +392,9 @@
         private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cbDatos;
+        private System.Windows.Forms.Label lbDML;
+        private System.Windows.Forms.ComboBox cbDDL;
+        private System.Windows.Forms.Label lbDDL;
     }
 }

@@ -28,7 +28,7 @@ namespace ProyectoBaseDatosII
 
         public string create()
         {
-            return "CREATE TABLE nombre_tabla (\n      columna1 tipo_de_dato,\n      columna2 tipo_de_dato,\n      columna3 tipo_de_dato \n); \n";
+            return "CREATE TABLE nombre_tabla (\n      columna1 tipo_de_dato\n      ,columna2 tipo_de_dato\n      ,columna3 tipo_de_dato \n); \n \n";
         }
 
         public string drop()
@@ -38,7 +38,7 @@ namespace ProyectoBaseDatosII
 
         public string alter()
         {
-            return "ALTER TABLE nombre_tabla\nADD nombre_columna tipo_de_dato";
+            return "ALTER TABLE nombre_tabla\nADD nombre_columna tipo_de_dato \n";
         }
 
 

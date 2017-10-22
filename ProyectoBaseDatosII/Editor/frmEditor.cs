@@ -67,6 +67,15 @@ namespace ProyectoBaseDatosII.Editor
 
         private void frmEditor_Load(object sender, EventArgs e)
         {
+            cbDatos.Items.Add("Select");
+            cbDatos.Items.Add("Insert");
+            cbDatos.Items.Add("Update");
+            cbDatos.Items.Add("Delete");
+
+            cbDDL.Items.Add("Create");
+            cbDDL.Items.Add("Drop");
+            cbDDL.Items.Add("Alter");
+
             try
             {
                 timer1.Interval = 10;
@@ -193,6 +202,66 @@ namespace ProyectoBaseDatosII.Editor
         {
             rtbEditor.Clear();
             vFileDialog = null;
+        }
+
+        private void cbDatos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Snippets snip = new Snippets();
+
+            switch (cbDatos.SelectedItem.ToString())
+            {
+                case "Select":
+                    rtbEditor.Text += snip.select();
+                    break;
+                case "Insert":
+                    rtbEditor.Text += snip.insert();
+                    break;
+                case "Update":
+                    rtbEditor.Text += snip.update();
+                    break;
+                case "Delete":
+                    rtbEditor.Text += snip.delete();
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        private void rtbEditor_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.M))
+            {
+                cbDatos.DroppedDown = true;
+                //MessageBox.Show("Se ha pulsado la combinación de teclas Control+N");
+
+            }
+
+            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Control) + Convert.ToInt32(Keys.D))
+            {
+                cbDDL.DroppedDown = true;
+
+            }
+        }
+
+        private void cbDDL_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Snippets snip = new Snippets();
+
+            switch (cbDDL.SelectedItem.ToString())
+            {
+                case "Create":
+                    rtbEditor.Text += snip.create();
+                    break;
+                case "Drop":
+                    rtbEditor.Text += snip.drop();
+                    break;
+                case "Alter":
+                    rtbEditor.Text += snip.alter();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
