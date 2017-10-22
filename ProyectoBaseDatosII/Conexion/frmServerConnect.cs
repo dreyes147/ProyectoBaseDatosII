@@ -22,12 +22,15 @@ namespace ProyectoBaseDatosII
         {
             SqlDataSourceEnumerator instance = SqlDataSourceEnumerator.Instance;
             DataTable instancias = instance.GetDataSources();
-            cboInstancias.DataSource = instancias;
+            
             cboInstancias2.DataSource = instancias;
-            cboInstancias.DisplayMember = "ServerName";
+            cboInstancias2.DisplayMember = "ServerName";
             cboInstancias2.ValueMember = "ServerName";
         }
 
+        private void btnConectar_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

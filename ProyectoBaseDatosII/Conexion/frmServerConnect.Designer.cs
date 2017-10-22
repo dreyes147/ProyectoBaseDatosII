@@ -51,6 +51,7 @@
             this.btnConectar.TabIndex = 2;
             this.btnConectar.Text = "Conectar";
             this.btnConectar.ThemeName = "Office2013Light";
+            this.btnConectar.Click += new System.EventHandler(this.btnConectar_Click);
             // 
             // cboInstancias2
             // 
