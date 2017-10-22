@@ -58,6 +58,12 @@
     <Reference Include="TelerikCommon, Version=2017.2.613.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conexion\frmServerConnect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Conexion\frmServerConnect.Designer.cs">
+      <DependentUpon>frmServerConnect.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\frmEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Conexion\frmServerConnect.resx">
+      <DependentUpon>frmServerConnect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor\frmEditor.resx">
       <DependentUpon>frmEditor.cs</DependentUpon>
     </EmbeddedResource>
