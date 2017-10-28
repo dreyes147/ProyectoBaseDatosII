@@ -15,12 +15,12 @@ namespace CapaDatos.Conexion
         //Variables Globales
         private SqlConnection oCN = new SqlConnection();
 
-        private void StrWinAutent(string instancia) //string para la conexion con auntentificacion de windows
+        public void StrWinAutent(string instancia) //string para la conexion con auntentificacion de windows
         {
             oCN = new SqlConnection("Data Source = " + instancia + "; Integrated Security = True");
         }
 
-        private void StrSQLAutent(string instancia, string usuario, string contraseña) //string para la conexion con la autentificacion de SQL
+        public void StrSQLAutent(string instancia, string usuario, string contraseña) //string para la conexion con la autentificacion de SQL
         {
             oCN = new SqlConnection("Data Source=" + instancia + ";Persist Security Info=True;User ID=" + usuario + ";Password=" + contraseña + "");
         }

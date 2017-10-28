@@ -38,7 +38,10 @@ namespace ProyectoBaseDatosII
 
         private void btnConectar_Click(object sender, EventArgs e)
         {
+            if (cboAutentificacion.SelectedIndex == 1)
+            {
 
+            }
         }
     }
 }
