@@ -31,6 +31,7 @@ namespace ProyectoBaseDatosII
             CapaNegocios.ClsFrmConexion enlace = new CapaNegocios.ClsFrmConexion();
             DataTable oDT = new DataTable();
             oDT = enlace.cargarCboConexion();
+            cboAutentificacion.DataSource = oDT;
             cboAutentificacion.DisplayMember = "Descripcion";
             cboAutentificacion.ValueMember = "Id";
         }

@@ -14,7 +14,7 @@ namespace CapaDatos.Clases
         {
             DataTable dtTiposConexion;
 
-            dtTiposConexion = conectar.Seleccionar("select Id, Descripcion from MetodosConexion;", "BASEDATOS");
+            dtTiposConexion = conectar.Seleccionar("select Id, Descripcion from dbo.MetodosConexion", "BaseDatos");
 
             return dtTiposConexion;
         }
