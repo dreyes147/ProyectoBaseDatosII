@@ -12,7 +12,6 @@ namespace CapaNegocios
 {
     public class ClsTreeView
     {
-        CapaDatos.Conexion.ClsConexion con = new CapaDatos.Conexion.ClsConexion();
         public DataTable DatosTreeview()
         {
             try
