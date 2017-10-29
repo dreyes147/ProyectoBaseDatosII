@@ -61,6 +61,23 @@ namespace ProyectoBaseDatosII.Editor
             }
         }
 
+        //metodo para abrir documentos
+        private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog oFD = new OpenFileDialog();
+            oFD.Filter = "Query|*.sql";    // Se define el tipo de dato a guardar
+
+            if (oFD.ShowDialog() == DialogResult.OK)  //si se selecciona OK
+            {
+                vFileDialog = oFD.FileName;   // guardamos en la variable el documento seleccionado
+
+                using (StreamReader sReader = new StreamReader(vFileDialog))
+                {
+                    rtbEditor.Text = sReader.ReadToEnd();  // se escribe el documento
+                }
+            }
+        }
+
         #endregion
 
         #region Declaración de Eventos
@@ -140,38 +157,13 @@ namespace ProyectoBaseDatosII.Editor
             }
         }
 
-        #endregion
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-
-        //metodo para abrir documentos
-        private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog oFD = new OpenFileDialog();
-            oFD.Filter = "Query|*.sql";    // Se define el tipo de dato a guardar
-
-            if (oFD.ShowDialog() == DialogResult.OK)  //si se selecciona OK
-            {
-                vFileDialog = oFD.FileName;   // guardamos en la variable el documento seleccionado
-
-                using (StreamReader sReader = new StreamReader(vFileDialog))
-                {
-                    rtbEditor.Text = sReader.ReadToEnd();  // se escribe el documento
-                }
-            }
-        }
-        
         //metodos para guardar documentos
         private void guardarComoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog sFD = new SaveFileDialog();
             sFD.Filter = "Query|*.sql";     //se definen los tipos de datos
 
-            if(vFileDialog != null)  // si el archivo ya existe
+            if (vFileDialog != null)  // si el archivo ya existe
             {
                 using (StreamWriter sWriter = new StreamWriter(vFileDialog))
                 {
@@ -180,7 +172,7 @@ namespace ProyectoBaseDatosII.Editor
             }
             else // si el archivo no existe
             {
-                if(sFD.ShowDialog() == DialogResult.OK)
+                if (sFD.ShowDialog() == DialogResult.OK)
                 {
                     vFileDialog = sFD.FileName;  //se le asigna un nombre
                     using (StreamWriter sWriter = new StreamWriter(sFD.FileName))
@@ -190,6 +182,7 @@ namespace ProyectoBaseDatosII.Editor
                 }
             }
         }
+
 
         //metodo para cerrar el editor
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -263,5 +256,8 @@ namespace ProyectoBaseDatosII.Editor
                     break;
             }
         }
+
+        #endregion
+
     }
 }

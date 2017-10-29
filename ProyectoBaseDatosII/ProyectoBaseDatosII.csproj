@@ -59,6 +59,7 @@
     <Reference Include="TelerikCommon, Version=2017.2.613.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\ValidacionIndices.cs" />
     <Compile Include="Conexion\frmServerConnect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,7 +80,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="snippets.cs" />
+    <Compile Include="Clases\snippets.cs" />
     <EmbeddedResource Include="Conexion\frmServerConnect.resx">
       <DependentUpon>frmServerConnect.cs</DependentUpon>
     </EmbeddedResource>

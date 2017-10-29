@@ -21,10 +21,10 @@ namespace CapaDatos.Clases
         }
 
         //metodo para conectarse por windows Authentication
-        public void conexWinAuthen(string instacia)
-        {
-            conectar.
-        }
+        //public void conexWinAuthen(string instacia)
+        //{
+        //    conectar.
+        //}
 
     }
 }
