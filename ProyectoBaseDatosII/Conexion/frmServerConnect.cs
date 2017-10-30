@@ -13,6 +13,9 @@ namespace ProyectoBaseDatosII
 {
     public partial class frmServerConnect : Form
     {
+        //variables globales
+        SqlDataSourceEnumerator instance = SqlDataSourceEnumerator.Instance;
+        CapaNegocios.ClsFrmConexion enlace = new CapaNegocios.ClsFrmConexion();
         public frmServerConnect()
         {
             InitializeComponent();
@@ -21,14 +24,12 @@ namespace ProyectoBaseDatosII
         private void frmServerConnect_Load(object sender, EventArgs e)
         {
             //cargar cbo Instacias
-            SqlDataSourceEnumerator instance = SqlDataSourceEnumerator.Instance;
             DataTable dtinstancias = instance.GetDataSources(); 
             cboInstancias2.DataSource = dtinstancias;
             cboInstancias2.DisplayMember = "ServerName";
             cboInstancias2.ValueMember = "ServerName";
 
             //Cargar cbo Forma de conexion
-            CapaNegocios.ClsFrmConexion enlace = new CapaNegocios.ClsFrmConexion();
             DataTable oDT = new DataTable();
             oDT = enlace.cargarCboConexion();
             cboAutentificacion.DataSource = oDT;
@@ -38,9 +39,16 @@ namespace ProyectoBaseDatosII
 
         private void btnConectar_Click(object sender, EventArgs e)
         {
-            if (cboAutentificacion.SelectedIndex == 1)
+            bool vEstCoenxion;
+            if (cboAutentificacion.SelectedValue.ToString() == "1")
             {
-
+                vEstCoenxion = enlace.winAuthen(cboInstancias2.SelectedValue.ToString());
+                if (vEstCoenxion)
+                {
+                    MessageBox.Show("Conexion Iniciada");
+                }
+                else
+                MessageBox.Show("Conexion Fallida");
             }
         }
     }

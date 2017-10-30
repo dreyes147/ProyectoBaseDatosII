@@ -25,73 +25,41 @@ namespace CapaDatos.Conexion
             oCN = new SqlConnection("Data Source=" + instancia + ";Persist Security Info=True;User ID=" + usuario + ";Password=" + contraseña + "");
         }
 
-
-        private bool AbrirConexion()
-
+        public bool AbrirConexion()
         {
-
             try
-
             {
-
                 oCN.Open();
-
                 return true;
-
             }
-
-            catch (Exception)
-
+            catch (Exception ex)
             {
-
                 return false;
-
+                throw new Exception(ex.Message, ex);
             }
-
-
-
         }
 
         private bool CerrarConexion()
-
         {
-
             try
-
             {
-
                 if (oCN.State == ConnectionState.Closed)
-
                 {
-
                     return true;
-
                 }
-
                 oCN.Close();
-
                 return true;
-
             }
-
             catch (Exception)
-
             {
-
                 throw;
-
             }
 
             finally
-
             {
-
                 oCN.Close();
-
             }
-
         }
-
 
 
         public DataTable ejecutar(String txtSelect)
@@ -174,7 +142,34 @@ namespace CapaDatos.Conexion
 
             }
 
-            
+        }
+
+        public void Abrir()
+        {
+            try
+            {
+                oCN.Open();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+        }
+
+        public void Cerrar()
+        {
+            try
+            {
+                if (oCN.State != ConnectionState.Closed)
+                {
+                    oCN.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+
         }
 
 
