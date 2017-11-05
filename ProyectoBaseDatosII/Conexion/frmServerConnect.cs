@@ -42,7 +42,7 @@ namespace ProyectoBaseDatosII
             bool vEstCoenxion;
             if (cboAutentificacion.SelectedValue.ToString() == "1")
             {
-                vEstCoenxion = enlace.winAuthen(cboInstancias2.SelectedValue.ToString());
+                vEstCoenxion = enlace.winAuthen(cboInstancias2.Text);
                 if (vEstCoenxion)
                 {
                     MessageBox.Show("Conexion Iniciada");
