@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\ClsMetodosConexion.cs" />
+    <Compile Include="Clases\ClsReportes.cs" />
     <Compile Include="Clases\ClsTreeView.cs" />
     <Compile Include="Conexion\ClsConexion.cs" />
     <Compile Include="Conexion\ClsConexionLocal.cs" />
