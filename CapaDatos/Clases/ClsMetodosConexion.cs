@@ -24,10 +24,19 @@ namespace CapaDatos.Clases
         //metodo para conectarse por windows Authentication
         public bool conexWinAuthen(string instancia)
         {
-            bool EstdConexion;
+            bool vEstdConexion;
             vConexionLocal.StrWinAutent(instancia);
-            EstdConexion = vConexionLocal.AbrirConexion();
-            return EstdConexion;
+            vEstdConexion = vConexionLocal.AbrirConexion();
+            return vEstdConexion;
+        }
+
+        //metodo para conectarse por Sql Authentication
+        public bool conexSqlAuthen(string instancia, string usuario, string contrasena)
+        {
+            bool vEstdConexion;
+            vConexionLocal.StrSQLAutent(instancia, usuario, contrasena);
+            vEstdConexion = vConexionLocal.AbrirConexion();
+            return vEstdConexion;
         }
 
     }

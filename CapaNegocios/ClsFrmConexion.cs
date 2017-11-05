@@ -26,5 +26,13 @@ namespace CapaNegocios
             vEstConexion = enlace.conexWinAuthen(instancia);
             return vEstConexion;
         }
+
+        //metodo para conectarse por Sql Authentication
+        public bool SqlAuthen(string instancia, string usuario, string contrasena)
+        {
+            bool vEstdConexion;
+            vEstdConexion = enlace.conexSqlAuthen(instancia, usuario, contrasena);
+            return vEstdConexion;
+        }
     }
 }
