@@ -98,7 +98,7 @@ namespace ProyectoBaseDatosII.Editor
                 timer1.Interval = 10;
                 timer1.Start();
                 tlblFecha.Text = DateTime.Now.ToShortDateString();
-                //CargarTreeView();
+                CargarTreeView();
             }
             catch (Exception ex)
             {
