@@ -45,8 +45,17 @@ namespace ProyectoBaseDatosII
 
         public string alter()
         {
-            reportes.inserReporte("7", "ALTER", "DDL");
-            return "ALTER TABLE nombre_tabla\nADD nombre_columna tipo_de_dato; \n";
+            return "ALTER TABLE nombre_tabla\nADD nombre_columna tipo_de_dato; \n \n";
+        }
+
+        public string alterDrop()
+        {
+            return "ALTER TABLE nombre_tabla\nDROP COLUMN nombre_columna; \n \n";
+        }
+
+        public string alterAlter()
+        {
+            return "ALTER TABLE nombre_tabla\nALTER COLUMN nombre_columna tipo_de_dato; \n \n";
         }
 
 
