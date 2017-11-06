@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace CapaNegocios
 {
-    class ClsReportes
+    public class ClsReportes
     {
         CapaDatos.Clases.ClsReportes enlace = new CapaDatos.Clases.ClsReportes();
-        public void inserReporte(string id, string Tipo)
+        public void inserReporte(string id, string Descipcion, string tipoSnip)
         {
-            enlace.InsertarRepo(id,Tipo);
+            enlace.InsertarRepo(id, Descipcion, tipoSnip);
         }
     }
 }
