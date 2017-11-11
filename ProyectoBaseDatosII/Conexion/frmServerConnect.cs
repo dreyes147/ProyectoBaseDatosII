@@ -14,7 +14,9 @@ namespace ProyectoBaseDatosII
     public partial class frmServerConnect : Form
     {
         //variables globales
-        SqlDataSourceEnumerator instance = SqlDataSourceEnumerator.Instance;
+        //SqlDataSourceEnumerator instance = SqlDataSourceEnumerator.Instance;
+        static SqlDataSourceEnumerator instance = SqlDataSourceEnumerator.Instance;
+        System.Data.DataTable table = instance.GetDataSources();
         CapaNegocios.ClsFrmConexion enlace = new CapaNegocios.ClsFrmConexion();
         public frmServerConnect()
         {
@@ -42,10 +44,11 @@ namespace ProyectoBaseDatosII
             bool vEstCoenxion;
             if (cboAutentificacion.SelectedValue.ToString() == "1")
             {
-                vEstCoenxion = enlace.winAuthen(cboInstancias2.SelectedValue.ToString());
+                vEstCoenxion = enlace.winAuthen(cboInstancias2.Text);
                 if (vEstCoenxion)
                 {
                     MessageBox.Show("Conexion Iniciada");
+                    this.Hide();
                     Editor.frmEditor editor = new Editor.frmEditor();
                     editor.Show();
                 }

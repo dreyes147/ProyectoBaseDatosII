@@ -14,6 +14,17 @@ namespace ProyectoBaseDatosII.Editor
 {
     public partial class frmEditor : Form
     {
+        string[] arregloDMLBasico = new string[4];
+        string[] arregloSelect = new string[2];
+        string[] arregloInsert = new string[3];
+        string[] arregloUpdate = new string[3];
+        string[] arregloDelete = new string[2];
+
+        string[] arregloDDLBasico = new string[3];
+        string[] arregloCreate = new string[3];
+        string[] arregloDrop = new string[1];
+        string[] arregloAlter = new string[5];
+
         public frmEditor()
         {
             InitializeComponent();
@@ -91,14 +102,49 @@ namespace ProyectoBaseDatosII.Editor
 
             cbDDL.Items.Add("Create");
             cbDDL.Items.Add("Drop");
-            cbDDL.Items.Add("Alter");
+            cbDDL.Items.Add("Alter Add");
+            cbDDL.Items.Add("Alter Drop");
+            cbDDL.Items.Add("Alter Alter");
+
+            arregloDMLBasico[0] = "select";
+            arregloDMLBasico[1] = "insert";
+            arregloDMLBasico[2] = "update";
+            arregloDMLBasico[3] = "delete";
+
+            arregloSelect[0] = "from";
+            arregloSelect[1] = "where";
+
+            arregloInsert[0] = "into";
+            arregloInsert[1] = "values";
+
+            arregloUpdate[0] = "set";
+            arregloUpdate[1] = "where";
+
+            arregloDelete[0] = "from";
+            arregloDelete[1] = "where";
+
+            arregloDDLBasico[0] = "create";
+            arregloDDLBasico[1] = "drop";
+            arregloDDLBasico[2] = "alter";
+
+            arregloCreate[0] = "table";
+            arregloCreate[1] = "(";
+            arregloCreate[2] = ")";
+
+            arregloDrop[0] = "table";
+
+            arregloAlter[0] = "table";
+            arregloAlter[1] = "add";
+            arregloAlter[2] = "drop";
+            arregloAlter[3] = "column";
+            arregloAlter[4] = "alter";
 
             try
             {
                 timer1.Interval = 10;
                 timer1.Start();
                 tlblFecha.Text = DateTime.Now.ToShortDateString();
-                //CargarTreeView();
+                CargarTreeView();
             }
             catch (Exception ex)
             {
@@ -249,8 +295,14 @@ namespace ProyectoBaseDatosII.Editor
                 case "Drop":
                     rtbEditor.Text += snip.drop();
                     break;
-                case "Alter":
+                case "Alter Add":
                     rtbEditor.Text += snip.alter();
+                    break;
+                case "Alter Drop":
+                    rtbEditor.Text += snip.alterDrop();
+                    break;
+                case "Alter Alter":
+                    rtbEditor.Text += snip.alterAlter();
                     break;
                 default:
                     break;
@@ -259,5 +311,172 @@ namespace ProyectoBaseDatosII.Editor
 
         #endregion
 
+        private void btnEjecutar_Click(object sender, EventArgs e)
+        {
+            string[] arregloQuerys = rtbEditor.Text.ToLower().Split(';');
+            for (int i = 0; i < arregloQuerys.Length - 1; i++)
+            {
+                if (arregloQuerys[i].Contains(arregloDMLBasico[0]) == true)
+                {
+                    if (arregloQuerys[i].Contains(arregloSelect[0]) == true)
+                    {
+                        //Enviar consulta
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe agregar 'FROM' en la sentencia select");
+                    }
+                }//fin de if select
+
+                if (arregloQuerys[i].Contains(arregloDMLBasico[1]) == true)
+                {
+                    if (arregloQuerys[i].Contains(arregloInsert[0]) == true)
+                    {
+                        if (arregloQuerys[i].Contains(arregloInsert[1]) == true)
+                        {
+                            //Enviar consulta
+                        }
+                        else
+                        {
+                            MessageBox.Show("Debe agregar 'VALUES' en la sentencia insert");
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe agregar 'INTO' en la sentencia insert");
+                    }
+                }//fin de if insert
+
+                if (arregloQuerys[i].Contains(arregloDMLBasico[2]) == true)
+                {
+                    if (arregloQuerys[i].Contains(arregloUpdate[0]) == true)
+                    {
+                        if (arregloQuerys[i].Contains(arregloUpdate[1]) == true)
+                        {
+                            //Enviar sentencia
+                        }
+                        else
+                        {
+                            MessageBox.Show("Debe agregar 'WHERE' en la sentencia update");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe agregar 'SET' en la sentencia update");
+                    }
+                }//fin de if update
+
+                if (arregloQuerys[i].Contains(arregloDMLBasico[3]) == true)
+                {
+                    if (arregloQuerys[i].Contains(arregloDelete[0]) == true)
+                    {
+                        if (arregloQuerys[i].Contains(arregloDelete[1]) == true)
+                        {
+                            //Enviar consulta
+                        }
+                        else
+                        {
+                            MessageBox.Show("Debe agregar 'WHERE' en la sentencia delete");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe agregar 'FROM' en la sentencia delete");
+                    }
+                }//fin del if delete
+
+                if (arregloQuerys[i].Contains(arregloDDLBasico[0]) == true)
+                {
+                    if (arregloQuerys[i].Contains(arregloCreate[0]) == true)
+                    {
+                        if (arregloQuerys[i].Contains(arregloCreate[1]) == true)
+                        {
+                            if (arregloQuerys[i].Contains(arregloCreate[2]) == true)
+                            {
+                                //Enviar consulta
+                            }
+                            else
+                            {
+                                MessageBox.Show("Debe agregar ')' en la sentencia Create");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Debe agregar '(' en la sentencia Create");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe agregar la palabra 'TABLE' a la sentencia Create");
+                    }
+                }//fin del if create
+
+                if (arregloQuerys[i].Contains(arregloDDLBasico[1]) == true)
+                {
+                    if (arregloQuerys[i].Contains(arregloDrop[0]) == true)
+                    {
+                        //Enviar consulta
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe agregar la palabra 'TABLE' en la sentencia Drop");
+                    }
+                }//fin del if de drop
+
+                if (arregloQuerys[i].Contains(arregloDDLBasico[2]) == true)
+                {
+                    string[] arregloAux = arregloQuerys[i].Split();
+                    if (arregloQuerys[i].Contains(arregloAlter[0]) == true)
+                    {
+                        if (arregloQuerys[i].Contains(arregloAlter[1]) == true)
+                        {
+                            //Enviar Sentencia
+                        }
+                        else if (arregloQuerys[i].Contains(arregloAlter[2]) == true)
+                        {
+                            if (arregloQuerys[i].Contains(arregloAlter[3]) == true)
+                            {
+                                //Enviar Sentencia
+                            }
+                            else
+                            {
+                                MessageBox.Show("Debe agregar la palabra 'COLUMN' en la setencia alter");
+                            }
+                        }
+                        else
+                            try
+                            {
+                                if (arregloAux[2].Contains(arregloAlter[4]) == true)
+                                {
+                                    if (arregloQuerys[i].Contains(arregloAlter[3]) == true)
+                                    {
+                                        //Enviar Sentencia
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Debe agregar la palabra 'COLUMN' en la setencia alter");
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Debe colocar algunas de las siguientes opciones en la sentencia Alter: \nADD \nDROP \nALTER ");
+                                }
+                            }
+                            catch (Exception)
+                            {
+
+                                MessageBox.Show("Debe colocar algunas de las siguientes opciones en la sentencia Alter: \nADD \nDROP \nALTER ");
+                            }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe agregar la palabra 'TABLE' a la setencia alter");
+                    }
+                }//fin del if de alter
+            }//fin del for
+        }
     }
 }

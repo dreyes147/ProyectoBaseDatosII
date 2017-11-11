@@ -17,6 +17,7 @@ namespace ProyectoBaseDatosII
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ProyectoBaseDatosII.frmServerConnect());
+            //Application.Run(new Editor.frmEditor());
         }
     }
 }
