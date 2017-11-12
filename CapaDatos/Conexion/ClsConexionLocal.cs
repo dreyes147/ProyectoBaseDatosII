@@ -13,16 +13,17 @@ namespace CapaDatos.Conexion
     public class ClsConexionLocal
     {
         //Variables Globales
-        private SqlConnection oCN = new SqlConnection();
+
+        public static SqlConnection oCN { get; set; }
 
         public void StrWinAutent(string instancia) //string para la conexion con auntentificacion de windows
         {
-            oCN = new SqlConnection("Data Source = " + instancia + "; Integrated Security = True");
+            oCN = new SqlConnection("Data Source = " + instancia + ";Initial Catalog=master; Integrated Security = True");
         }
 
         public void StrSQLAutent(string instancia, string usuario, string contraseña) //string para la conexion con la autentificacion de SQL
         {
-            oCN = new SqlConnection("Data Source=" + instancia + ";Persist Security Info=True;User ID=" + usuario + ";Password=" + contraseña + "");
+            oCN = new SqlConnection("Data Source=" + instancia + ";Initial Catalog=master; Persist Security Info=True;User ID=" + usuario + ";Password=" + contraseña );
         }
 
         public bool AbrirConexion()
@@ -39,7 +40,7 @@ namespace CapaDatos.Conexion
             }
         }
 
-        private bool CerrarConexion()
+        public bool CerrarConexion()
         {
             try
             {
@@ -62,48 +63,28 @@ namespace CapaDatos.Conexion
         }
 
 
-        public DataTable ejecutar(String txtSelect)
-
+        public DataTable ejecutar(String pSelect)
         {
-
             SqlCommand cSelect = new SqlCommand();
-
             DataTable oDT = new DataTable();
-
             SqlDataAdapter oMYSQLDA = new SqlDataAdapter(cSelect);
 
             try
-
             {
-
-                cSelect.CommandText = txtSelect;
-
+                cSelect.CommandText = pSelect;
                 cSelect.Connection = oCN;
 
+                if (AbrirConexion())
+                {
+                    oMYSQLDA.Fill(oDT);
+                }
+                CerrarConexion();
             }
-
-            catch (Exception)
-
+            catch (Exception ex)
             {
-
-                throw;
-
+                throw new Exception(ex.Message,ex);
             }
-
-            if (AbrirConexion())
-
-            {
-
-                oMYSQLDA.Fill(oDT);
-
-            }
-
-            CerrarConexion();
-
-
-
             return oDT;
-
         }
 
         public bool ejecutarInsert(String txtInsert)

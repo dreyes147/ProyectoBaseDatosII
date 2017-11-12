@@ -56,8 +56,10 @@ namespace ProyectoBaseDatosII.Editor
                     foreach (DataRow vRow in dtDatosTreeview.Select("CodigoPadre = 0")) //se recorren todas las linea de la tabla 
                     {
                         vNodoPadre = new TreeNode(vRow["Descripcion"].ToString());
+                        vNodoPadre.ImageIndex = 0;
                         foreach (DataRow vItem in dtDatosTreeview.Select("CodigoPadre = " + vRow["Codigo"].ToString())) {
                             vNodoHijo = new TreeNode(vItem["Descripcion"].ToString());
+                            vNodoHijo.ImageIndex = 1;
                             vNodoPadre.Nodes.Add(vNodoHijo);
                         }
                         vNodoRaiz.Nodes.Add(vNodoPadre);
@@ -448,7 +450,7 @@ namespace ProyectoBaseDatosII.Editor
                         else
                             try
                             {
-                                if (arregloAux[2].Contains(arregloAlter[4]) == true)
+                                if (arregloAux[3].Contains(arregloAlter[4]) == true)
                                 {
                                     if (arregloQuerys[i].Contains(arregloAlter[3]) == true)
                                     {
@@ -477,6 +479,11 @@ namespace ProyectoBaseDatosII.Editor
                     }
                 }//fin del if de alter
             }//fin del for
+        }
+
+        private void rtbEditor_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

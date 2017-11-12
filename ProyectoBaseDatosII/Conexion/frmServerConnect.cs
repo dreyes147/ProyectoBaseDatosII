@@ -48,6 +48,7 @@ namespace ProyectoBaseDatosII
                 if (vEstCoenxion)
                 {
                     MessageBox.Show("Conexion Iniciada");
+                    
                     this.Hide();
                     Editor.frmEditor editor = new Editor.frmEditor();
                     editor.Show();

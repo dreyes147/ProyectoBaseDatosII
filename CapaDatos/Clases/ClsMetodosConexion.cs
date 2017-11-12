@@ -15,27 +15,44 @@ namespace CapaDatos.Clases
         public DataTable cargarCboTipoConexion()
         {
             DataTable dtTiposConexion;
-
-            dtTiposConexion = vConexionServidor.Seleccionar("select Id, Descripcion from dbo.MetodosConexion", "BaseDatos");
-
+            try{ 
+                dtTiposConexion = vConexionServidor.Seleccionar("select Id, Descripcion from dbo.MetodosConexion", "BaseDatos");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
             return dtTiposConexion;
         }
 
         //metodo para conectarse por windows Authentication
         public bool conexWinAuthen(string instancia)
         {
-            bool vEstdConexion;
-            vConexionLocal.StrWinAutent(instancia);
-            vEstdConexion = vConexionLocal.AbrirConexion();
-            return vEstdConexion;
+            try
+            {
+                bool vEstdConexion;
+                vConexionLocal.StrWinAutent(instancia);
+                vEstdConexion = vConexionLocal.AbrirConexion();
+                vConexionLocal.CerrarConexion();
+                return vEstdConexion;
+            }
+                catch(Exception ex) {
+                throw new Exception(ex.Message, ex);
+            }
         }
 
         //metodo para conectarse por Sql Authentication
         public bool conexSqlAuthen(string instancia, string usuario, string contrasena)
         {
             bool vEstdConexion;
-            vConexionLocal.StrSQLAutent(instancia, usuario, contrasena);
-            vEstdConexion = vConexionLocal.AbrirConexion();
+            try { 
+               
+                vConexionLocal.StrSQLAutent(instancia, usuario, contrasena);
+                vEstdConexion = vConexionLocal.AbrirConexion();
+            }
+            catch(Exception ex) {
+                throw new Exception(ex.Message, ex);
+             }
             return vEstdConexion;
         }
 
