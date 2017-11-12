@@ -47,7 +47,7 @@ namespace CapaDatos.Clases
                 sql = sql + "        Descripcion";
                 sql = sql + " FROM @vDatos";
                 Conexion.ClsConexion vConexion = new Conexion.ClsConexion();
-                vResultado = vConexion.Seleccionar(sql, "Empresa");
+                vResultado = vConexion.Seleccionar(sql, "BaseDatos");
                 return vResultado;
             }
             catch(Exception ex)
