@@ -13,6 +13,10 @@ namespace CapaDatos.Conexion
     public class ClsConexionLocal
     {
         //Variables Globales
+        public static string query { get; set; }
+        public static string nonquery { get; set; }
+        public static DataTable Datos { get; set; }
+        public static string errorDatos { get; set; }
 
         public static SqlConnection oCN { get; set; }
 
@@ -153,7 +157,33 @@ namespace CapaDatos.Conexion
 
         }
 
+        public bool ejecutarDatos(string pQuery)
+        {
+            SqlDataAdapter vAdapter;
+            
+            try
+            {
+                if (AbrirConexion() == true)
+                {
+                    SqlCommand command = new SqlCommand(pQuery, oCN);
+                    command.CommandType = System.Data.CommandType.Text;
+                    //Datos = command.ExecuteReader();
+                    vAdapter = new SqlDataAdapter(command);
+                    Datos = new DataTable();
+                    vAdapter.Fill(Datos);
+                    CerrarConexion();
 
+                };
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                errorDatos = ex.Message;
+                return false;
+            }
+
+        }
 
     }
 

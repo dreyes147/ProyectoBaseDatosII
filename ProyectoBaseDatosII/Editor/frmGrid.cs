@@ -10,12 +10,20 @@ using System.Windows.Forms;
 
 namespace ProyectoBaseDatosII
 {
-    public partial class Form1 : Form
+    public partial class radGrid : Form
     {
-        public Form1()
+        
+
+        public radGrid()
         {
             //
             InitializeComponent();
+        }
+
+        private void dataGridView_Load(object sender, EventArgs e)
+        {
+            gridView.DataSource = CapaNegocios.ClsEnviarQuerys.Datos;
+            
         }
     }
 }
