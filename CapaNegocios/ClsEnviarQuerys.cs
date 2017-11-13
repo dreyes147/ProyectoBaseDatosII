@@ -19,13 +19,14 @@ namespace CapaNegocios
             CapaDatos.Conexion.ClsConexionLocal.query = query;
             CapaDatos.Conexion.ClsConexionLocal.nonquery = nonQuery;
             CapaDatos.Conexion.ClsConexionLocal ejecutar = new CapaDatos.Conexion.ClsConexionLocal();
-            if (ejecutar.ejecutarDatos(query) == true)
+            if (ejecutar.ejecutarDatos() == true)
             {
                 Datos = CapaDatos.Conexion.ClsConexionLocal.Datos;
                 return true;
             }
             else
             {
+               
                 error = CapaDatos.Conexion.ClsConexionLocal.errorDatos;
                 return false;
             }
