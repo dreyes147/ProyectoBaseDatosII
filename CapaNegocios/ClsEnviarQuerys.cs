@@ -17,7 +17,6 @@ namespace CapaNegocios
 
         public bool enviar() {
             CapaDatos.Conexion.ClsConexionLocal.query = query;
-            CapaDatos.Conexion.ClsConexionLocal.nonquery = nonQuery;
             CapaDatos.Conexion.ClsConexionLocal ejecutar = new CapaDatos.Conexion.ClsConexionLocal();
             if (ejecutar.ejecutarDatos() == true)
             {
@@ -34,6 +33,22 @@ namespace CapaNegocios
 
         }
 
+        public bool enviarSinRetorno()
+        {
+            CapaDatos.Conexion.ClsConexionLocal.nonquery = nonQuery;
+            CapaDatos.Conexion.ClsConexionLocal ejecutar = new CapaDatos.Conexion.ClsConexionLocal();
+            if (ejecutar.ejecutarDatosSinRetorno() == true)
+            {
+                return true;
+            }
+            else
+            {
+                error = CapaDatos.Conexion.ClsConexionLocal.errorDatos;
+                return false;
+            }
+
+
+        }
 
 
     }

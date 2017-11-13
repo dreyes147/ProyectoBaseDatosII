@@ -188,6 +188,35 @@ namespace CapaDatos.Conexion
 
         }
 
+        public bool ejecutarDatosSinRetorno()
+        {
+            try
+            {
+                if (AbrirConexion() == true)
+                {
+                    SqlCommand command = new SqlCommand(nonquery, oCN);
+                    command.CommandType = CommandType.Text;
+                    //Datos = command.ExecuteReader();
+                    command.ExecuteNonQuery();
+                    CerrarConexion();
+                    return true;
+                    
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                CerrarConexion();
+                errorDatos = ex.Message;
+                return false;
+            }
+
+        }
+
     }
 
 }

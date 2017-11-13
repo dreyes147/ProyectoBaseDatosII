@@ -372,6 +372,20 @@ namespace ProyectoBaseDatosII.Editor
                                 {
                                     cont += 1;
                                     //Enviar consulta
+                                    CapaNegocios.ClsEnviarQuerys.nonQuery = "use " + cbBasesDeDatos.Text + "; " + arregloQuerys[i];
+                                    CapaNegocios.ClsEnviarQuerys comando = new CapaNegocios.ClsEnviarQuerys();
+
+                                    if (comando.enviarSinRetorno() == true)
+                                    {
+                                        MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show(CapaNegocios.ClsEnviarQuerys.error);
+                                    }
+
+
+
                                 }
                                 else
                                 {
@@ -393,6 +407,19 @@ namespace ProyectoBaseDatosII.Editor
                                 {
                                     cont += 1;
                                     //Enviar sentencia
+                                    CapaNegocios.ClsEnviarQuerys.nonQuery = "use " + cbBasesDeDatos.Text + "; " + arregloQuerys[i];
+                                    CapaNegocios.ClsEnviarQuerys comando = new CapaNegocios.ClsEnviarQuerys();
+
+                                    if (comando.enviarSinRetorno() == true)
+                                    {
+                                        MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show(CapaNegocios.ClsEnviarQuerys.error);
+                                    }
+
+
                                 }
                                 else
                                 {
@@ -413,6 +440,19 @@ namespace ProyectoBaseDatosII.Editor
                                 {
                                     cont += 1;
                                     //Enviar consulta
+                                    CapaNegocios.ClsEnviarQuerys.nonQuery = "use " + cbBasesDeDatos.Text + "; " + arregloQuerys[i];
+                                    CapaNegocios.ClsEnviarQuerys comando = new CapaNegocios.ClsEnviarQuerys();
+
+                                    if (comando.enviarSinRetorno() == true)
+                                    {
+                                        MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show(CapaNegocios.ClsEnviarQuerys.error);
+                                    }
+
+
                                 }
                                 else
                                 {
@@ -435,6 +475,19 @@ namespace ProyectoBaseDatosII.Editor
                                     {
                                         cont += 1;
                                         //Enviar consulta
+                                        CapaNegocios.ClsEnviarQuerys.nonQuery = "use " + cbBasesDeDatos.Text + "; " + arregloQuerys[i];
+                                        CapaNegocios.ClsEnviarQuerys comando = new CapaNegocios.ClsEnviarQuerys();
+
+                                        if (comando.enviarSinRetorno() == true)
+                                        {
+                                            MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show(CapaNegocios.ClsEnviarQuerys.error);
+                                        }
+
+
                                     }
                                     else
                                     {
@@ -458,6 +511,18 @@ namespace ProyectoBaseDatosII.Editor
                             {
                                 cont += 1;
                                 //Enviar consulta
+                                CapaNegocios.ClsEnviarQuerys.nonQuery = "use " + cbBasesDeDatos.Text + "; " + arregloQuerys[i];
+                                CapaNegocios.ClsEnviarQuerys comando = new CapaNegocios.ClsEnviarQuerys();
+
+                                if (comando.enviarSinRetorno() == true)
+                                {
+                                    MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
+                                }
+                                else
+                                {
+                                    MessageBox.Show(CapaNegocios.ClsEnviarQuerys.error);
+                                }
+
                             }
                             else
                             {
@@ -474,12 +539,37 @@ namespace ProyectoBaseDatosII.Editor
                                 {
                                     cont += 1;
                                     //Enviar Sentencia
+                                    CapaNegocios.ClsEnviarQuerys.nonQuery = "use " + cbBasesDeDatos.Text + "; " + arregloQuerys[i];
+                                    CapaNegocios.ClsEnviarQuerys comando = new CapaNegocios.ClsEnviarQuerys();
+
+                                    if (comando.enviarSinRetorno() == true)
+                                    {
+                                        MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show(CapaNegocios.ClsEnviarQuerys.error);
+                                    }
+
+
                                 }
                                 else if (arregloQuerys[i].Contains(arregloAlter[2]) == true)
                                 {
                                     if (arregloQuerys[i].Contains(arregloAlter[3]) == true)
                                     {
                                         //Enviar Sentencia
+                                        CapaNegocios.ClsEnviarQuerys.nonQuery = "use " + cbBasesDeDatos.Text + "; " + arregloQuerys[i];
+                                        CapaNegocios.ClsEnviarQuerys comando = new CapaNegocios.ClsEnviarQuerys();
+
+                                        if (comando.enviarSinRetorno() == true)
+                                        {
+                                            MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show(CapaNegocios.ClsEnviarQuerys.error);
+                                        }
+
                                     }
                                     else
                                     {
@@ -495,6 +585,18 @@ namespace ProyectoBaseDatosII.Editor
                                             {
                                                 cont += 1;
                                                 //Enviar Sentencia
+                                                CapaNegocios.ClsEnviarQuerys.nonQuery = "use " + cbBasesDeDatos.Text + "; " + arregloQuerys[i];
+                                                CapaNegocios.ClsEnviarQuerys comando = new CapaNegocios.ClsEnviarQuerys();
+
+                                                if (comando.enviarSinRetorno() == true)
+                                                {
+                                                    MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show(CapaNegocios.ClsEnviarQuerys.error);
+                                                }
+
                                             }
                                             else
                                             {
