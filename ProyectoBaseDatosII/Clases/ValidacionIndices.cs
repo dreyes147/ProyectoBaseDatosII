@@ -5,102 +5,137 @@ using System.Text;
 using System.Threading.Tasks;
 
 using gudusoft.gsqlparser;
-
+using System.Data;
 
 namespace ProyectoBaseDatosII.Clases
 {
     class ValidacionIndices
     {
         #region Delcaración de Variables
-
+        DataSet dsDatos;
+        List<Tablas> vTablas;
         #endregion
+
+        public ValidacionIndices()
+        {
+            vTablas = new List<Tablas>();
+            dsDatos = new DataSet();
+        }
 
         #region Declaración de Método
 
-        public Boolean ValidarIndice(string pConsulta) {
-
+        public Boolean ValidarIndice(string pConsulta)
+        {
             TGSqlParser sqlparser = new TGSqlParser(TDbVendor.DbVMssql);
+            string xmlData = string.Empty;
+            string vId = string.Empty;
+            int vContador = 0;
+            int vValorAnterior = 0;
+            Tablas vCampo;
+            List<Tablas> vCampos = new List<Tablas>();
             try
             {
-                
-                sqlparser.SqlText.Text = "SELECT * FROM Customers c INNER JOIN Addresses a ON a.id = c.id WHERE c.CustomerName='foo'";
-                sqlparser.OnTableToken += new TOnTableTokenEvent(OnTableTokenHandler);
 
-                int result = sqlparser.Parse();
+                sqlparser.SqlText.Text = "SELECT *,a.hola FROM Customers c inner join hola a on a.sd=c.sd WHERE c.CustomerName='foo' and a.sd=1";
+
                 Console.ReadLine();
+                int result = sqlparser.Parse();
+                xmlData = sqlparser.XmlText;
+                System.IO.StringReader xmlSR = new System.IO.StringReader(xmlData);
+                dsDatos.ReadXml(xmlSR);
+                foreach (DataRow vRow in dsDatos.Tables["attr"].Select("expression_Id>=0"))
+                {
+                    if (vContador != 0)
+                    {
+                        if (vValorAnterior != Convert.ToInt32(vRow["expression_Id"].ToString()))
+                        {
+                            vId = vId + vRow["attr_Id"].ToString() + ",";
+                            if (vContador == 1)
+                            {
+                                vId = vId + vRow["attr_Id"].ToString() + ",";
+                            }
+                        }
+                    }
+                    else if (dsDatos.Tables["attr"].Select("expression_Id>=0").Length == 1)
+                    {
+                        vId = vId + vRow["attr_Id"].ToString() + ",";
+                    }
+
+                    vValorAnterior = Convert.ToInt32(vRow["expression_Id"].ToString());
+                    vContador++;
+                }
+                vContador = 0;
+                vId = vId.TrimEnd(Convert.ToChar(","));
+                foreach (string vItem in vId.Split(Convert.ToChar(",")))
+                {
+                    vCampo = new Tablas();
+
+                    foreach (DataRow vRow in dsDatos.Tables["sourcetoken"].Select("attr_Id = " + vItem))
+                    {
+                        if (vRow["dbobjtype"].ToString() == "field" || vRow["dbobjtype"].ToString() == "table alias")
+                        {
+                            if (vRow["dbobjtype"].ToString() == "field")
+                            {
+                                vCampo.NombreCampo = vRow["sourcetoken_Text"].ToString();
+                            }
+                            else
+                            {
+                                vCampo.AliasTabla = vRow["sourcetoken_Text"].ToString();
+                            }
+                        }
+                    }
+                    vCampos.Add(vCampo);
+                }
+                ExtraerTablas();
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
             return false;
-
-
-            void OnTableTokenHandler(object o, gudusoft.gsqlparser.TSourceToken st, gudusoft.gsqlparser.TCustomSqlStatement stmt)
-            {
-                if ((st.DBObjType == TDBObjType.ttObjTable))
-                {
-                    Console.WriteLine("Table: {0}", st.AsText);
-                }
-            }
         }
 
+        private void ExtraerTablas()
+        {
+            string vId = string.Empty;
+            int vContador = 0;
+            Tablas vTabla;
 
-        //public string ValidarIndice(string pConsulta)
-        //{
-        //    string vConsulta = pConsulta;
-        //    string vMensaje = string.Empty;
-        //    string vSelect;
-        //    string vFrom;
-        //    string[] vSelects;
-        //    string[] vTablasCampos;
-        //    TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvmssql);
-        //    try
-        //    {
-        //        if (!vConsulta.ToUpper().Contains("CREATE"))
-        //        {
-        //            if (!vConsulta.ToUpper().Contains("DROP"))
-        //            {
-        //                if (!vConsulta.ToUpper().Contains("DELETE"))
-        //                {
-        //                    if (!vConsulta.ToUpper().Contains("UPDATE"))
-        //                    {
-        //                        if (vConsulta.ToUpper().Contains("SELECT"))
-        //                        {
-        //                            vConsulta = vConsulta.Replace("Select", "SELECT");
-        //                            vConsulta = vConsulta.Replace("select", "SELECT");
-        //                            vSelects = vConsulta.Split(Convert.ToChar("SELECT"));
-        //                            foreach (string vItem in vSelects)
-        //                            {
-        //                                vSelect = string.Empty;
-        //                                vSelect = vItem;
-        //                                vSelect = vSelect.Replace("From", "FROM");
-        //                                vSelect = vSelect.Replace("from", "FROM");
-        //                                vTablasCampos = vSelect.Split(Convert.ToChar("FROM"));
+            try
+            {
+                foreach (DataRow vRow in dsDatos.Tables["attr"].Select("simpletable_Id>=0"))
+                {
+                    vId = vId + vRow["attr_Id"].ToString() + ",";
+                }
+                vId = vId.TrimEnd(Convert.ToChar(","));
 
+                foreach (string vItem in vId.Split(Convert.ToChar(",")))
+                {
+                    vTabla = new Tablas();
 
-        //                                if (vTablasCampos[1].ToUpper().Contains("JOIN"))
-        //                                {
-
-        //                                }
-        //                                else
-        //                                {
-
-        //                                }
-
-        //                            }
-        //                        }
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception(ex.Message);
-        //    }
-        //    return vMensaje;
-        //}
+                    foreach (DataRow vRow in dsDatos.Tables["sourcetoken"].Select("attr_Id = " + vItem + " or aliasclause_Id =" + vContador.ToString()))
+                    {
+                        if (vRow["dbobjtype"].ToString() == "table" || vRow["dbobjtype"].ToString() == "table alias")
+                        {
+                            if (vRow["dbobjtype"].ToString() == "table")
+                            {
+                                vTabla.NombreTabla = vRow["sourcetoken_Text"].ToString();
+                            }
+                            else
+                            {
+                                vTabla.AliasTabla = vRow["sourcetoken_Text"].ToString();
+                            }
+                        }
+                    }
+                    vTablas.Add(vTabla);
+                    vContador++;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
         #endregion
     }
