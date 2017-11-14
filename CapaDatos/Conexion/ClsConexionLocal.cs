@@ -13,6 +13,10 @@ namespace CapaDatos.Conexion
     public class ClsConexionLocal
     {
         //Variables Globales
+        public static string query { get; set; }
+        public static string nonquery { get; set; }
+        public static DataTable Datos { get; set; }
+        public static string errorDatos { get; set; }
 
         public static SqlConnection oCN { get; set; }
 
@@ -153,7 +157,65 @@ namespace CapaDatos.Conexion
 
         }
 
+        public bool ejecutarDatos()
+        {
+            SqlDataAdapter vAdapter;
+            
+            try
+            {
+                if (AbrirConexion() == true)
+                {
+                    SqlCommand command = new SqlCommand(query, oCN);
+                    command.CommandType = System.Data.CommandType.Text;
+                    //Datos = command.ExecuteReader();
+                    vAdapter = new SqlDataAdapter(command);
+                    Datos = new DataTable();
+                    vAdapter.Fill(Datos);
+                    CerrarConexion();
+                    return true;
+                }
+                else {
+                    return false;
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                CerrarConexion();
+                errorDatos = ex.Message;
+                return false;
+            }
 
+        }
+
+        public bool ejecutarDatosSinRetorno()
+        {
+            try
+            {
+                if (AbrirConexion() == true)
+                {
+                    SqlCommand command = new SqlCommand(nonquery, oCN);
+                    command.CommandType = CommandType.Text;
+                    //Datos = command.ExecuteReader();
+                    command.ExecuteNonQuery();
+                    CerrarConexion();
+                    return true;
+                    
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                CerrarConexion();
+                errorDatos = ex.Message;
+                return false;
+            }
+
+        }
 
     }
 

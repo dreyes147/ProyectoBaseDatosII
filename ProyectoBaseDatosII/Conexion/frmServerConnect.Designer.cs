@@ -131,6 +131,7 @@
             this.Controls.Add(this.btnConectar);
             this.Controls.Add(this.radLabel1);
             this.Name = "frmServerConnect";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmServerConnect";
             this.Load += new System.EventHandler(this.frmServerConnect_Load);
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();

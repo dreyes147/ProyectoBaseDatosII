@@ -45,6 +45,7 @@
             this.radEditor = new Telerik.WinControls.UI.Docking.RadDock();
             this.twsBasesDatos = new Telerik.WinControls.UI.Docking.ToolWindow();
             this.TrvDatos = new System.Windows.Forms.TreeView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.documentContainer1 = new Telerik.WinControls.UI.Docking.DocumentContainer();
             this.documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
@@ -62,7 +63,8 @@
             this.cbDDL = new System.Windows.Forms.ComboBox();
             this.lbDDL = new System.Windows.Forms.Label();
             this.btnEjecutar = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.cbBasesDeDatos = new System.Windows.Forms.ComboBox();
+            this.lbBD = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptbNumeros)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -181,7 +183,7 @@
             // 
             // radEditor
             // 
-            this.radEditor.ActiveWindow = this.twsBasesDatos;
+            this.radEditor.ActiveWindow = this.dwsEditor;
             this.radEditor.CausesValidation = false;
             this.radEditor.Controls.Add(this.toolTabStrip1);
             this.radEditor.Controls.Add(this.documentContainer1);
@@ -221,6 +223,14 @@
             this.TrvDatos.SelectedImageKey = "base-de-datos.png";
             this.TrvDatos.Size = new System.Drawing.Size(194, 605);
             this.TrvDatos.TabIndex = 0;
+            this.TrvDatos.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TrvDatos_AfterSelect);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "base-de-datos.png");
+            this.imageList1.Images.SetKeyName(1, "cuadricula-de-la-tabla.png");
             // 
             // toolTabStrip1
             // 
@@ -297,7 +307,7 @@
             // 
             this.cbDatos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDatos.FormattingEnabled = true;
-            this.cbDatos.Location = new System.Drawing.Point(608, 27);
+            this.cbDatos.Location = new System.Drawing.Point(684, 41);
             this.cbDatos.Name = "cbDatos";
             this.cbDatos.Size = new System.Drawing.Size(121, 21);
             this.cbDatos.TabIndex = 6;
@@ -307,17 +317,17 @@
             // 
             this.lbDML.AutoSize = true;
             this.lbDML.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDML.Location = new System.Drawing.Point(544, 31);
+            this.lbDML.Location = new System.Drawing.Point(641, 44);
             this.lbDML.Name = "lbDML";
-            this.lbDML.Size = new System.Drawing.Size(48, 13);
+            this.lbDML.Size = new System.Drawing.Size(37, 13);
             this.lbDML.TabIndex = 7;
-            this.lbDML.Text = "DML ->";
+            this.lbDML.Text = "DML:";
             // 
             // cbDDL
             // 
             this.cbDDL.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDDL.FormattingEnabled = true;
-            this.cbDDL.Location = new System.Drawing.Point(853, 27);
+            this.cbDDL.Location = new System.Drawing.Point(882, 39);
             this.cbDDL.Name = "cbDDL";
             this.cbDDL.Size = new System.Drawing.Size(121, 21);
             this.cbDDL.TabIndex = 8;
@@ -327,11 +337,11 @@
             // 
             this.lbDDL.AutoSize = true;
             this.lbDDL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDDL.Location = new System.Drawing.Point(788, 31);
+            this.lbDDL.Location = new System.Drawing.Point(840, 42);
             this.lbDDL.Name = "lbDDL";
-            this.lbDDL.Size = new System.Drawing.Size(47, 13);
+            this.lbDDL.Size = new System.Drawing.Size(36, 13);
             this.lbDDL.TabIndex = 9;
-            this.lbDDL.Text = "DDL ->";
+            this.lbDDL.Text = "DDL:";
             // 
             // btnEjecutar
             // 
@@ -343,18 +353,32 @@
             this.btnEjecutar.UseVisualStyleBackColor = true;
             this.btnEjecutar.Click += new System.EventHandler(this.btnEjecutar_Click);
             // 
-            // imageList1
+            // cbBasesDeDatos
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "base-de-datos.png");
-            this.imageList1.Images.SetKeyName(1, "cuadricula-de-la-tabla.png");
+            this.cbBasesDeDatos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBasesDeDatos.FormattingEnabled = true;
+            this.cbBasesDeDatos.Location = new System.Drawing.Point(419, 41);
+            this.cbBasesDeDatos.Name = "cbBasesDeDatos";
+            this.cbBasesDeDatos.Size = new System.Drawing.Size(121, 21);
+            this.cbBasesDeDatos.TabIndex = 10;
+            // 
+            // lbBD
+            // 
+            this.lbBD.AutoSize = true;
+            this.lbBD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBD.Location = new System.Drawing.Point(377, 42);
+            this.lbBD.Name = "lbBD";
+            this.lbBD.Size = new System.Drawing.Size(39, 15);
+            this.lbBD.TabIndex = 11;
+            this.lbBD.Text = "USE:";
             // 
             // frmEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 733);
+            this.Controls.Add(this.lbBD);
+            this.Controls.Add(this.cbBasesDeDatos);
             this.Controls.Add(this.btnEjecutar);
             this.Controls.Add(this.lbDDL);
             this.Controls.Add(this.cbDDL);
@@ -366,6 +390,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmEditor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editor";
             this.Load += new System.EventHandler(this.frmEditor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ptbNumeros)).EndInit();
@@ -423,5 +448,7 @@
         private System.Windows.Forms.Label lbDDL;
         private System.Windows.Forms.Button btnEjecutar;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ComboBox cbBasesDeDatos;
+        private System.Windows.Forms.Label lbBD;
     }
 }

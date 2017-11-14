@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClsEnviarQuerys.cs" />
     <Compile Include="ClsFrmConexion.cs" />
     <Compile Include="ClsReportes.cs" />
     <Compile Include="ClsTreeView.cs" />
