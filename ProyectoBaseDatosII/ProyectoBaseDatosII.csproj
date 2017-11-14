@@ -63,6 +63,7 @@
     <Reference Include="TelerikCommon, Version=2017.2.613.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Tablas.cs" />
     <Compile Include="Clases\ValidacionIndices.cs" />
     <Compile Include="Conexion\frmServerConnect.cs">
       <SubType>Form</SubType>
