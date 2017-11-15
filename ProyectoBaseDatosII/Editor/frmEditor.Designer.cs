@@ -459,6 +459,7 @@
             this.Name = "frmEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editor";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmEditor_FormClosed);
             this.Load += new System.EventHandler(this.frmEditor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ptbNumeros)).EndInit();
             this.statusStrip1.ResumeLayout(false);

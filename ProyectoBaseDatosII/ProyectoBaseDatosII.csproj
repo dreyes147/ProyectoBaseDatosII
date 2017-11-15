@@ -138,9 +138,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\splashscreen.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\splashscreen1.png" />
   </ItemGroup>
   <ItemGroup>

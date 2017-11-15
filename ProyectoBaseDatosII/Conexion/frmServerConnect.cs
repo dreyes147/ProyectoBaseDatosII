@@ -44,6 +44,7 @@ namespace ProyectoBaseDatosII
             cboAutentificacion.DisplayMember = "Descripcion";
             cboAutentificacion.ValueMember = "Id";
 
+            //Lanza el splashscreen
             Thread c = new Thread(new ThreadStart(iniciarSplashScreen));
             c.Start();
             Thread.Sleep(5000);
