@@ -244,7 +244,7 @@ namespace ProyectoBaseDatosII.Editor
         //metodo para cerrar el editor
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            Application.Exit();
         }
 
         // metodo para crear un archivo nuevo
@@ -682,7 +682,7 @@ namespace ProyectoBaseDatosII.Editor
                 MessageBox.Show("Debe elegir la base de datos donde desea ejecutar el comando");
             }
 
-
+            lbNumDiferencia.Text = Convert.ToString(Convert.ToDouble(lbNumTiempoEstimado.Text) - Convert.ToDouble(lbNumTiempoReal.Text));
             
         }
 

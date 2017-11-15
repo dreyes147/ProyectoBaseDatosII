@@ -43,13 +43,13 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.radEditor = new Telerik.WinControls.UI.Docking.RadDock();
-            this.dwsEditor = new Telerik.WinControls.UI.Docking.DocumentWindow();
-            this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.twsBasesDatos = new Telerik.WinControls.UI.Docking.ToolWindow();
             this.TrvDatos = new System.Windows.Forms.TreeView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.documentContainer1 = new Telerik.WinControls.UI.Docking.DocumentContainer();
             this.documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
+            this.dwsEditor = new Telerik.WinControls.UI.Docking.DocumentWindow();
             this.radThemeManager1 = new Telerik.WinControls.RadThemeManager();
             this.windows8Theme1 = new Telerik.WinControls.Themes.Windows8Theme();
             this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
@@ -69,19 +69,21 @@
             this.lbNumTiempoReal = new System.Windows.Forms.Label();
             this.lbTiempoEstimado = new System.Windows.Forms.Label();
             this.lbNumTiempoEstimado = new System.Windows.Forms.Label();
+            this.lbDiferencia = new System.Windows.Forms.Label();
+            this.lbNumDiferencia = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptbNumeros)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radEditor)).BeginInit();
             this.radEditor.SuspendLayout();
-            this.dwsEditor.SuspendLayout();
+            this.twsBasesDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).BeginInit();
             this.toolTabStrip1.SuspendLayout();
-            this.twsBasesDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).BeginInit();
             this.documentContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).BeginInit();
             this.documentTabStrip1.SuspendLayout();
+            this.dwsEditor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEjecutar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefreshTrv)).BeginInit();
             this.SuspendLayout();
@@ -209,35 +211,6 @@
             this.radEditor.Text = "radDock1";
             this.radEditor.ThemeName = "Office2013Light";
             // 
-            // dwsEditor
-            // 
-            this.dwsEditor.Controls.Add(this.rtbEditor);
-            this.dwsEditor.Controls.Add(this.ptbNumeros);
-            this.dwsEditor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.dwsEditor.Location = new System.Drawing.Point(5, 31);
-            this.dwsEditor.Name = "dwsEditor";
-            this.dwsEditor.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            this.dwsEditor.Size = new System.Drawing.Size(789, 606);
-            this.dwsEditor.Text = "Query";
-            this.dwsEditor.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
-            // 
-            // toolTabStrip1
-            // 
-            this.toolTabStrip1.CanUpdateChildIndex = true;
-            this.toolTabStrip1.CausesValidation = false;
-            this.toolTabStrip1.Controls.Add(this.twsBasesDatos);
-            this.toolTabStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolTabStrip1.Name = "toolTabStrip1";
-            // 
-            // 
-            // 
-            this.toolTabStrip1.RootElement.MinSize = new System.Drawing.Size(25, 25);
-            this.toolTabStrip1.SelectedIndex = 0;
-            this.toolTabStrip1.Size = new System.Drawing.Size(200, 642);
-            this.toolTabStrip1.TabIndex = 1;
-            this.toolTabStrip1.TabStop = false;
-            this.toolTabStrip1.ThemeName = "Office2013Light";
-            // 
             // twsBasesDatos
             // 
             this.twsBasesDatos.Caption = null;
@@ -268,6 +241,23 @@
             this.imageList1.Images.SetKeyName(0, "base-de-datos.png");
             this.imageList1.Images.SetKeyName(1, "cuadricula-de-la-tabla.png");
             // 
+            // toolTabStrip1
+            // 
+            this.toolTabStrip1.CanUpdateChildIndex = true;
+            this.toolTabStrip1.CausesValidation = false;
+            this.toolTabStrip1.Controls.Add(this.twsBasesDatos);
+            this.toolTabStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolTabStrip1.Name = "toolTabStrip1";
+            // 
+            // 
+            // 
+            this.toolTabStrip1.RootElement.MinSize = new System.Drawing.Size(25, 25);
+            this.toolTabStrip1.SelectedIndex = 0;
+            this.toolTabStrip1.Size = new System.Drawing.Size(200, 642);
+            this.toolTabStrip1.TabIndex = 1;
+            this.toolTabStrip1.TabStop = false;
+            this.toolTabStrip1.ThemeName = "Office2013Light";
+            // 
             // documentContainer1
             // 
             this.documentContainer1.Controls.Add(this.documentTabStrip1);
@@ -295,6 +285,18 @@
             this.documentTabStrip1.TabIndex = 0;
             this.documentTabStrip1.TabStop = false;
             this.documentTabStrip1.ThemeName = "Office2013Light";
+            // 
+            // dwsEditor
+            // 
+            this.dwsEditor.Controls.Add(this.rtbEditor);
+            this.dwsEditor.Controls.Add(this.ptbNumeros);
+            this.dwsEditor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.dwsEditor.Location = new System.Drawing.Point(5, 31);
+            this.dwsEditor.Name = "dwsEditor";
+            this.dwsEditor.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
+            this.dwsEditor.Size = new System.Drawing.Size(789, 606);
+            this.dwsEditor.Text = "Query";
+            this.dwsEditor.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
             // openFileDialog1
             // 
@@ -379,7 +381,7 @@
             // lbTiempoReal
             // 
             this.lbTiempoReal.AutoSize = true;
-            this.lbTiempoReal.Location = new System.Drawing.Point(806, 9);
+            this.lbTiempoReal.Location = new System.Drawing.Point(641, 9);
             this.lbTiempoReal.Name = "lbTiempoReal";
             this.lbTiempoReal.Size = new System.Drawing.Size(70, 13);
             this.lbTiempoReal.TabIndex = 14;
@@ -388,7 +390,7 @@
             // lbNumTiempoReal
             // 
             this.lbNumTiempoReal.AutoSize = true;
-            this.lbNumTiempoReal.Location = new System.Drawing.Point(879, 9);
+            this.lbNumTiempoReal.Location = new System.Drawing.Point(714, 9);
             this.lbNumTiempoReal.Name = "lbNumTiempoReal";
             this.lbNumTiempoReal.Size = new System.Drawing.Size(13, 13);
             this.lbNumTiempoReal.TabIndex = 15;
@@ -397,7 +399,7 @@
             // lbTiempoEstimado
             // 
             this.lbTiempoEstimado.AutoSize = true;
-            this.lbTiempoEstimado.Location = new System.Drawing.Point(584, 9);
+            this.lbTiempoEstimado.Location = new System.Drawing.Point(377, 9);
             this.lbTiempoEstimado.Name = "lbTiempoEstimado";
             this.lbTiempoEstimado.Size = new System.Drawing.Size(91, 13);
             this.lbTiempoEstimado.TabIndex = 16;
@@ -406,17 +408,37 @@
             // lbNumTiempoEstimado
             // 
             this.lbNumTiempoEstimado.AutoSize = true;
-            this.lbNumTiempoEstimado.Location = new System.Drawing.Point(681, 9);
+            this.lbNumTiempoEstimado.Location = new System.Drawing.Point(474, 9);
             this.lbNumTiempoEstimado.Name = "lbNumTiempoEstimado";
             this.lbNumTiempoEstimado.Size = new System.Drawing.Size(13, 13);
             this.lbNumTiempoEstimado.TabIndex = 17;
             this.lbNumTiempoEstimado.Text = "0";
+            // 
+            // lbDiferencia
+            // 
+            this.lbDiferencia.AutoSize = true;
+            this.lbDiferencia.Location = new System.Drawing.Point(840, 9);
+            this.lbDiferencia.Name = "lbDiferencia";
+            this.lbDiferencia.Size = new System.Drawing.Size(58, 13);
+            this.lbDiferencia.TabIndex = 18;
+            this.lbDiferencia.Text = "Diferencia:";
+            // 
+            // lbNumDiferencia
+            // 
+            this.lbNumDiferencia.AutoSize = true;
+            this.lbNumDiferencia.Location = new System.Drawing.Point(904, 10);
+            this.lbNumDiferencia.Name = "lbNumDiferencia";
+            this.lbNumDiferencia.Size = new System.Drawing.Size(13, 13);
+            this.lbNumDiferencia.TabIndex = 19;
+            this.lbNumDiferencia.Text = "0";
             // 
             // frmEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 733);
+            this.Controls.Add(this.lbNumDiferencia);
+            this.Controls.Add(this.lbDiferencia);
             this.Controls.Add(this.lbNumTiempoEstimado);
             this.Controls.Add(this.lbTiempoEstimado);
             this.Controls.Add(this.lbNumTiempoReal);
@@ -444,14 +466,14 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radEditor)).EndInit();
             this.radEditor.ResumeLayout(false);
-            this.dwsEditor.ResumeLayout(false);
+            this.twsBasesDatos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).EndInit();
             this.toolTabStrip1.ResumeLayout(false);
-            this.twsBasesDatos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).EndInit();
             this.documentContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).EndInit();
             this.documentTabStrip1.ResumeLayout(false);
+            this.dwsEditor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnEjecutar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefreshTrv)).EndInit();
             this.ResumeLayout(false);
@@ -500,5 +522,7 @@
         private System.Windows.Forms.Label lbNumTiempoReal;
         private System.Windows.Forms.Label lbTiempoEstimado;
         private System.Windows.Forms.Label lbNumTiempoEstimado;
+        private System.Windows.Forms.Label lbDiferencia;
+        private System.Windows.Forms.Label lbNumDiferencia;
     }
 }
