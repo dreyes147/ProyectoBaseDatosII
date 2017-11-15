@@ -43,45 +43,48 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.radEditor = new Telerik.WinControls.UI.Docking.RadDock();
+            this.dwsEditor = new Telerik.WinControls.UI.Docking.DocumentWindow();
+            this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.twsBasesDatos = new Telerik.WinControls.UI.Docking.ToolWindow();
             this.TrvDatos = new System.Windows.Forms.TreeView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.documentContainer1 = new Telerik.WinControls.UI.Docking.DocumentContainer();
             this.documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
-            this.dwsEditor = new Telerik.WinControls.UI.Docking.DocumentWindow();
             this.radThemeManager1 = new Telerik.WinControls.RadThemeManager();
             this.windows8Theme1 = new Telerik.WinControls.Themes.Windows8Theme();
             this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
             this.breezeTheme1 = new Telerik.WinControls.Themes.BreezeTheme();
             this.office2013LightTheme1 = new Telerik.WinControls.Themes.Office2013LightTheme();
-            this.btnRefreshTrv = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.cbDatos = new System.Windows.Forms.ComboBox();
             this.lbDML = new System.Windows.Forms.Label();
             this.cbDDL = new System.Windows.Forms.ComboBox();
             this.lbDDL = new System.Windows.Forms.Label();
-            this.btnEjecutar = new System.Windows.Forms.Button();
-            this.cbBasesDeDatos = new System.Windows.Forms.ComboBox();
             this.lbBD = new System.Windows.Forms.Label();
+            this.btnEjecutar = new Telerik.WinControls.UI.RadButton();
+            this.btnRefreshTrv = new Telerik.WinControls.UI.RadButton();
+            this.cbBasesDeDatos = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.ptbNumeros)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radEditor)).BeginInit();
             this.radEditor.SuspendLayout();
-            this.twsBasesDatos.SuspendLayout();
+            this.dwsEditor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).BeginInit();
             this.toolTabStrip1.SuspendLayout();
+            this.twsBasesDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).BeginInit();
             this.documentContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).BeginInit();
             this.documentTabStrip1.SuspendLayout();
-            this.dwsEditor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEjecutar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRefreshTrv)).BeginInit();
             this.SuspendLayout();
             // 
             // rtbEditor
             // 
+            this.rtbEditor.AcceptsTab = true;
             this.rtbEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -202,6 +205,35 @@
             this.radEditor.Text = "radDock1";
             this.radEditor.ThemeName = "Office2013Light";
             // 
+            // dwsEditor
+            // 
+            this.dwsEditor.Controls.Add(this.rtbEditor);
+            this.dwsEditor.Controls.Add(this.ptbNumeros);
+            this.dwsEditor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.dwsEditor.Location = new System.Drawing.Point(5, 31);
+            this.dwsEditor.Name = "dwsEditor";
+            this.dwsEditor.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
+            this.dwsEditor.Size = new System.Drawing.Size(789, 606);
+            this.dwsEditor.Text = "Query";
+            this.dwsEditor.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
+            // 
+            // toolTabStrip1
+            // 
+            this.toolTabStrip1.CanUpdateChildIndex = true;
+            this.toolTabStrip1.CausesValidation = false;
+            this.toolTabStrip1.Controls.Add(this.twsBasesDatos);
+            this.toolTabStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolTabStrip1.Name = "toolTabStrip1";
+            // 
+            // 
+            // 
+            this.toolTabStrip1.RootElement.MinSize = new System.Drawing.Size(25, 25);
+            this.toolTabStrip1.SelectedIndex = 0;
+            this.toolTabStrip1.Size = new System.Drawing.Size(200, 642);
+            this.toolTabStrip1.TabIndex = 1;
+            this.toolTabStrip1.TabStop = false;
+            this.toolTabStrip1.ThemeName = "Office2013Light";
+            // 
             // twsBasesDatos
             // 
             this.twsBasesDatos.Caption = null;
@@ -232,23 +264,6 @@
             this.imageList1.Images.SetKeyName(0, "base-de-datos.png");
             this.imageList1.Images.SetKeyName(1, "cuadricula-de-la-tabla.png");
             // 
-            // toolTabStrip1
-            // 
-            this.toolTabStrip1.CanUpdateChildIndex = true;
-            this.toolTabStrip1.CausesValidation = false;
-            this.toolTabStrip1.Controls.Add(this.twsBasesDatos);
-            this.toolTabStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolTabStrip1.Name = "toolTabStrip1";
-            // 
-            // 
-            // 
-            this.toolTabStrip1.RootElement.MinSize = new System.Drawing.Size(25, 25);
-            this.toolTabStrip1.SelectedIndex = 0;
-            this.toolTabStrip1.Size = new System.Drawing.Size(200, 642);
-            this.toolTabStrip1.TabIndex = 1;
-            this.toolTabStrip1.TabStop = false;
-            this.toolTabStrip1.ThemeName = "Office2013Light";
-            // 
             // documentContainer1
             // 
             this.documentContainer1.Controls.Add(this.documentTabStrip1);
@@ -276,28 +291,6 @@
             this.documentTabStrip1.TabIndex = 0;
             this.documentTabStrip1.TabStop = false;
             this.documentTabStrip1.ThemeName = "Office2013Light";
-            // 
-            // dwsEditor
-            // 
-            this.dwsEditor.Controls.Add(this.rtbEditor);
-            this.dwsEditor.Controls.Add(this.ptbNumeros);
-            this.dwsEditor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.dwsEditor.Location = new System.Drawing.Point(5, 31);
-            this.dwsEditor.Name = "dwsEditor";
-            this.dwsEditor.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            this.dwsEditor.Size = new System.Drawing.Size(789, 606);
-            this.dwsEditor.Text = "Query";
-            this.dwsEditor.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
-            // 
-            // btnRefreshTrv
-            // 
-            this.btnRefreshTrv.Location = new System.Drawing.Point(0, 39);
-            this.btnRefreshTrv.Name = "btnRefreshTrv";
-            this.btnRefreshTrv.Size = new System.Drawing.Size(78, 23);
-            this.btnRefreshTrv.TabIndex = 5;
-            this.btnRefreshTrv.Text = "Refresh";
-            this.btnRefreshTrv.UseVisualStyleBackColor = true;
-            this.btnRefreshTrv.Click += new System.EventHandler(this.btnRefreshTrv_Click);
             // 
             // openFileDialog1
             // 
@@ -343,25 +336,6 @@
             this.lbDDL.TabIndex = 9;
             this.lbDDL.Text = "DDL:";
             // 
-            // btnEjecutar
-            // 
-            this.btnEjecutar.Location = new System.Drawing.Point(204, 39);
-            this.btnEjecutar.Name = "btnEjecutar";
-            this.btnEjecutar.Size = new System.Drawing.Size(75, 23);
-            this.btnEjecutar.TabIndex = 2;
-            this.btnEjecutar.Text = "Ejecutar";
-            this.btnEjecutar.UseVisualStyleBackColor = true;
-            this.btnEjecutar.Click += new System.EventHandler(this.btnEjecutar_Click);
-            // 
-            // cbBasesDeDatos
-            // 
-            this.cbBasesDeDatos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBasesDeDatos.FormattingEnabled = true;
-            this.cbBasesDeDatos.Location = new System.Drawing.Point(419, 41);
-            this.cbBasesDeDatos.Name = "cbBasesDeDatos";
-            this.cbBasesDeDatos.Size = new System.Drawing.Size(121, 21);
-            this.cbBasesDeDatos.TabIndex = 10;
-            // 
             // lbBD
             // 
             this.lbBD.AutoSize = true;
@@ -372,19 +346,45 @@
             this.lbBD.TabIndex = 11;
             this.lbBD.Text = "USE:";
             // 
+            // btnEjecutar
+            // 
+            this.btnEjecutar.Location = new System.Drawing.Point(204, 36);
+            this.btnEjecutar.Name = "btnEjecutar";
+            this.btnEjecutar.Size = new System.Drawing.Size(110, 24);
+            this.btnEjecutar.TabIndex = 12;
+            this.btnEjecutar.Text = "Ejecutar";
+            this.btnEjecutar.Click += new System.EventHandler(this.btnEjecutar_Click_1);
+            // 
+            // btnRefreshTrv
+            // 
+            this.btnRefreshTrv.Location = new System.Drawing.Point(3, 38);
+            this.btnRefreshTrv.Name = "btnRefreshTrv";
+            this.btnRefreshTrv.Size = new System.Drawing.Size(110, 24);
+            this.btnRefreshTrv.TabIndex = 13;
+            this.btnRefreshTrv.Text = "Refresh";
+            // 
+            // cbBasesDeDatos
+            // 
+            this.cbBasesDeDatos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBasesDeDatos.FormattingEnabled = true;
+            this.cbBasesDeDatos.Location = new System.Drawing.Point(419, 41);
+            this.cbBasesDeDatos.Name = "cbBasesDeDatos";
+            this.cbBasesDeDatos.Size = new System.Drawing.Size(121, 21);
+            this.cbBasesDeDatos.TabIndex = 10;
+            // 
             // frmEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 733);
+            this.Controls.Add(this.btnRefreshTrv);
+            this.Controls.Add(this.btnEjecutar);
             this.Controls.Add(this.lbBD);
             this.Controls.Add(this.cbBasesDeDatos);
-            this.Controls.Add(this.btnEjecutar);
             this.Controls.Add(this.lbDDL);
             this.Controls.Add(this.cbDDL);
             this.Controls.Add(this.lbDML);
             this.Controls.Add(this.cbDatos);
-            this.Controls.Add(this.btnRefreshTrv);
             this.Controls.Add(this.radEditor);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -400,14 +400,16 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radEditor)).EndInit();
             this.radEditor.ResumeLayout(false);
-            this.twsBasesDatos.ResumeLayout(false);
+            this.dwsEditor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).EndInit();
             this.toolTabStrip1.ResumeLayout(false);
+            this.twsBasesDatos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).EndInit();
             this.documentContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).EndInit();
             this.documentTabStrip1.ResumeLayout(false);
-            this.dwsEditor.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnEjecutar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRefreshTrv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -434,7 +436,6 @@
         private Telerik.WinControls.Themes.BreezeTheme breezeTheme1;
         private Telerik.WinControls.Themes.Office2013LightTheme office2013LightTheme1;
         private System.Windows.Forms.TreeView TrvDatos;
-        private System.Windows.Forms.Button btnRefreshTrv;
         private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
@@ -446,9 +447,10 @@
         private System.Windows.Forms.Label lbDML;
         private System.Windows.Forms.ComboBox cbDDL;
         private System.Windows.Forms.Label lbDDL;
-        private System.Windows.Forms.Button btnEjecutar;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.ComboBox cbBasesDeDatos;
         private System.Windows.Forms.Label lbBD;
+        private Telerik.WinControls.UI.RadButton btnEjecutar;
+        private Telerik.WinControls.UI.RadButton btnRefreshTrv;
+        private System.Windows.Forms.ComboBox cbBasesDeDatos;
     }
 }

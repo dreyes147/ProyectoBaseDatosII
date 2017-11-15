@@ -37,6 +37,8 @@ namespace ProyectoBaseDatosII
             cboAutentificacion.DataSource = oDT;
             cboAutentificacion.DisplayMember = "Descripcion";
             cboAutentificacion.ValueMember = "Id";
+
+            
         }
 
         private void btnConectar_Click(object sender, EventArgs e)
@@ -68,6 +70,26 @@ namespace ProyectoBaseDatosII
                 else
                     MessageBox.Show("Conexion Fallida");
             }
+        }
+
+        private void cboAutentificacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cboAutentificacion.Text)
+            {
+                case "Windows Authentication":
+                txtUsuario.ReadOnly = true;
+                txtPassword.ReadOnly = true;
+                break;
+                default:
+                    txtUsuario.ReadOnly = false;
+                    txtPassword.ReadOnly = false;
+                    break;
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

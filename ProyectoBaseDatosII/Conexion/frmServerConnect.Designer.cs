@@ -37,13 +37,15 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCancel = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnConectar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
             this.SuspendLayout();
             // 
             // radLabel1
             // 
-            this.radLabel1.Location = new System.Drawing.Point(80, 33);
+            this.radLabel1.Location = new System.Drawing.Point(81, 46);
             this.radLabel1.Name = "radLabel1";
             this.radLabel1.Size = new System.Drawing.Size(70, 18);
             this.radLabel1.TabIndex = 0;
@@ -51,7 +53,7 @@
             // 
             // btnConectar
             // 
-            this.btnConectar.Location = new System.Drawing.Point(220, 166);
+            this.btnConectar.Location = new System.Drawing.Point(105, 192);
             this.btnConectar.Name = "btnConectar";
             this.btnConectar.Size = new System.Drawing.Size(110, 24);
             this.btnConectar.TabIndex = 2;
@@ -62,23 +64,25 @@
             // cboInstancias2
             // 
             this.cboInstancias2.FormattingEnabled = true;
-            this.cboInstancias2.Location = new System.Drawing.Point(186, 30);
+            this.cboInstancias2.Location = new System.Drawing.Point(187, 43);
             this.cboInstancias2.Name = "cboInstancias2";
             this.cboInstancias2.Size = new System.Drawing.Size(188, 21);
             this.cboInstancias2.TabIndex = 4;
             // 
             // cboAutentificacion
             // 
+            this.cboAutentificacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboAutentificacion.FormattingEnabled = true;
-            this.cboAutentificacion.Location = new System.Drawing.Point(187, 67);
+            this.cboAutentificacion.Location = new System.Drawing.Point(188, 80);
             this.cboAutentificacion.Name = "cboAutentificacion";
             this.cboAutentificacion.Size = new System.Drawing.Size(188, 21);
             this.cboAutentificacion.TabIndex = 16;
+            this.cboAutentificacion.SelectedIndexChanged += new System.EventHandler(this.cboAutentificacion_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(77, 75);
+            this.label3.Location = new System.Drawing.Point(78, 88);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 13);
             this.label3.TabIndex = 15;
@@ -86,14 +90,14 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(250, 128);
+            this.txtPassword.Location = new System.Drawing.Point(251, 141);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(125, 20);
             this.txtPassword.TabIndex = 14;
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(250, 102);
+            this.txtUsuario.Location = new System.Drawing.Point(251, 115);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(125, 20);
             this.txtUsuario.TabIndex = 13;
@@ -101,7 +105,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(101, 135);
+            this.label2.Location = new System.Drawing.Point(102, 148);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 12;
@@ -110,17 +114,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(104, 109);
+            this.label1.Location = new System.Drawing.Point(105, 122);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 11;
             this.label1.Text = "Usuario";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(238, 192);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(110, 24);
+            this.btnCancel.TabIndex = 17;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // frmServerConnect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(447, 264);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.cboAutentificacion);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtPassword);
@@ -136,6 +150,7 @@
             this.Load += new System.EventHandler(this.frmServerConnect_Load);
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnConectar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,5 +167,6 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private Telerik.WinControls.UI.RadButton btnCancel;
     }
 }

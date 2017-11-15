@@ -40,8 +40,12 @@
             // 
             // 
             // 
+            this.gridView.MasterTemplate.AllowAddNewRow = false;
+            this.gridView.MasterTemplate.AllowColumnReorder = false;
+            this.gridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             this.gridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.gridView.Name = "gridView";
+            this.gridView.ReadOnly = true;
             this.gridView.Size = new System.Drawing.Size(557, 373);
             this.gridView.TabIndex = 0;
             this.gridView.Text = "radGridView1";

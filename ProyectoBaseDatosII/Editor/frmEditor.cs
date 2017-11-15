@@ -292,6 +292,12 @@ namespace ProyectoBaseDatosII.Editor
                 cbDDL.DroppedDown = true;
 
             }
+
+            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.F5))
+            {
+                ejecutar();
+
+            }
         }
 
         private void cbDDL_SelectedIndexChanged(object sender, EventArgs e)
@@ -324,6 +330,10 @@ namespace ProyectoBaseDatosII.Editor
 
         private void btnEjecutar_Click(object sender, EventArgs e)
         {
+            ejecutar();
+        }
+
+        public void ejecutar() {
             if (cbBasesDeDatos.Text != "")
             {
                 int cont = 0;
@@ -632,7 +642,8 @@ namespace ProyectoBaseDatosII.Editor
                     MessageBox.Show("Recuerde terminar su sentencia SQL con ; ");
                 }//fin del if de validar si hay algo que ejecutar
             }
-            else {
+            else
+            {
                 MessageBox.Show("Debe elegir la base de datos donde desea ejecutar el comando");
             }
         }
@@ -643,6 +654,16 @@ namespace ProyectoBaseDatosII.Editor
         }
 
         private void TrvDatos_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
+
+        private void btnEjecutar_Click_1(object sender, EventArgs e)
+        {
+            ejecutar();
+        }
+
+        private void cbBasesDeDatos_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
