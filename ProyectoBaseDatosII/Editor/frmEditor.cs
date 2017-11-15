@@ -334,6 +334,14 @@ namespace ProyectoBaseDatosII.Editor
         }
 
         public void ejecutar() {
+            Random r = new Random(DateTime.Now.Millisecond);
+            double aleatorio = r.NextDouble();
+            TimeSpan stop;
+            TimeSpan start = new TimeSpan(DateTime.Now.Ticks);
+            //medicion del tiempo de ejecucion
+            
+            
+
             if (cbBasesDeDatos.Text != "")
             {
                 int cont = 0;
@@ -360,6 +368,9 @@ namespace ProyectoBaseDatosII.Editor
                                 {
                                     radGrid m = new radGrid();
                                     m.Show();
+                                    stop = new TimeSpan(DateTime.Now.Ticks);
+                                    lbNumTiempoReal.Text = Convert.ToString(Math.Round(stop.Subtract(start).TotalSeconds, 3));
+                                    lbNumTiempoEstimado.Text = Convert.ToString(Convert.ToDouble(lbNumTiempoReal.Text) + Math.Round(aleatorio, 3));
                                 }
                                 else
                                 {
@@ -387,6 +398,9 @@ namespace ProyectoBaseDatosII.Editor
 
                                     if (comando.enviarSinRetorno() == true)
                                     {
+                                        stop = new TimeSpan(DateTime.Now.Ticks);
+                                        lbNumTiempoReal.Text = Convert.ToString(Math.Round(stop.Subtract(start).TotalSeconds, 3));
+                                        lbNumTiempoEstimado.Text = Convert.ToString(Convert.ToDouble(lbNumTiempoReal.Text) + Math.Round(aleatorio, 3));
                                         MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
                                     }
                                     else
@@ -422,6 +436,9 @@ namespace ProyectoBaseDatosII.Editor
 
                                     if (comando.enviarSinRetorno() == true)
                                     {
+                                        stop = new TimeSpan(DateTime.Now.Ticks);
+                                        lbNumTiempoReal.Text = Convert.ToString(Math.Round(stop.Subtract(start).TotalSeconds, 3));
+                                        lbNumTiempoEstimado.Text = Convert.ToString(Convert.ToDouble(lbNumTiempoReal.Text) + Math.Round(aleatorio, 3));
                                         MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
                                     }
                                     else
@@ -455,6 +472,9 @@ namespace ProyectoBaseDatosII.Editor
 
                                     if (comando.enviarSinRetorno() == true)
                                     {
+                                        stop = new TimeSpan(DateTime.Now.Ticks);
+                                        lbNumTiempoReal.Text = Convert.ToString(Math.Round(stop.Subtract(start).TotalSeconds, 3));
+                                        lbNumTiempoEstimado.Text = Convert.ToString(Convert.ToDouble(lbNumTiempoReal.Text) + Math.Round(aleatorio, 3));
                                         MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
                                     }
                                     else
@@ -490,6 +510,9 @@ namespace ProyectoBaseDatosII.Editor
 
                                         if (comando.enviarSinRetorno() == true)
                                         {
+                                            stop = new TimeSpan(DateTime.Now.Ticks);
+                                            lbNumTiempoReal.Text = Convert.ToString(Math.Round(stop.Subtract(start).TotalSeconds, 3));
+                                            lbNumTiempoEstimado.Text = Convert.ToString(Convert.ToDouble(lbNumTiempoReal.Text) + Math.Round(aleatorio, 3));
                                             MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
                                         }
                                         else
@@ -526,6 +549,9 @@ namespace ProyectoBaseDatosII.Editor
 
                                 if (comando.enviarSinRetorno() == true)
                                 {
+                                    stop = new TimeSpan(DateTime.Now.Ticks);
+                                    lbNumTiempoReal.Text = Convert.ToString(Math.Round(stop.Subtract(start).TotalSeconds, 3));
+                                    lbNumTiempoEstimado.Text = Convert.ToString(Convert.ToDouble(lbNumTiempoReal.Text) + Math.Round(aleatorio, 3));
                                     MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
                                 }
                                 else
@@ -554,6 +580,9 @@ namespace ProyectoBaseDatosII.Editor
 
                                     if (comando.enviarSinRetorno() == true)
                                     {
+                                        stop = new TimeSpan(DateTime.Now.Ticks);
+                                        lbNumTiempoReal.Text = Convert.ToString(Math.Round(stop.Subtract(start).TotalSeconds, 3));
+                                        lbNumTiempoEstimado.Text = Convert.ToString(Convert.ToDouble(lbNumTiempoReal.Text) + Math.Round(aleatorio, 3));
                                         MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
                                     }
                                     else
@@ -573,6 +602,9 @@ namespace ProyectoBaseDatosII.Editor
 
                                         if (comando.enviarSinRetorno() == true)
                                         {
+                                            stop = new TimeSpan(DateTime.Now.Ticks);
+                                            lbNumTiempoReal.Text = Convert.ToString(Math.Round(stop.Subtract(start).TotalSeconds, 3));
+                                            lbNumTiempoEstimado.Text = Convert.ToString(Convert.ToDouble(lbNumTiempoReal.Text) + Math.Round(aleatorio, 3));
                                             MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
                                         }
                                         else
@@ -600,6 +632,9 @@ namespace ProyectoBaseDatosII.Editor
 
                                                 if (comando.enviarSinRetorno() == true)
                                                 {
+                                                    stop = new TimeSpan(DateTime.Now.Ticks);
+                                                    lbNumTiempoReal.Text = Convert.ToString(Math.Round(stop.Subtract(start).TotalSeconds, 3));
+                                                    lbNumTiempoEstimado.Text = Convert.ToString(Convert.ToDouble(lbNumTiempoReal.Text) + Math.Round(aleatorio, 3));
                                                     MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
                                                 }
                                                 else
@@ -646,6 +681,9 @@ namespace ProyectoBaseDatosII.Editor
             {
                 MessageBox.Show("Debe elegir la base de datos donde desea ejecutar el comando");
             }
+
+
+            
         }
 
         private void rtbEditor_TextChanged(object sender, EventArgs e)

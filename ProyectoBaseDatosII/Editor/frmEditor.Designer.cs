@@ -65,6 +65,10 @@
             this.btnEjecutar = new Telerik.WinControls.UI.RadButton();
             this.btnRefreshTrv = new Telerik.WinControls.UI.RadButton();
             this.cbBasesDeDatos = new System.Windows.Forms.ComboBox();
+            this.lbTiempoReal = new System.Windows.Forms.Label();
+            this.lbNumTiempoReal = new System.Windows.Forms.Label();
+            this.lbTiempoEstimado = new System.Windows.Forms.Label();
+            this.lbNumTiempoEstimado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptbNumeros)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -186,7 +190,7 @@
             // 
             // radEditor
             // 
-            this.radEditor.ActiveWindow = this.dwsEditor;
+            this.radEditor.ActiveWindow = this.twsBasesDatos;
             this.radEditor.CausesValidation = false;
             this.radEditor.Controls.Add(this.toolTabStrip1);
             this.radEditor.Controls.Add(this.documentContainer1);
@@ -372,11 +376,51 @@
             this.cbBasesDeDatos.Size = new System.Drawing.Size(121, 21);
             this.cbBasesDeDatos.TabIndex = 10;
             // 
+            // lbTiempoReal
+            // 
+            this.lbTiempoReal.AutoSize = true;
+            this.lbTiempoReal.Location = new System.Drawing.Point(806, 9);
+            this.lbTiempoReal.Name = "lbTiempoReal";
+            this.lbTiempoReal.Size = new System.Drawing.Size(70, 13);
+            this.lbTiempoReal.TabIndex = 14;
+            this.lbTiempoReal.Text = "Tiempo Real:";
+            // 
+            // lbNumTiempoReal
+            // 
+            this.lbNumTiempoReal.AutoSize = true;
+            this.lbNumTiempoReal.Location = new System.Drawing.Point(879, 9);
+            this.lbNumTiempoReal.Name = "lbNumTiempoReal";
+            this.lbNumTiempoReal.Size = new System.Drawing.Size(13, 13);
+            this.lbNumTiempoReal.TabIndex = 15;
+            this.lbNumTiempoReal.Text = "0";
+            // 
+            // lbTiempoEstimado
+            // 
+            this.lbTiempoEstimado.AutoSize = true;
+            this.lbTiempoEstimado.Location = new System.Drawing.Point(584, 9);
+            this.lbTiempoEstimado.Name = "lbTiempoEstimado";
+            this.lbTiempoEstimado.Size = new System.Drawing.Size(91, 13);
+            this.lbTiempoEstimado.TabIndex = 16;
+            this.lbTiempoEstimado.Text = "Tiempo Estimado:";
+            // 
+            // lbNumTiempoEstimado
+            // 
+            this.lbNumTiempoEstimado.AutoSize = true;
+            this.lbNumTiempoEstimado.Location = new System.Drawing.Point(681, 9);
+            this.lbNumTiempoEstimado.Name = "lbNumTiempoEstimado";
+            this.lbNumTiempoEstimado.Size = new System.Drawing.Size(13, 13);
+            this.lbNumTiempoEstimado.TabIndex = 17;
+            this.lbNumTiempoEstimado.Text = "0";
+            // 
             // frmEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 733);
+            this.Controls.Add(this.lbNumTiempoEstimado);
+            this.Controls.Add(this.lbTiempoEstimado);
+            this.Controls.Add(this.lbNumTiempoReal);
+            this.Controls.Add(this.lbTiempoReal);
             this.Controls.Add(this.btnRefreshTrv);
             this.Controls.Add(this.btnEjecutar);
             this.Controls.Add(this.lbBD);
@@ -452,5 +496,9 @@
         private Telerik.WinControls.UI.RadButton btnEjecutar;
         private Telerik.WinControls.UI.RadButton btnRefreshTrv;
         private System.Windows.Forms.ComboBox cbBasesDeDatos;
+        private System.Windows.Forms.Label lbTiempoReal;
+        private System.Windows.Forms.Label lbNumTiempoReal;
+        private System.Windows.Forms.Label lbTiempoEstimado;
+        private System.Windows.Forms.Label lbNumTiempoEstimado;
     }
 }
