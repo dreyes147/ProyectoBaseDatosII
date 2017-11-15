@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmServerConnect));
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.btnConectar = new Telerik.WinControls.UI.RadButton();
             this.cboInstancias2 = new System.Windows.Forms.ComboBox();
@@ -145,9 +146,10 @@
             this.Controls.Add(this.cboInstancias2);
             this.Controls.Add(this.btnConectar);
             this.Controls.Add(this.radLabel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmServerConnect";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmServerConnect";
+            this.Text = "Conection SQL";
             this.Load += new System.EventHandler(this.frmServerConnect_Load);
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnConectar)).EndInit();

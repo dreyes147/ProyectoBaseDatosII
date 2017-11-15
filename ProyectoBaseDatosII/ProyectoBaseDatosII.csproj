@@ -71,6 +71,12 @@
     <Compile Include="Conexion\frmServerConnect.Designer.cs">
       <DependentUpon>frmServerConnect.cs</DependentUpon>
     </Compile>
+    <Compile Include="Conexion\SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Conexion\SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\frmEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     <Compile Include="Clases\snippets.cs" />
     <EmbeddedResource Include="Conexion\frmServerConnect.resx">
       <DependentUpon>frmServerConnect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conexion\SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\frmEditor.resx">
       <DependentUpon>frmEditor.cs</DependentUpon>
@@ -127,6 +136,15 @@
       <Project>{9195e6b3-c801-4b5e-984a-38ae6e485c2b}</Project>
       <Name>CapaNegocios</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\splashscreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\splashscreen1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\splashscreen2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

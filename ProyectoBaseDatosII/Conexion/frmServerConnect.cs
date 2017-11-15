@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Sql;
+using System.Threading;
 
 namespace ProyectoBaseDatosII
 {
@@ -23,8 +24,13 @@ namespace ProyectoBaseDatosII
             InitializeComponent();
         }
 
+        public void iniciarSplashScreen() {
+            Application.Run(new Conexion.SplashScreen());
+        }
+
         private void frmServerConnect_Load(object sender, EventArgs e)
         {
+            
             //cargar cbo Instacias
             DataTable dtinstancias = instance.GetDataSources(); 
             cboInstancias2.DataSource = dtinstancias;
@@ -38,7 +44,11 @@ namespace ProyectoBaseDatosII
             cboAutentificacion.DisplayMember = "Descripcion";
             cboAutentificacion.ValueMember = "Id";
 
-            
+            Thread c = new Thread(new ThreadStart(iniciarSplashScreen));
+            c.Start();
+            Thread.Sleep(5000);
+            c.Abort();
+
         }
 
         private void btnConectar_Click(object sender, EventArgs e)
