@@ -43,6 +43,10 @@ namespace ProyectoBaseDatosII
 
         private void btnConectar_Click(object sender, EventArgs e)
         {
+            conectar();
+        }
+
+        public void conectar() {
             bool vEstCoenxion;
             if (cboAutentificacion.SelectedValue.ToString() == "1")
             {
@@ -50,15 +54,15 @@ namespace ProyectoBaseDatosII
                 if (vEstCoenxion)
                 {
                     //MessageBox.Show("Conexion Iniciada");
-                    
+
                     this.Hide();
                     Editor.frmEditor editor = new Editor.frmEditor();
                     editor.Show();
                 }
                 else
-                MessageBox.Show("Conexion Fallida");
+                    MessageBox.Show("Conexion Fallida");
             }
-            else if(cboAutentificacion.SelectedValue.ToString() == "2")
+            else if (cboAutentificacion.SelectedValue.ToString() == "2")
             {
                 vEstCoenxion = enlace.SqlAuthen(cboInstancias2.SelectedValue.ToString(), txtUsuario.Text, txtPassword.Text);
                 if (vEstCoenxion)
@@ -71,6 +75,7 @@ namespace ProyectoBaseDatosII
                     MessageBox.Show("Conexion Fallida");
             }
         }
+
 
         private void cboAutentificacion_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -90,6 +95,14 @@ namespace ProyectoBaseDatosII
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void cboInstancias2_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+            {
+                conectar();
+            }
         }
     }
 }

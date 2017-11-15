@@ -17,6 +17,7 @@ namespace CapaDatos.Conexion
         public static string nonquery { get; set; }
         public static DataTable Datos { get; set; }
         public static string errorDatos { get; set; }
+        public static int num { get; set; }
 
         public static SqlConnection oCN { get; set; }
 
@@ -197,7 +198,7 @@ namespace CapaDatos.Conexion
                     SqlCommand command = new SqlCommand(nonquery, oCN);
                     command.CommandType = CommandType.Text;
                     //Datos = command.ExecuteReader();
-                    command.ExecuteNonQuery();
+                    num = command.ExecuteNonQuery();
                     CerrarConexion();
                     return true;
                     

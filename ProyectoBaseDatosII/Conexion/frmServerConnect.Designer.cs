@@ -68,6 +68,7 @@
             this.cboInstancias2.Name = "cboInstancias2";
             this.cboInstancias2.Size = new System.Drawing.Size(188, 21);
             this.cboInstancias2.TabIndex = 4;
+            this.cboInstancias2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cboInstancias2_KeyUp);
             // 
             // cboAutentificacion
             // 

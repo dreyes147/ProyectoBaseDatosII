@@ -257,24 +257,31 @@ namespace ProyectoBaseDatosII.Editor
         private void cbDatos_SelectedIndexChanged(object sender, EventArgs e)
         {
             Snippets snip = new Snippets();
-
-            switch (cbDatos.SelectedItem.ToString())
+            try
             {
-                case "Select":
-                    rtbEditor.Text += snip.select();
-                    break;
-                case "Insert":
-                    rtbEditor.Text += snip.insert();
-                    break;
-                case "Update":
-                    rtbEditor.Text += snip.update();
-                    break;
-                case "Delete":
-                    rtbEditor.Text += snip.delete();
-                    break;
-                default:
-                    break;
+                switch (cbDatos.SelectedItem.ToString())
+                {
+                    case "Select":
+                        rtbEditor.Text += snip.select();
+                        break;
+                    case "Insert":
+                        rtbEditor.Text += snip.insert();
+                        break;
+                    case "Update":
+                        rtbEditor.Text += snip.update();
+                        break;
+                    case "Delete":
+                        rtbEditor.Text += snip.delete();
+                        break;
+                    default:
+                        break;
+                }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Teclas de acceso rapido\n ctrl + m = DML \n ctrl + d = DDL");
+            }
+            
 
         }
 
@@ -303,27 +310,35 @@ namespace ProyectoBaseDatosII.Editor
         private void cbDDL_SelectedIndexChanged(object sender, EventArgs e)
         {
             Snippets snip = new Snippets();
-
-            switch (cbDDL.SelectedItem.ToString())
+            try
             {
-                case "Create":
-                    rtbEditor.Text += snip.create();
-                    break;
-                case "Drop":
-                    rtbEditor.Text += snip.drop();
-                    break;
-                case "Alter Add":
-                    rtbEditor.Text += snip.alter();
-                    break;
-                case "Alter Drop":
-                    rtbEditor.Text += snip.alterDrop();
-                    break;
-                case "Alter Alter":
-                    rtbEditor.Text += snip.alterAlter();
-                    break;
-                default:
-                    break;
+                switch (cbDDL.SelectedItem.ToString())
+                {
+                    case "Create":
+                        rtbEditor.Text += snip.create();
+                        break;
+                    case "Drop":
+                        rtbEditor.Text += snip.drop();
+                        break;
+                    case "Alter Add":
+                        rtbEditor.Text += snip.alter();
+                        break;
+                    case "Alter Drop":
+                        rtbEditor.Text += snip.alterDrop();
+                        break;
+                    case "Alter Alter":
+                        rtbEditor.Text += snip.alterAlter();
+                        break;
+                    default:
+                        break;
+                }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Teclas de acceso rapido\n ctrl + m = DML \n ctrl + d = DDL");
+            }
+
+            
         }
 
         #endregion
@@ -334,6 +349,8 @@ namespace ProyectoBaseDatosII.Editor
         }
 
         public void ejecutar() {
+            lbNumTiempoReal.Text = "0";
+            lbNumTiempoEstimado.Text = "0";
             Random r = new Random(DateTime.Now.Millisecond);
             double aleatorio = r.NextDouble();
             TimeSpan stop;
@@ -401,7 +418,7 @@ namespace ProyectoBaseDatosII.Editor
                                         stop = new TimeSpan(DateTime.Now.Ticks);
                                         lbNumTiempoReal.Text = Convert.ToString(Math.Round(stop.Subtract(start).TotalSeconds, 3));
                                         lbNumTiempoEstimado.Text = Convert.ToString(Convert.ToDouble(lbNumTiempoReal.Text) + Math.Round(aleatorio, 3));
-                                        MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
+                                        MessageBox.Show("Sentencia Ejecutada\n" + CapaNegocios.ClsEnviarQuerys.num + " filas afectadas");
                                     }
                                     else
                                     {
@@ -439,7 +456,7 @@ namespace ProyectoBaseDatosII.Editor
                                         stop = new TimeSpan(DateTime.Now.Ticks);
                                         lbNumTiempoReal.Text = Convert.ToString(Math.Round(stop.Subtract(start).TotalSeconds, 3));
                                         lbNumTiempoEstimado.Text = Convert.ToString(Convert.ToDouble(lbNumTiempoReal.Text) + Math.Round(aleatorio, 3));
-                                        MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
+                                        MessageBox.Show("Sentencia Ejecutada\n" + CapaNegocios.ClsEnviarQuerys.num +" filas afectadas");
                                     }
                                     else
                                     {
@@ -475,7 +492,7 @@ namespace ProyectoBaseDatosII.Editor
                                         stop = new TimeSpan(DateTime.Now.Ticks);
                                         lbNumTiempoReal.Text = Convert.ToString(Math.Round(stop.Subtract(start).TotalSeconds, 3));
                                         lbNumTiempoEstimado.Text = Convert.ToString(Convert.ToDouble(lbNumTiempoReal.Text) + Math.Round(aleatorio, 3));
-                                        MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
+                                        MessageBox.Show("Sentencia Ejecutada\n" + CapaNegocios.ClsEnviarQuerys.num + " filas afectadas");
                                     }
                                     else
                                     {

@@ -14,6 +14,7 @@ namespace CapaNegocios
         public static string nonQuery { get; set; }
         public static DataTable Datos { get; set; }
         public static string error { get; set; }
+        public static int num { get; set; }
 
         public bool enviar() {
             CapaDatos.Conexion.ClsConexionLocal.query = query;
@@ -39,6 +40,7 @@ namespace CapaNegocios
             CapaDatos.Conexion.ClsConexionLocal ejecutar = new CapaDatos.Conexion.ClsConexionLocal();
             if (ejecutar.ejecutarDatosSinRetorno() == true)
             {
+                num = CapaDatos.Conexion.ClsConexionLocal.num;
                 return true;
             }
             else
