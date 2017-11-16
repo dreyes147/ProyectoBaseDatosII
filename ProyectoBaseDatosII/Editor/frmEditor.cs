@@ -14,6 +14,7 @@ namespace ProyectoBaseDatosII.Editor
 {
     public partial class frmEditor : Form
     {
+        
         string[] arregloDMLBasico = new string[4];
         string[] arregloSelect = new string[2];
         string[] arregloInsert = new string[3];
@@ -100,6 +101,10 @@ namespace ProyectoBaseDatosII.Editor
 
         private void frmEditor_Load(object sender, EventArgs e)
         {
+            /*
+            this.Size = SystemInformation.PrimaryMonitorSize;
+            radEditor.Size = SystemInformation.PrimaryMonitorSize;
+            */
             cbDatos.Items.Add("Select");
             cbDatos.Items.Add("Insert");
             cbDatos.Items.Add("Update");
@@ -728,9 +733,6 @@ namespace ProyectoBaseDatosII.Editor
             Application.Exit();
         }
 
-        private void btnRefreshTrv_Click_1(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

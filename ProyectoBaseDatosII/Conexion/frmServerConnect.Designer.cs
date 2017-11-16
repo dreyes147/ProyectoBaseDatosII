@@ -187,7 +187,7 @@
             this.Controls.Add(this.cboInstancias2);
             this.Controls.Add(this.btnConectar);
             this.Controls.Add(this.radLabel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmServerConnect";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
