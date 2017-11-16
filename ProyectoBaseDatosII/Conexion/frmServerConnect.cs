@@ -115,5 +115,10 @@ namespace ProyectoBaseDatosII
                 conectar();
             }
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

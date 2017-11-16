@@ -94,7 +94,9 @@
             this.rtbEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbEditor.BackColor = System.Drawing.Color.White;
             this.rtbEditor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbEditor.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbEditor.Location = new System.Drawing.Point(51, 3);
             this.rtbEditor.Name = "rtbEditor";
             this.rtbEditor.Size = new System.Drawing.Size(735, 601);
@@ -137,6 +139,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.LightBlue;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -153,8 +156,9 @@
             this.guardarComoToolStripMenuItem,
             this.toolStripSeparator1,
             this.salirToolStripMenuItem});
+            this.archivoToolStripMenuItem.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
             // nuevoToolStripMenuItem
@@ -225,6 +229,8 @@
             // 
             // TrvDatos
             // 
+            this.TrvDatos.BackColor = System.Drawing.Color.AliceBlue;
+            this.TrvDatos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TrvDatos.ImageIndex = 0;
             this.TrvDatos.ImageList = this.imageList1;
             this.TrvDatos.Location = new System.Drawing.Point(-1, 7);
@@ -304,56 +310,65 @@
             // 
             // cbDatos
             // 
+            this.cbDatos.BackColor = System.Drawing.Color.LightBlue;
             this.cbDatos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbDatos.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDatos.FormattingEnabled = true;
-            this.cbDatos.Location = new System.Drawing.Point(684, 41);
+            this.cbDatos.Location = new System.Drawing.Point(656, 40);
             this.cbDatos.Name = "cbDatos";
-            this.cbDatos.Size = new System.Drawing.Size(121, 21);
+            this.cbDatos.Size = new System.Drawing.Size(146, 21);
             this.cbDatos.TabIndex = 6;
             this.cbDatos.SelectedIndexChanged += new System.EventHandler(this.cbDatos_SelectedIndexChanged);
             // 
             // lbDML
             // 
             this.lbDML.AutoSize = true;
-            this.lbDML.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDML.Location = new System.Drawing.Point(641, 44);
+            this.lbDML.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDML.Location = new System.Drawing.Point(609, 44);
             this.lbDML.Name = "lbDML";
-            this.lbDML.Size = new System.Drawing.Size(37, 13);
+            this.lbDML.Size = new System.Drawing.Size(41, 14);
             this.lbDML.TabIndex = 7;
             this.lbDML.Text = "DML:";
             // 
             // cbDDL
             // 
+            this.cbDDL.BackColor = System.Drawing.Color.LightBlue;
             this.cbDDL.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDDL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbDDL.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDDL.FormattingEnabled = true;
-            this.cbDDL.Location = new System.Drawing.Point(882, 39);
+            this.cbDDL.Location = new System.Drawing.Point(858, 39);
             this.cbDDL.Name = "cbDDL";
-            this.cbDDL.Size = new System.Drawing.Size(121, 21);
+            this.cbDDL.Size = new System.Drawing.Size(145, 21);
             this.cbDDL.TabIndex = 8;
             this.cbDDL.SelectedIndexChanged += new System.EventHandler(this.cbDDL_SelectedIndexChanged);
             // 
             // lbDDL
             // 
             this.lbDDL.AutoSize = true;
-            this.lbDDL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDDL.Location = new System.Drawing.Point(840, 42);
+            this.lbDDL.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDDL.Location = new System.Drawing.Point(812, 42);
             this.lbDDL.Name = "lbDDL";
-            this.lbDDL.Size = new System.Drawing.Size(36, 13);
+            this.lbDDL.Size = new System.Drawing.Size(40, 14);
             this.lbDDL.TabIndex = 9;
             this.lbDDL.Text = "DDL:";
             // 
             // lbBD
             // 
             this.lbBD.AutoSize = true;
-            this.lbBD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBD.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbBD.Location = new System.Drawing.Point(377, 42);
             this.lbBD.Name = "lbBD";
-            this.lbBD.Size = new System.Drawing.Size(39, 15);
+            this.lbBD.Size = new System.Drawing.Size(39, 14);
             this.lbBD.TabIndex = 11;
             this.lbBD.Text = "USE:";
             // 
             // btnEjecutar
             // 
+            this.btnEjecutar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnEjecutar.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEjecutar.ForeColor = System.Drawing.Color.White;
             this.btnEjecutar.Location = new System.Drawing.Point(204, 36);
             this.btnEjecutar.Name = "btnEjecutar";
             this.btnEjecutar.Size = new System.Drawing.Size(110, 24);
@@ -363,72 +378,92 @@
             // 
             // btnRefreshTrv
             // 
+            this.btnRefreshTrv.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnRefreshTrv.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefreshTrv.ForeColor = System.Drawing.Color.White;
             this.btnRefreshTrv.Location = new System.Drawing.Point(3, 38);
             this.btnRefreshTrv.Name = "btnRefreshTrv";
             this.btnRefreshTrv.Size = new System.Drawing.Size(110, 24);
             this.btnRefreshTrv.TabIndex = 13;
             this.btnRefreshTrv.Text = "Refresh";
+            this.btnRefreshTrv.Click += new System.EventHandler(this.btnRefreshTrv_Click_1);
             // 
             // cbBasesDeDatos
             // 
+            this.cbBasesDeDatos.BackColor = System.Drawing.Color.LightBlue;
             this.cbBasesDeDatos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBasesDeDatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbBasesDeDatos.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbBasesDeDatos.FormattingEnabled = true;
-            this.cbBasesDeDatos.Location = new System.Drawing.Point(419, 41);
+            this.cbBasesDeDatos.Location = new System.Drawing.Point(422, 39);
             this.cbBasesDeDatos.Name = "cbBasesDeDatos";
-            this.cbBasesDeDatos.Size = new System.Drawing.Size(121, 21);
+            this.cbBasesDeDatos.Size = new System.Drawing.Size(162, 21);
             this.cbBasesDeDatos.TabIndex = 10;
             // 
             // lbTiempoReal
             // 
             this.lbTiempoReal.AutoSize = true;
-            this.lbTiempoReal.Location = new System.Drawing.Point(641, 9);
+            this.lbTiempoReal.BackColor = System.Drawing.Color.LightBlue;
+            this.lbTiempoReal.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTiempoReal.Location = new System.Drawing.Point(609, 5);
             this.lbTiempoReal.Name = "lbTiempoReal";
-            this.lbTiempoReal.Size = new System.Drawing.Size(70, 13);
+            this.lbTiempoReal.Size = new System.Drawing.Size(88, 14);
             this.lbTiempoReal.TabIndex = 14;
             this.lbTiempoReal.Text = "Tiempo Real:";
             // 
             // lbNumTiempoReal
             // 
             this.lbNumTiempoReal.AutoSize = true;
-            this.lbNumTiempoReal.Location = new System.Drawing.Point(714, 9);
+            this.lbNumTiempoReal.BackColor = System.Drawing.Color.LightBlue;
+            this.lbNumTiempoReal.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumTiempoReal.Location = new System.Drawing.Point(703, 5);
             this.lbNumTiempoReal.Name = "lbNumTiempoReal";
-            this.lbNumTiempoReal.Size = new System.Drawing.Size(13, 13);
+            this.lbNumTiempoReal.Size = new System.Drawing.Size(15, 14);
             this.lbNumTiempoReal.TabIndex = 15;
             this.lbNumTiempoReal.Text = "0";
             // 
             // lbTiempoEstimado
             // 
             this.lbTiempoEstimado.AutoSize = true;
-            this.lbTiempoEstimado.Location = new System.Drawing.Point(377, 9);
+            this.lbTiempoEstimado.BackColor = System.Drawing.Color.LightBlue;
+            this.lbTiempoEstimado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbTiempoEstimado.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTiempoEstimado.Location = new System.Drawing.Point(349, 5);
             this.lbTiempoEstimado.Name = "lbTiempoEstimado";
-            this.lbTiempoEstimado.Size = new System.Drawing.Size(91, 13);
+            this.lbTiempoEstimado.Size = new System.Drawing.Size(119, 14);
             this.lbTiempoEstimado.TabIndex = 16;
             this.lbTiempoEstimado.Text = "Tiempo Estimado:";
             // 
             // lbNumTiempoEstimado
             // 
             this.lbNumTiempoEstimado.AutoSize = true;
-            this.lbNumTiempoEstimado.Location = new System.Drawing.Point(474, 9);
+            this.lbNumTiempoEstimado.BackColor = System.Drawing.Color.LightBlue;
+            this.lbNumTiempoEstimado.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumTiempoEstimado.Location = new System.Drawing.Point(474, 5);
             this.lbNumTiempoEstimado.Name = "lbNumTiempoEstimado";
-            this.lbNumTiempoEstimado.Size = new System.Drawing.Size(13, 13);
+            this.lbNumTiempoEstimado.Size = new System.Drawing.Size(15, 14);
             this.lbNumTiempoEstimado.TabIndex = 17;
             this.lbNumTiempoEstimado.Text = "0";
             // 
             // lbDiferencia
             // 
             this.lbDiferencia.AutoSize = true;
-            this.lbDiferencia.Location = new System.Drawing.Point(840, 9);
+            this.lbDiferencia.BackColor = System.Drawing.Color.LightBlue;
+            this.lbDiferencia.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDiferencia.Location = new System.Drawing.Point(840, 5);
             this.lbDiferencia.Name = "lbDiferencia";
-            this.lbDiferencia.Size = new System.Drawing.Size(58, 13);
+            this.lbDiferencia.Size = new System.Drawing.Size(74, 14);
             this.lbDiferencia.TabIndex = 18;
             this.lbDiferencia.Text = "Diferencia:";
             // 
             // lbNumDiferencia
             // 
             this.lbNumDiferencia.AutoSize = true;
-            this.lbNumDiferencia.Location = new System.Drawing.Point(904, 10);
+            this.lbNumDiferencia.BackColor = System.Drawing.Color.LightBlue;
+            this.lbNumDiferencia.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumDiferencia.Location = new System.Drawing.Point(920, 5);
             this.lbNumDiferencia.Name = "lbNumDiferencia";
-            this.lbNumDiferencia.Size = new System.Drawing.Size(13, 13);
+            this.lbNumDiferencia.Size = new System.Drawing.Size(15, 14);
             this.lbNumDiferencia.TabIndex = 19;
             this.lbNumDiferencia.Text = "0";
             // 
@@ -436,6 +471,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1012, 733);
             this.Controls.Add(this.lbNumDiferencia);
             this.Controls.Add(this.lbDiferencia);
@@ -454,6 +490,7 @@
             this.Controls.Add(this.radEditor);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmEditor";

@@ -727,5 +727,10 @@ namespace ProyectoBaseDatosII.Editor
         {
             Application.Exit();
         }
+
+        private void btnRefreshTrv_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
