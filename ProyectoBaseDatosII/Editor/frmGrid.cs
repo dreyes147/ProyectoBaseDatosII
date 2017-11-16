@@ -25,5 +25,10 @@ namespace ProyectoBaseDatosII
             gridView.DataSource = CapaNegocios.ClsEnviarQuerys.Datos;
             
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
