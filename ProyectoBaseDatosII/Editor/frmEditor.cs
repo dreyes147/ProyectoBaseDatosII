@@ -733,6 +733,16 @@ namespace ProyectoBaseDatosII.Editor
             Application.Exit();
         }
 
-        
+        private void gENERALToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReportesGenerales frmReportes = new frmReportesGenerales();
+            frmReportes.Show();
+        }
+
+        private void dDLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReportesEspecificos frmReportes = new frmReportesEspecificos();
+            frmReportes.Show();
+        }
     }
 }

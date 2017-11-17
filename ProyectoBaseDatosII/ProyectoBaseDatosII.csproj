@@ -89,6 +89,18 @@
     <Compile Include="Editor\frmGrid.Designer.cs">
       <DependentUpon>frmGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editor\frmReportesEspecificos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\frmReportesEspecificos.Designer.cs">
+      <DependentUpon>frmReportesEspecificos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\frmReportesGenerales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\frmReportesGenerales.Designer.cs">
+      <DependentUpon>frmReportesGenerales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Clases\snippets.cs" />
@@ -103,6 +115,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\frmGrid.resx">
       <DependentUpon>frmGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\frmReportesEspecificos.resx">
+      <DependentUpon>frmReportesEspecificos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\frmReportesGenerales.resx">
+      <DependentUpon>frmReportesGenerales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

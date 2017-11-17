@@ -31,10 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditor));
             this.rtbEditor = new System.Windows.Forms.RichTextBox();
-            this.ptbNumeros = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.tlblFecha = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,14 +40,17 @@
             this.guardarComoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.snippetsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dDLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.radEditor = new Telerik.WinControls.UI.Docking.RadDock();
-            this.dwsEditor = new Telerik.WinControls.UI.Docking.DocumentWindow();
-            this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.twsBasesDatos = new Telerik.WinControls.UI.Docking.ToolWindow();
             this.TrvDatos = new System.Windows.Forms.TreeView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.documentContainer1 = new Telerik.WinControls.UI.Docking.DocumentContainer();
             this.documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
+            this.dwsEditor = new Telerik.WinControls.UI.Docking.DocumentWindow();
             this.radThemeManager1 = new Telerik.WinControls.RadThemeManager();
             this.windows8Theme1 = new Telerik.WinControls.Themes.Windows8Theme();
             this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
@@ -71,21 +72,25 @@
             this.lbNumTiempoEstimado = new System.Windows.Forms.Label();
             this.lbDiferencia = new System.Windows.Forms.Label();
             this.lbNumDiferencia = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbNumeros)).BeginInit();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.gENERALToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ptbNumeros = new System.Windows.Forms.PictureBox();
+            this.tlblFecha = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radEditor)).BeginInit();
             this.radEditor.SuspendLayout();
-            this.dwsEditor.SuspendLayout();
+            this.twsBasesDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).BeginInit();
             this.toolTabStrip1.SuspendLayout();
-            this.twsBasesDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).BeginInit();
             this.documentContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).BeginInit();
             this.documentTabStrip1.SuspendLayout();
+            this.dwsEditor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEjecutar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefreshTrv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbNumeros)).BeginInit();
             this.SuspendLayout();
             // 
             // rtbEditor
@@ -105,18 +110,6 @@
             this.rtbEditor.TextChanged += new System.EventHandler(this.rtbEditor_TextChanged);
             this.rtbEditor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.rtbEditor_KeyUp);
             // 
-            // ptbNumeros
-            // 
-            this.ptbNumeros.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.ptbNumeros.BackColor = System.Drawing.Color.White;
-            this.ptbNumeros.Location = new System.Drawing.Point(3, 2);
-            this.ptbNumeros.Name = "ptbNumeros";
-            this.ptbNumeros.Size = new System.Drawing.Size(42, 658);
-            this.ptbNumeros.TabIndex = 1;
-            this.ptbNumeros.TabStop = false;
-            this.ptbNumeros.Paint += new System.Windows.Forms.PaintEventHandler(this.ptbNumeros_Paint);
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -131,18 +124,13 @@
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // tlblFecha
-            // 
-            this.tlblFecha.Image = global::ProyectoBaseDatosII.Properties.Resources.IconoCalendario;
-            this.tlblFecha.Name = "tlblFecha";
-            this.tlblFecha.Size = new System.Drawing.Size(16, 17);
-            // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.LightBlue;
             this.menuStrip1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivoToolStripMenuItem});
+            this.archivoToolStripMenuItem,
+            this.reportesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1010, 24);
@@ -195,6 +183,31 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.snippetsToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // snippetsToolStripMenuItem
+            // 
+            this.snippetsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dDLToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.gENERALToolStripMenuItem});
+            this.snippetsToolStripMenuItem.Name = "snippetsToolStripMenuItem";
+            this.snippetsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.snippetsToolStripMenuItem.Text = "Snippets";
+            // 
+            // dDLToolStripMenuItem
+            // 
+            this.dDLToolStripMenuItem.Name = "dDLToolStripMenuItem";
+            this.dDLToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.dDLToolStripMenuItem.Text = "Especifico";
+            this.dDLToolStripMenuItem.Click += new System.EventHandler(this.dDLToolStripMenuItem_Click);
+            // 
             // radEditor
             // 
             this.radEditor.ActiveWindow = this.twsBasesDatos;
@@ -215,35 +228,6 @@
             this.radEditor.TabStop = false;
             this.radEditor.Text = "radDock1";
             this.radEditor.ThemeName = "Office2013Light";
-            // 
-            // dwsEditor
-            // 
-            this.dwsEditor.Controls.Add(this.rtbEditor);
-            this.dwsEditor.Controls.Add(this.ptbNumeros);
-            this.dwsEditor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.dwsEditor.Location = new System.Drawing.Point(5, 31);
-            this.dwsEditor.Name = "dwsEditor";
-            this.dwsEditor.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            this.dwsEditor.Size = new System.Drawing.Size(789, 606);
-            this.dwsEditor.Text = "Query";
-            this.dwsEditor.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
-            // 
-            // toolTabStrip1
-            // 
-            this.toolTabStrip1.CanUpdateChildIndex = true;
-            this.toolTabStrip1.CausesValidation = false;
-            this.toolTabStrip1.Controls.Add(this.twsBasesDatos);
-            this.toolTabStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolTabStrip1.Name = "toolTabStrip1";
-            // 
-            // 
-            // 
-            this.toolTabStrip1.RootElement.MinSize = new System.Drawing.Size(25, 25);
-            this.toolTabStrip1.SelectedIndex = 0;
-            this.toolTabStrip1.Size = new System.Drawing.Size(200, 642);
-            this.toolTabStrip1.TabIndex = 1;
-            this.toolTabStrip1.TabStop = false;
-            this.toolTabStrip1.ThemeName = "Office2013Light";
             // 
             // twsBasesDatos
             // 
@@ -277,6 +261,23 @@
             this.imageList1.Images.SetKeyName(0, "base-de-datos.png");
             this.imageList1.Images.SetKeyName(1, "cuadricula-de-la-tabla.png");
             // 
+            // toolTabStrip1
+            // 
+            this.toolTabStrip1.CanUpdateChildIndex = true;
+            this.toolTabStrip1.CausesValidation = false;
+            this.toolTabStrip1.Controls.Add(this.twsBasesDatos);
+            this.toolTabStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolTabStrip1.Name = "toolTabStrip1";
+            // 
+            // 
+            // 
+            this.toolTabStrip1.RootElement.MinSize = new System.Drawing.Size(25, 25);
+            this.toolTabStrip1.SelectedIndex = 0;
+            this.toolTabStrip1.Size = new System.Drawing.Size(200, 642);
+            this.toolTabStrip1.TabIndex = 1;
+            this.toolTabStrip1.TabStop = false;
+            this.toolTabStrip1.ThemeName = "Office2013Light";
+            // 
             // documentContainer1
             // 
             this.documentContainer1.Controls.Add(this.documentTabStrip1);
@@ -304,6 +305,18 @@
             this.documentTabStrip1.TabIndex = 0;
             this.documentTabStrip1.TabStop = false;
             this.documentTabStrip1.ThemeName = "Office2013Light";
+            // 
+            // dwsEditor
+            // 
+            this.dwsEditor.Controls.Add(this.rtbEditor);
+            this.dwsEditor.Controls.Add(this.ptbNumeros);
+            this.dwsEditor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.dwsEditor.Location = new System.Drawing.Point(5, 31);
+            this.dwsEditor.Name = "dwsEditor";
+            this.dwsEditor.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
+            this.dwsEditor.Size = new System.Drawing.Size(789, 606);
+            this.dwsEditor.Text = "Query";
+            this.dwsEditor.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
             // openFileDialog1
             // 
@@ -467,6 +480,36 @@
             this.lbNumDiferencia.TabIndex = 19;
             this.lbNumDiferencia.Text = "0";
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            // 
+            // gENERALToolStripMenuItem
+            // 
+            this.gENERALToolStripMenuItem.Name = "gENERALToolStripMenuItem";
+            this.gENERALToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gENERALToolStripMenuItem.Text = "General";
+            this.gENERALToolStripMenuItem.Click += new System.EventHandler(this.gENERALToolStripMenuItem_Click);
+            // 
+            // ptbNumeros
+            // 
+            this.ptbNumeros.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ptbNumeros.BackColor = System.Drawing.Color.White;
+            this.ptbNumeros.Location = new System.Drawing.Point(3, 2);
+            this.ptbNumeros.Name = "ptbNumeros";
+            this.ptbNumeros.Size = new System.Drawing.Size(42, 658);
+            this.ptbNumeros.TabIndex = 1;
+            this.ptbNumeros.TabStop = false;
+            this.ptbNumeros.Paint += new System.Windows.Forms.PaintEventHandler(this.ptbNumeros_Paint);
+            // 
+            // tlblFecha
+            // 
+            this.tlblFecha.Image = global::ProyectoBaseDatosII.Properties.Resources.IconoCalendario;
+            this.tlblFecha.Name = "tlblFecha";
+            this.tlblFecha.Size = new System.Drawing.Size(16, 16);
+            // 
             // frmEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -498,23 +541,23 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmEditor_FormClosed);
             this.Load += new System.EventHandler(this.frmEditor_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ptbNumeros)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radEditor)).EndInit();
             this.radEditor.ResumeLayout(false);
-            this.dwsEditor.ResumeLayout(false);
+            this.twsBasesDatos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).EndInit();
             this.toolTabStrip1.ResumeLayout(false);
-            this.twsBasesDatos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).EndInit();
             this.documentContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).EndInit();
             this.documentTabStrip1.ResumeLayout(false);
+            this.dwsEditor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnEjecutar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefreshTrv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbNumeros)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -563,5 +606,10 @@
         private System.Windows.Forms.Label lbNumTiempoEstimado;
         private System.Windows.Forms.Label lbDiferencia;
         private System.Windows.Forms.Label lbNumDiferencia;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem snippetsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dDLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem gENERALToolStripMenuItem;
     }
 }
