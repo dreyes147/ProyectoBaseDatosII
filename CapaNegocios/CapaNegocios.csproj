@@ -43,6 +43,7 @@
     <Compile Include="clsCargarReportes.cs" />
     <Compile Include="ClsEnviarQuerys.cs" />
     <Compile Include="ClsFrmConexion.cs" />
+    <Compile Include="clsIndex.cs" />
     <Compile Include="ClsReportes.cs" />
     <Compile Include="ClsTreeView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

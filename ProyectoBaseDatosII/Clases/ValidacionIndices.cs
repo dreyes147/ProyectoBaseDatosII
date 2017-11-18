@@ -24,11 +24,12 @@ namespace ProyectoBaseDatosII.Clases
 
         #region Declaración de Método
 
-        public Boolean ValidarIndice(string pConsulta)
+        public string ValidarIndice(string pConsulta, string pUser)
         {
             TGSqlParser sqlparser = new TGSqlParser(TDbVendor.DbVMssql);
             string xmlData = string.Empty;
             string vId = string.Empty;
+            string vResultado = string.Empty;
             int vContador = 0;
             int vValorAnterior = 0;
             Tablas vCampo;
@@ -87,12 +88,13 @@ namespace ProyectoBaseDatosII.Clases
                     vCampos.Add(vCampo);
                 }
                 ExtraerTablas();
+                vResultado = ConsultarIndex(vCampos);
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-            return false;
+            return vResultado;
         }
 
         private void ExtraerTablas()
@@ -137,6 +139,57 @@ namespace ProyectoBaseDatosII.Clases
             }
         }
 
+        private string ConsultarIndex(List<Tablas> pCampos)
+        {
+            CapaNegocios.clsIndex vNegocioIndex = new CapaNegocios.clsIndex();
+            DataTable dtIndex = new DataTable();
+            List<Tablas> vDatos;
+            bool vBandera = false;
+            string vResultado = string.Empty;
+            try
+            {
+                foreach (Tablas vItem in vTablas)
+                {
+                   
+                    dtIndex = vNegocioIndex.ValidarIndex(vItem.NombreTabla);
+                    if (dtIndex.Rows.Count > 0)
+                    {
+                        vDatos = (from x in pCampos
+                                  where x.AliasTabla == vItem.AliasTabla
+                                  select x).ToList();
+
+                        foreach (Tablas vItems in vDatos)
+                        {
+                            foreach (DataRow vRow in dtIndex.Rows)
+                            {
+                                foreach (string vNombreCol in vRow["index_Keys"].ToString().Split(Convert.ToChar(",")))
+                                {
+                                    if (vItems.NombreCampo == vNombreCol)
+                                    {
+                                        vBandera = true;
+                                    }
+                                }
+                            }
+                            if (!vBandera)
+                            {
+                                vResultado += " El campo " + vItems.NombreCampo + "de la tabla " + vItem.NombreTabla +
+                                    "no está contenido en ningún índice\n";
+                            }
+                            vBandera = false;
+                        } 
+                    }
+                    else
+                    {
+                        vResultado += "La tabla " + vItem.NombreTabla + "no contiene un índice\n";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return vResultado;
+        }
         #endregion
     }
 }
