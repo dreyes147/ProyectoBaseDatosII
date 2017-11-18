@@ -37,7 +37,7 @@ namespace ProyectoBaseDatosII.Clases
             try
             {
 
-                sqlparser.SqlText.Text = "SELECT *,a.hola FROM Customers c inner join hola a on a.sd=c.sd WHERE c.CustomerName='foo' and a.sd=1";
+                sqlparser.SqlText.Text = pConsulta;
 
                 Console.ReadLine();
                 int result = sqlparser.Parse();
@@ -88,7 +88,7 @@ namespace ProyectoBaseDatosII.Clases
                     vCampos.Add(vCampo);
                 }
                 ExtraerTablas();
-                vResultado = ConsultarIndex(vCampos);
+                vResultado = ConsultarIndex(vCampos, pUser);
             }
             catch (Exception ex)
             {
@@ -139,7 +139,7 @@ namespace ProyectoBaseDatosII.Clases
             }
         }
 
-        private string ConsultarIndex(List<Tablas> pCampos)
+        private string ConsultarIndex(List<Tablas> pCampos,string pUser)
         {
             CapaNegocios.clsIndex vNegocioIndex = new CapaNegocios.clsIndex();
             DataTable dtIndex = new DataTable();
@@ -151,7 +151,7 @@ namespace ProyectoBaseDatosII.Clases
                 foreach (Tablas vItem in vTablas)
                 {
                    
-                    dtIndex = vNegocioIndex.ValidarIndex(vItem.NombreTabla);
+                    dtIndex = vNegocioIndex.ValidarIndex(vItem.NombreTabla, pUser);
                     if (dtIndex.Rows.Count > 0)
                     {
                         vDatos = (from x in pCampos

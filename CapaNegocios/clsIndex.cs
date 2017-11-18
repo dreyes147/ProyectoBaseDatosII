@@ -11,7 +11,7 @@ namespace CapaNegocios
     {
         public clsIndex() { }
 
-        public DataTable ValidarIndex(string pNombreTabla)
+        public DataTable ValidarIndex(string pNombreTabla, string pUser)
         {
             DataTable dtResultado = new DataTable();
             CapaDatos.Clases.clsIndex vConexion = new CapaDatos.Clases.clsIndex();

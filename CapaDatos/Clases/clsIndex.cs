@@ -12,14 +12,14 @@ namespace CapaDatos.Clases
         public clsIndex() {
         }
 
-        public DataTable ValidarIndex(string pNombreTabla)
+        public DataTable ValidarIndex(string pNombreTabla, string pUser)
         {
             DataTable dtResultado = new DataTable();
             string vSql = string.Empty;
             Conexion.ClsConexionLocal vConexion = new Conexion.ClsConexionLocal();
             try
             {
-                vSql = "Exec sp_helpindex '"+ pNombreTabla+"'";
+                vSql = pUser + "Exec sp_helpindex '"+ pNombreTabla+"'";
                 dtResultado = vConexion.ejecutar(vSql);
             }
             catch (Exception ex)
