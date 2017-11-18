@@ -14,7 +14,7 @@ namespace ProyectoBaseDatosII.Editor
 {
     public partial class frmEditor : Form
     {
-        
+
         string[] arregloDMLBasico = new string[4];
         string[] arregloSelect = new string[2];
         string[] arregloInsert = new string[3];
@@ -42,7 +42,7 @@ namespace ProyectoBaseDatosII.Editor
         #region Declaración de Métodos
 
         public void CargarTreeView()
-        {  
+        {
             CapaNegocios.ClsTreeView vNegocioTreeview = new CapaNegocios.ClsTreeView();
             DataTable dtDatosTreeview = new DataTable();
             TreeNode vNodoRaiz;
@@ -59,16 +59,17 @@ namespace ProyectoBaseDatosII.Editor
                     {
                         vNodoPadre = new TreeNode(vRow["Descripcion"].ToString());
                         vNodoPadre.ImageIndex = 0;
-                        foreach (DataRow vItem in dtDatosTreeview.Select("CodigoPadre = " + vRow["Codigo"].ToString())) {
+                        foreach (DataRow vItem in dtDatosTreeview.Select("CodigoPadre = " + vRow["Codigo"].ToString()))
+                        {
                             vNodoHijo = new TreeNode(vItem["Descripcion"].ToString());
                             vNodoHijo.ImageIndex = 1;
-                            vNodoPadre.Nodes.Add(vNodoHijo); 
+                            vNodoPadre.Nodes.Add(vNodoHijo);
                         }
                         vNodoRaiz.Nodes.Add(vNodoPadre);
                         string[] soloNombre = vNodoPadre.ToString().Split();
                         bases.Add(soloNombre[1]);
                     }
-                    TrvDatos.Nodes.Add(vNodoRaiz); 
+                    TrvDatos.Nodes.Add(vNodoRaiz);
                 }
                 else MessageBox.Show("No hay Elementos");
             }
@@ -286,7 +287,7 @@ namespace ProyectoBaseDatosII.Editor
             {
                 MessageBox.Show("Teclas de acceso rapido\n ctrl + m = DML \n ctrl + d = DDL");
             }
-            
+
 
         }
 
@@ -343,7 +344,7 @@ namespace ProyectoBaseDatosII.Editor
                 MessageBox.Show("Teclas de acceso rapido\n ctrl + m = DML \n ctrl + d = DDL");
             }
 
-            
+
         }
 
         #endregion
@@ -353,7 +354,8 @@ namespace ProyectoBaseDatosII.Editor
             ejecutar();
         }
 
-        public void ejecutar() {
+        public void ejecutar()
+        {
             lbNumTiempoReal.Text = "0";
             lbNumTiempoEstimado.Text = "0";
             Random r = new Random(DateTime.Now.Millisecond);
@@ -361,8 +363,8 @@ namespace ProyectoBaseDatosII.Editor
             TimeSpan stop;
             TimeSpan start = new TimeSpan(DateTime.Now.Ticks);
             //medicion del tiempo de ejecucion
-            
-            
+            Clases.ValidacionIndices vValidacion = new Clases.ValidacionIndices();
+            string vIndices = string.Empty;
 
             if (cbBasesDeDatos.Text != "")
             {
@@ -384,9 +386,10 @@ namespace ProyectoBaseDatosII.Editor
                                 cont += 1;
                                 //Enviar consulta
                                 CapaNegocios.ClsEnviarQuerys.query = "use " + cbBasesDeDatos.Text + "; " + arregloQuerys[i];
+                                vIndices = vValidacion.ValidarIndice(arregloQuerys[i], "use " + cbBasesDeDatos.Text);
                                 CapaNegocios.ClsEnviarQuerys comando = new CapaNegocios.ClsEnviarQuerys();
 
-                                if (comando.enviar() == true)
+                                if (comando.enviar() == true && vIndices == string.Empty)
                                 {
                                     radGrid m = new radGrid();
                                     m.Show();
@@ -396,7 +399,7 @@ namespace ProyectoBaseDatosII.Editor
                                 }
                                 else
                                 {
-                                    MessageBox.Show(CapaNegocios.ClsEnviarQuerys.error);
+                                    MessageBox.Show(CapaNegocios.ClsEnviarQuerys.error + "\n" + vIndices);
                                 }
 
 
@@ -461,7 +464,7 @@ namespace ProyectoBaseDatosII.Editor
                                         stop = new TimeSpan(DateTime.Now.Ticks);
                                         lbNumTiempoReal.Text = Convert.ToString(Math.Round(stop.Subtract(start).TotalSeconds, 3));
                                         lbNumTiempoEstimado.Text = Convert.ToString(Convert.ToDouble(lbNumTiempoReal.Text) + Math.Round(aleatorio, 3));
-                                        MessageBox.Show("Sentencia Ejecutada\n" + CapaNegocios.ClsEnviarQuerys.num +" filas afectadas");
+                                        MessageBox.Show("Sentencia Ejecutada\n" + CapaNegocios.ClsEnviarQuerys.num + " filas afectadas");
                                     }
                                     else
                                     {
@@ -705,7 +708,7 @@ namespace ProyectoBaseDatosII.Editor
             }
 
             lbNumDiferencia.Text = Convert.ToString(Convert.ToDouble(lbNumTiempoEstimado.Text) - Convert.ToDouble(lbNumTiempoReal.Text));
-            
+
         }
 
         private void rtbEditor_TextChanged(object sender, EventArgs e)
@@ -735,7 +738,7 @@ namespace ProyectoBaseDatosII.Editor
 
         private void gENERALToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmReportesGenerales frmReportes = new frmReportesGenerales();
+            frmReporteGeneral frmReportes = new frmReporteGeneral();
             frmReportes.Show();
         }
 

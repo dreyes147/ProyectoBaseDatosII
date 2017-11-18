@@ -19,7 +19,7 @@ namespace CapaDatos.Clases
             Conexion.ClsConexionLocal vConexion = new Conexion.ClsConexionLocal();
             try
             {
-                vSql = pUser + "Exec sp_helpindex '"+ pNombreTabla+"'";
+                vSql = pUser + " Exec sp_helpindex '"+ pNombreTabla+"'";
                 dtResultado = vConexion.ejecutar(vSql);
             }
             catch (Exception ex)

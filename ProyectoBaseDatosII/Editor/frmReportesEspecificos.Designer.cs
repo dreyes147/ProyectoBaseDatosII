@@ -30,9 +30,9 @@
         {
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.groupBox = new Telerik.WinControls.UI.RadGroupBox();
-            this.dgvReportes = new Telerik.WinControls.UI.RadGridView();
-            this.rdbDML = new System.Windows.Forms.RadioButton();
             this.rdbDDL = new System.Windows.Forms.RadioButton();
+            this.rdbDML = new System.Windows.Forms.RadioButton();
+            this.dgvReportes = new Telerik.WinControls.UI.RadGridView();
             ((System.ComponentModel.ISupportInitialize)(this.groupBox)).BeginInit();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportes)).BeginInit();
@@ -51,17 +51,16 @@
             this.groupBox.Size = new System.Drawing.Size(178, 41);
             this.groupBox.TabIndex = 0;
             // 
-            // dgvReportes
+            // rdbDDL
             // 
-            this.dgvReportes.Location = new System.Drawing.Point(12, 72);
-            // 
-            // 
-            // 
-            this.dgvReportes.MasterTemplate.ViewDefinition = tableViewDefinition1;
-            this.dgvReportes.Name = "dgvReportes";
-            this.dgvReportes.Size = new System.Drawing.Size(640, 250);
-            this.dgvReportes.TabIndex = 1;
-            this.dgvReportes.Text = "radGridView1";
+            this.rdbDDL.AutoSize = true;
+            this.rdbDDL.Location = new System.Drawing.Point(85, 11);
+            this.rdbDDL.Name = "rdbDDL";
+            this.rdbDDL.Size = new System.Drawing.Size(46, 17);
+            this.rdbDDL.TabIndex = 1;
+            this.rdbDDL.TabStop = true;
+            this.rdbDDL.Text = "DDL";
+            this.rdbDDL.UseVisualStyleBackColor = true;
             // 
             // rdbDML
             // 
@@ -74,16 +73,22 @@
             this.rdbDML.Text = "DML";
             this.rdbDML.UseVisualStyleBackColor = true;
             // 
-            // rdbDDL
+            // dgvReportes
             // 
-            this.rdbDDL.AutoSize = true;
-            this.rdbDDL.Location = new System.Drawing.Point(85, 11);
-            this.rdbDDL.Name = "rdbDDL";
-            this.rdbDDL.Size = new System.Drawing.Size(46, 17);
-            this.rdbDDL.TabIndex = 1;
-            this.rdbDDL.TabStop = true;
-            this.rdbDDL.Text = "DDL";
-            this.rdbDDL.UseVisualStyleBackColor = true;
+            this.dgvReportes.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvReportes.Location = new System.Drawing.Point(12, 59);
+            // 
+            // 
+            // 
+            this.dgvReportes.MasterTemplate.AllowAddNewRow = false;
+            this.dgvReportes.MasterTemplate.AllowColumnReorder = false;
+            this.dgvReportes.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            this.dgvReportes.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.dgvReportes.Name = "dgvReportes";
+            this.dgvReportes.ReadOnly = true;
+            this.dgvReportes.Size = new System.Drawing.Size(640, 259);
+            this.dgvReportes.TabIndex = 1;
+            this.dgvReportes.Text = "radGridView1";
             // 
             // frmReportesEspecificos
             // 
@@ -107,8 +112,8 @@
         #endregion
 
         private Telerik.WinControls.UI.RadGroupBox groupBox;
-        private Telerik.WinControls.UI.RadGridView dgvReportes;
         private System.Windows.Forms.RadioButton rdbDDL;
         private System.Windows.Forms.RadioButton rdbDML;
+        private Telerik.WinControls.UI.RadGridView dgvReportes;
     }
 }

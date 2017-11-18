@@ -17,7 +17,7 @@ namespace CapaNegocios
             CapaDatos.Clases.clsIndex vConexion = new CapaDatos.Clases.clsIndex();
             try
             {
-                dtResultado = vConexion.ValidarIndex(pNombreTabla);
+                dtResultado = vConexion.ValidarIndex(pNombreTabla, pUser);
             }
             catch (Exception ex)
             {

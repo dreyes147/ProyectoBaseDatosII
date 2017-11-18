@@ -17,12 +17,7 @@ namespace CapaDatos.Clases
         {
             try
             {
-
-                SqlParameter parameterId = sqlParameter(id);
-                SqlParameter parameterDescipcion = sqlParameter(Descipcion);
-                SqlParameter parameterTipoSnip = sqlParameter(TipoSnip);
-
-                string vInstruccion = "INSERT INTO Reportes(IdSnip, Descipcion, TipoSnippet) values(@id, '@Descipcion', '@TipoSnip')";
+                string vInstruccion = "INSERT INTO Reportes(IdSnip, Descipcion, TipoSnippet) values("+ id +", '"+ Descipcion +"', '"+ TipoSnip +"')";
                 enlaceWeb.Ejecutar(vInstruccion, "BaseDatos");
             }
             catch(Exception ex)
@@ -41,22 +36,10 @@ namespace CapaDatos.Clases
 
         public DataTable ReportesInstrucciones(string tipoInstruccion)
         {
-            SqlParameter parameterInstruccion = sqlParameter(tipoInstruccion);
-            string vInstruccion = " SELECT TOP (8) count(*) Cantidad, Descipcion from Reportes where TipoSnippet = '@tipoIstruccion' group by Descipcion Order by Cantidad;";
+            
+            string vInstruccion = " SELECT TOP (8) count(*) Cantidad, Descipcion from Reportes where TipoSnippet = '"+ tipoInstruccion +"' group by Descipcion Order by Cantidad;";
             DataTable vResultado = enlaceWeb.Seleccionar(vInstruccion, "BaseDatos");
             return vResultado;
-        }
-
-        //Metodo para crear Parametros
-        public SqlParameter sqlParameter(string pVariable)
-        {
-            SqlParameter ParametroAux = new SqlParameter();
-            ParametroAux.SqlDbType = SqlDbType.VarChar;
-            ParametroAux.Size = 100;
-            ParametroAux.Direction = ParameterDirection.Input;
-            ParametroAux.Value = pVariable;
-            ParametroAux.ParameterName = "@" + pVariable;
-            return ParametroAux;
         }
 
     }

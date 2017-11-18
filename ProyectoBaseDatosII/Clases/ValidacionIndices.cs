@@ -164,7 +164,7 @@ namespace ProyectoBaseDatosII.Clases
                             {
                                 foreach (string vNombreCol in vRow["index_Keys"].ToString().Split(Convert.ToChar(",")))
                                 {
-                                    if (vItems.NombreCampo == vNombreCol)
+                                    if (vItems.NombreCampo.ToUpper() == vNombreCol.ToUpper())
                                     {
                                         vBandera = true;
                                     }
@@ -172,7 +172,7 @@ namespace ProyectoBaseDatosII.Clases
                             }
                             if (!vBandera)
                             {
-                                vResultado += " El campo " + vItems.NombreCampo + "de la tabla " + vItem.NombreTabla +
+                                vResultado += " El campo " + vItems.NombreCampo + " de la tabla " + vItem.NombreTabla +
                                     "no está contenido en ningún índice\n";
                             }
                             vBandera = false;
@@ -180,7 +180,7 @@ namespace ProyectoBaseDatosII.Clases
                     }
                     else
                     {
-                        vResultado += "La tabla " + vItem.NombreTabla + "no contiene un índice\n";
+                        vResultado += "La tabla " + vItem.NombreTabla + " no contiene un índice\n";
                     }
                 }
             }

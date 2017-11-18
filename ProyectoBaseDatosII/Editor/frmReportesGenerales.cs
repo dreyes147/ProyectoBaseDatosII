@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace ProyectoBaseDatosII.Editor
 {
-    public partial class frmReportesGenerales : Form
+    public partial class frmReporteGeneral : Form
     {
         //Variables Globales
         CapaNegocios.clsCargarReportes enlaceReportes = new CapaNegocios.clsCargarReportes();
-        public frmReportesGenerales()
+        public frmReporteGeneral()
         {
             InitializeComponent();
         }
