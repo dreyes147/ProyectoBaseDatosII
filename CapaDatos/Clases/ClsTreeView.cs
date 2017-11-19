@@ -52,7 +52,7 @@ namespace CapaDatos.Clases
             }
             catch(Exception ex)
             {
-                throw new Exception(ex.Message, ex);
+                throw new Exception(ex.Message, ex); 
             }
         }
     }
