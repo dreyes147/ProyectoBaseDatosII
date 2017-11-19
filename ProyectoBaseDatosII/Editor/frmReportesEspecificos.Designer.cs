@@ -33,10 +33,12 @@
             this.rdbDDL = new System.Windows.Forms.RadioButton();
             this.rdbDML = new System.Windows.Forms.RadioButton();
             this.dgvReportes = new Telerik.WinControls.UI.RadGridView();
+            this.btnConsulta = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupBox)).BeginInit();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportes.MasterTemplate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnConsulta)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox
@@ -90,11 +92,21 @@
             this.dgvReportes.TabIndex = 1;
             this.dgvReportes.Text = "radGridView1";
             // 
+            // btnConsulta
+            // 
+            this.btnConsulta.Location = new System.Drawing.Point(196, 21);
+            this.btnConsulta.Name = "btnConsulta";
+            this.btnConsulta.Size = new System.Drawing.Size(110, 24);
+            this.btnConsulta.TabIndex = 2;
+            this.btnConsulta.Text = "Consultar";
+            this.btnConsulta.Click += new System.EventHandler(this.btnConsulta_Click);
+            // 
             // frmReportesEspecificos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 325);
+            this.Controls.Add(this.btnConsulta);
             this.Controls.Add(this.dgvReportes);
             this.Controls.Add(this.groupBox);
             this.Name = "frmReportesEspecificos";
@@ -105,6 +117,7 @@
             this.groupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportes.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnConsulta)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -115,5 +128,6 @@
         private System.Windows.Forms.RadioButton rdbDDL;
         private System.Windows.Forms.RadioButton rdbDML;
         private Telerik.WinControls.UI.RadGridView dgvReportes;
+        private Telerik.WinControls.UI.RadButton btnConsulta;
     }
 }

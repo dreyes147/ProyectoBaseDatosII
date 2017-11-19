@@ -21,19 +21,33 @@ namespace ProyectoBaseDatosII.Editor
             InitializeComponent();
         }
 
+
         private void frmReportesEspecificos_Load(object sender, EventArgs e)
         {
-            oDTResultado = new DataTable();
-            if (rdbDDL.Checked == true)
-            {                
-                 oDTResultado = enlaceReporte.ReporteEspecifico("DDL");
-                dgvReportes.DataSource = oDTResultado;
-            }
-            else
+            cargarDGV("DML");        
+        }
+
+
+        private void btnConsulta_Click(object sender, EventArgs e)
+        {
+            if(rdbDDL.Checked == true)
             {
-                oDTResultado = enlaceReporte.ReporteEspecifico("DML");
-                dgvReportes.DataSource = oDTResultado;
+                cargarDGV("DDL");
             }
+            else if (rdbDML.Checked == true)
+            {
+                cargarDGV("DML");
+            }
+        }
+
+        //
+        //Metodo para cargar el data grid view
+        //
+        public void cargarDGV(string pConsulta)
+        {
+            DataTable vResultado = new DataTable();
+            vResultado = enlaceReporte.ReporteEspecifico(pConsulta);
+            dgvReportes.DataSource = vResultado;
         }
     }
 }
