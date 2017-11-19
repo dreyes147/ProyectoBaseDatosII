@@ -75,15 +75,22 @@ namespace ProyectoBaseDatosII
             }
             else if (cboAutentificacion.SelectedValue.ToString() == "2")
             {
-                vEstCoenxion = enlace.SqlAuthen(cboInstancias2.SelectedValue.ToString(), txtUsuario.Text, txtPassword.Text);
-                if (vEstCoenxion)
+                try
                 {
-                    MessageBox.Show("Conexion Iniciada");
-                    Editor.frmEditor editor = new Editor.frmEditor();
-                    editor.Show();
+                    vEstCoenxion = enlace.SqlAuthen(cboInstancias2.Text.ToString(), txtUsuario.Text, txtPassword.Text);
+                    if (vEstCoenxion)
+                    {
+                        MessageBox.Show("Conexion Iniciada");
+                        Editor.frmEditor editor = new Editor.frmEditor();
+                        editor.Show();
+                    }
+                    else
+                        MessageBox.Show("Conexion Fallida");
                 }
-                else
-                    MessageBox.Show("Conexion Fallida");
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
 
