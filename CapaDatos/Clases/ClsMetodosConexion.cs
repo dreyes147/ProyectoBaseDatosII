@@ -44,16 +44,19 @@ namespace CapaDatos.Clases
         //metodo para conectarse por Sql Authentication
         public bool conexSqlAuthen(string instancia, string usuario, string contrasena)
         {
-            bool vEstdConexion;
-            try { 
-               
+            
+            try {
+                bool vEstdConexion;
                 vConexionLocal.StrSQLAutent(instancia, usuario, contrasena);
                 vEstdConexion = vConexionLocal.AbrirConexion();
+                vConexionLocal.CerrarConexion();
+                return vEstdConexion;
+
             }
             catch(Exception ex) {
                 throw new Exception(ex.Message, ex);
              }
-            return vEstdConexion;
+            
         }
 
     }

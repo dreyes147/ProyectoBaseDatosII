@@ -58,11 +58,11 @@ namespace ProyectoBaseDatosII
         }
 
         public void conectar() {
-            bool vEstCoenxion;
+            bool vEstConexion;
             if (cboAutentificacion.SelectedValue.ToString() == "1")
             {
-                vEstCoenxion = enlace.winAuthen(cboInstancias2.Text);
-                if (vEstCoenxion)
+                vEstConexion = enlace.winAuthen(cboInstancias2.Text);
+                if (vEstConexion)
                 {
                     //MessageBox.Show("Conexion Iniciada");
 
@@ -77,10 +77,11 @@ namespace ProyectoBaseDatosII
             {
                 try
                 {
-                    vEstCoenxion = enlace.SqlAuthen(cboInstancias2.Text.ToString(), txtUsuario.Text, txtPassword.Text);
-                    if (vEstCoenxion)
+                    vEstConexion = enlace.SqlAuthen(cboInstancias2.Text, txtUsuario.Text.Trim(), txtPassword.Text.Trim());
+                    if (vEstConexion)
                     {
-                        MessageBox.Show("Conexion Iniciada");
+                        //MessageBox.Show("Conexion Iniciada");
+                        this.Hide();
                         Editor.frmEditor editor = new Editor.frmEditor();
                         editor.Show();
                     }

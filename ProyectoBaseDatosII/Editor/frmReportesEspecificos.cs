@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
+
 
 namespace ProyectoBaseDatosII.Editor
 {
     public partial class frmReportesEspecificos : Form
     {
         //Variables Globales
-        DataTable oDTResultado;
         CapaNegocios.clsCargarReportes enlaceReporte = new CapaNegocios.clsCargarReportes();
         public frmReportesEspecificos()
         {

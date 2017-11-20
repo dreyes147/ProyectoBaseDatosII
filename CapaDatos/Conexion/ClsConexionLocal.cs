@@ -28,7 +28,7 @@ namespace CapaDatos.Conexion
 
         public void StrSQLAutent(string instancia, string usuario, string contraseña) //string para la conexion con la autentificacion de SQL
         {
-            oCN = new SqlConnection("Data Source = "+ instancia +"; Initial Catalog = master; User ID = "+ usuario +"; Password = "+ contraseña +"");
+            oCN = new SqlConnection("Data Source = "+ instancia +";Initial Catalog=master; User Id="+ usuario +"; Password="+ contraseña);
         }
 
         public bool AbrirConexion()
