@@ -444,6 +444,7 @@
             this.btnRefreshTrv.Size = new System.Drawing.Size(110, 24);
             this.btnRefreshTrv.TabIndex = 13;
             this.btnRefreshTrv.Text = "Refresh";
+            this.btnRefreshTrv.Click += new System.EventHandler(this.btnRefreshTrv_Click_1);
             // 
             // cbBasesDeDatos
             // 

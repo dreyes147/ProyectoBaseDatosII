@@ -112,10 +112,24 @@ namespace ProyectoBaseDatosII.Editor
             cbDatos.Items.Add("Delete");
 
             cbDDL.Items.Add("Create");
-            cbDDL.Items.Add("Drop");
+            cbDDL.Items.Add("Create Index");
+            cbDDL.Items.Add("Create User");
+            cbDDL.Items.Add("Create Function");
+            cbDDL.Items.Add("Create Proc");
+            cbDDL.Items.Add("Create Database");
             cbDDL.Items.Add("Alter Add");
             cbDDL.Items.Add("Alter Drop");
             cbDDL.Items.Add("Alter Alter");
+            cbDDL.Items.Add("Alter Index");
+            cbDDL.Items.Add("Alter User");
+            cbDDL.Items.Add("Alter Function");
+            cbDDL.Items.Add("Alter Proc");
+            cbDDL.Items.Add("Drop");
+            cbDDL.Items.Add("Drop Index");
+            cbDDL.Items.Add("Drop User");
+            cbDDL.Items.Add("Drop Function");
+            cbDDL.Items.Add("Drop Proc");
+            cbDDL.Items.Add("Drop Database");
 
             arregloDMLBasico[0] = "select";
             arregloDMLBasico[1] = "insert";
@@ -166,19 +180,6 @@ namespace ProyectoBaseDatosII.Editor
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
-        }
-
-        private void btnRefreshTrv_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                CargarTreeView();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-
             }
         }
 
@@ -323,8 +324,20 @@ namespace ProyectoBaseDatosII.Editor
                     case "Create":
                         rtbEditor.Text += snip.create();
                         break;
-                    case "Drop":
-                        rtbEditor.Text += snip.drop();
+                    case "Create Index":
+                        rtbEditor.Text += snip.createIndex();
+                        break;
+                    case "Create User":
+                        rtbEditor.Text += snip.createUser();
+                        break;
+                    case "Create Function":
+                        rtbEditor.Text += snip.createFunction();
+                        break;
+                    case "Create Proc":
+                        rtbEditor.Text += snip.createProc();
+                        break;
+                    case "Create Database":
+                        rtbEditor.Text += snip.createDatabase();
                         break;
                     case "Alter Add":
                         rtbEditor.Text += snip.alter();
@@ -334,6 +347,36 @@ namespace ProyectoBaseDatosII.Editor
                         break;
                     case "Alter Alter":
                         rtbEditor.Text += snip.alterAlter();
+                        break;
+                    case "Alter Index":
+                        rtbEditor.Text += snip.alterIndex();
+                        break;
+                    case "Alter User":
+                        rtbEditor.Text += snip.alterUser();
+                        break;
+                    case "Alter Function":
+                        rtbEditor.Text += snip.alterFunction();
+                        break;
+                    case "Alter Proc":
+                        rtbEditor.Text += snip.alterProc();
+                        break;
+                    case "Drop":
+                        rtbEditor.Text += snip.drop();
+                        break;
+                    case "Drop Index":
+                        rtbEditor.Text += snip.dropIndex();
+                        break;
+                    case "Drop User":
+                        rtbEditor.Text += snip.dropUser();
+                        break;
+                    case "Drop Function":
+                        rtbEditor.Text += snip.dropFunction();
+                        break;
+                    case "Drop Proc":
+                        rtbEditor.Text += snip.dropProc();
+                        break;
+                    case "Drop Database":
+                        rtbEditor.Text += snip.dropDatabase();
                         break;
                     default:
                         break;
@@ -557,9 +600,28 @@ namespace ProyectoBaseDatosII.Editor
                                     MessageBox.Show("Debe agregar '(' en la sentencia Create");
                                 }
                             }
-                            else
+                            else if (arregloQuerys[i].Contains("index") == true || arregloQuerys[i].Contains("user") == true || arregloQuerys[i].Contains("function") == true || arregloQuerys[i].Contains("proc") == true || arregloQuerys[i].Contains("database") == true || arregloQuerys[i].Contains("procedure") == true)
                             {
-                                MessageBox.Show("Debe agregar la palabra 'TABLE' a la sentencia Create");
+                                cont += 1;
+                                //Enviar consulta
+                                CapaNegocios.ClsEnviarQuerys.nonQuery = "use " + cbBasesDeDatos.Text + "; " + arregloQuerys[i];
+                                CapaNegocios.ClsEnviarQuerys comando = new CapaNegocios.ClsEnviarQuerys();
+
+                                if (comando.enviarSinRetorno() == true)
+                                {
+                                    stop = new TimeSpan(DateTime.Now.Ticks);
+                                    lbNumTiempoReal.Text = Convert.ToString(Math.Round(stop.Subtract(start).TotalSeconds, 3));
+                                    lbNumTiempoEstimado.Text = Convert.ToString(Convert.ToDouble(lbNumTiempoReal.Text) + Math.Round(aleatorio, 3));
+                                    MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
+                                }
+                                else
+                                {
+                                    MessageBox.Show(CapaNegocios.ClsEnviarQuerys.error);
+                                }
+
+                            }
+                            else {
+                                MessageBox.Show("Puede colocar algunas de las siguientes opciones en la sentencia Alter: \nTABLE \nUSER \nINDEX \nFUNCTION \nPROC \nDATABASE");
                             }
                         }//fin del if create
 
@@ -585,9 +647,28 @@ namespace ProyectoBaseDatosII.Editor
                                 }
 
                             }
+                            else if (arregloQuerys[i].Contains("index") == true || arregloQuerys[i].Contains("user") == true || arregloQuerys[i].Contains("function") == true || arregloQuerys[i].Contains("proc") == true || arregloQuerys[i].Contains("database") == true || arregloQuerys[i].Contains("procedure") == true)
+                            {
+                                cont += 1;
+                                //Enviar consulta
+                                CapaNegocios.ClsEnviarQuerys.nonQuery = "use " + cbBasesDeDatos.Text + "; " + arregloQuerys[i];
+                                CapaNegocios.ClsEnviarQuerys comando = new CapaNegocios.ClsEnviarQuerys();
+
+                                if (comando.enviarSinRetorno() == true)
+                                {
+                                    stop = new TimeSpan(DateTime.Now.Ticks);
+                                    lbNumTiempoReal.Text = Convert.ToString(Math.Round(stop.Subtract(start).TotalSeconds, 3));
+                                    lbNumTiempoEstimado.Text = Convert.ToString(Convert.ToDouble(lbNumTiempoReal.Text) + Math.Round(aleatorio, 3));
+                                    MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
+                                }
+                                else
+                                {
+                                    MessageBox.Show(CapaNegocios.ClsEnviarQuerys.error);
+                                }
+                            }
                             else
                             {
-                                MessageBox.Show("Debe agregar la palabra 'TABLE' en la sentencia Drop");
+                                MessageBox.Show("Puede colocar algunas de las siguientes opciones en la sentencia Alter: \nTABLE \nUSER \nINDEX \nFUNCTION \nPROC \nDATABASE");
                             }
                         }//fin del if de drop
 
@@ -685,9 +766,27 @@ namespace ProyectoBaseDatosII.Editor
                                     }
 
                             }
-                            else
+                            else if (arregloQuerys[i].Contains("index") == true || arregloQuerys[i].Contains("user") == true || arregloQuerys[i].Contains("function") == true || arregloQuerys[i].Contains("proc") == true || arregloQuerys[i].Contains("procedure") == true)
                             {
-                                MessageBox.Show("Debe agregar la palabra 'TABLE' a la setencia alter");
+                                cont += 1;
+                                //Enviar consulta
+                                CapaNegocios.ClsEnviarQuerys.nonQuery = "use " + cbBasesDeDatos.Text + "; " + arregloQuerys[i];
+                                CapaNegocios.ClsEnviarQuerys comando = new CapaNegocios.ClsEnviarQuerys();
+
+                                if (comando.enviarSinRetorno() == true)
+                                {
+                                    stop = new TimeSpan(DateTime.Now.Ticks);
+                                    lbNumTiempoReal.Text = Convert.ToString(Math.Round(stop.Subtract(start).TotalSeconds, 3));
+                                    lbNumTiempoEstimado.Text = Convert.ToString(Convert.ToDouble(lbNumTiempoReal.Text) + Math.Round(aleatorio, 3));
+                                    MessageBox.Show("Sentencia Ejecutada Satisfactoriamente");
+                                }
+                                else
+                                {
+                                    MessageBox.Show(CapaNegocios.ClsEnviarQuerys.error);
+                                }
+                            }
+                            else {
+                                MessageBox.Show("Puede colocar algunas de las siguientes opciones en la sentencia Alter: \nTABLE \nADD \nDROP \nALTER \nUSER \nINDEX \nFUNCTION \nPROC");
                             }
                         }//fin del if de alter
 
@@ -746,6 +845,19 @@ namespace ProyectoBaseDatosII.Editor
         {
             frmReportesEspecificos frmReportes = new frmReportesEspecificos();
             frmReportes.Show();
+        }
+
+        private void btnRefreshTrv_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                CargarTreeView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+
+            }
         }
     }
 }

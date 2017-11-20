@@ -9,9 +9,9 @@ namespace CapaNegocios
     public class ClsReportes
     {
         CapaDatos.Clases.ClsReportes enlace = new CapaDatos.Clases.ClsReportes();
-        public void inserReporte(string id, string Descipcion, string tipoSnip)
+        public void inserReporte(string id, string Descripcion, string tipoSnip)
         {
-            enlace.InsertarRepo(id, Descipcion, tipoSnip);
+            enlace.InsertarRepo(id, Descripcion, tipoSnip);
         }
     }
 }
