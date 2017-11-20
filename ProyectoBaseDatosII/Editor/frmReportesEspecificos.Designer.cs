@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.groupBox = new Telerik.WinControls.UI.RadGroupBox();
             this.rdbDDL = new System.Windows.Forms.RadioButton();
             this.rdbDML = new System.Windows.Forms.RadioButton();
@@ -85,7 +85,7 @@
             this.dgvReportes.MasterTemplate.AllowAddNewRow = false;
             this.dgvReportes.MasterTemplate.AllowColumnReorder = false;
             this.dgvReportes.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            this.dgvReportes.MasterTemplate.ViewDefinition = tableViewDefinition4;
+            this.dgvReportes.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.dgvReportes.Name = "dgvReportes";
             this.dgvReportes.ReadOnly = true;
             this.dgvReportes.Size = new System.Drawing.Size(640, 259);
@@ -113,6 +113,7 @@
             this.Controls.Add(this.dgvReportes);
             this.Controls.Add(this.groupBox);
             this.Name = "frmReportesEspecificos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte";
             this.Load += new System.EventHandler(this.frmReportesEspecificos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupBox)).EndInit();

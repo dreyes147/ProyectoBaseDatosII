@@ -59,6 +59,7 @@
             this.ClientSize = new System.Drawing.Size(585, 313);
             this.Controls.Add(this.dgvReporteGeneral);
             this.Name = "frmReporteGeneral";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reportes";
             this.Load += new System.EventHandler(this.frmReportes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporteGeneral.MasterTemplate)).EndInit();

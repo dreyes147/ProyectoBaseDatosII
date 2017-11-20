@@ -65,7 +65,7 @@
             this.btnConectar.Name = "btnConectar";
             this.btnConectar.Size = new System.Drawing.Size(150, 38);
             this.btnConectar.TabIndex = 2;
-            this.btnConectar.Text = "Conectar";
+            this.btnConectar.Text = "Log In";
             this.btnConectar.ThemeName = "Office2013Light";
             this.btnConectar.Click += new System.EventHandler(this.btnConectar_Click);
             // 
@@ -99,11 +99,11 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Gray;
-            this.label3.Location = new System.Drawing.Point(44, 116);
+            this.label3.Location = new System.Drawing.Point(57, 114);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 18);
+            this.label3.Size = new System.Drawing.Size(128, 18);
             this.label3.TabIndex = 15;
-            this.label3.Text = "Authentificación";
+            this.label3.Text = "Authentication";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtPassword
@@ -115,6 +115,8 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(125, 16);
             this.txtPassword.TabIndex = 14;
+            this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyUp);
             // 
             // txtUsuario
             // 
@@ -142,11 +144,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(178, 148);
+            this.label1.Location = new System.Drawing.Point(203, 146);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 18);
+            this.label1.Size = new System.Drawing.Size(45, 18);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Usuario";
+            this.label1.Text = "User";
             // 
             // btnCancel
             // 
@@ -157,7 +159,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(138, 38);
             this.btnCancel.TabIndex = 17;
-            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lbSQLConection

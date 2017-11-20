@@ -128,5 +128,13 @@ namespace ProyectoBaseDatosII
         {
 
         }
+
+        private void txtPassword_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (Convert.ToInt32(e.KeyData) == Convert.ToInt32(Keys.Enter))
+            {
+                conectar();
+            }
+        }
     }
 }
