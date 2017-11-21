@@ -17,7 +17,7 @@ namespace ProyectoBaseDatosII
         public string insert()
         {
             reportes.inserReporte("2", "INSERT","DML");
-            return "INSERT INTO nombre_tabla(columnas)\nVALUES( valores );\n \n";
+            return "INSERT INTO nombre_tabla(columnas)\nVALUES ( valores );\n \n";
         }
         public string update()
         {

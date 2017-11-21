@@ -21,10 +21,15 @@ namespace ProyectoBaseDatosII.Editor
         string[] arregloUpdate = new string[3];
         string[] arregloDelete = new string[2];
 
+        int posicion = 0;
+
         string[] arregloDDLBasico = new string[3];
         string[] arregloCreate = new string[3];
         string[] arregloDrop = new string[1];
         string[] arregloAlter = new string[5];
+
+        string[] arregloTodos = new string[32];
+
         List<string> bases = new List<string>();
 
         public frmEditor()
@@ -92,6 +97,7 @@ namespace ProyectoBaseDatosII.Editor
                 using (StreamReader sReader = new StreamReader(vFileDialog))
                 {
                     rtbEditor.Text = sReader.ReadToEnd();  // se escribe el documento
+                    colorLetras();
                 }
             }
         }
@@ -131,6 +137,7 @@ namespace ProyectoBaseDatosII.Editor
             cbDDL.Items.Add("Drop Proc");
             cbDDL.Items.Add("Drop Database");
 
+
             arregloDMLBasico[0] = "select";
             arregloDMLBasico[1] = "insert";
             arregloDMLBasico[2] = "update";
@@ -163,6 +170,40 @@ namespace ProyectoBaseDatosII.Editor
             arregloAlter[2] = "drop";
             arregloAlter[3] = "column";
             arregloAlter[4] = "alter";
+
+            arregloTodos[0] = "select";
+            arregloTodos[1] = "insert";
+            arregloTodos[2] = "update";
+            arregloTodos[3] = "delete";
+            arregloTodos[4] = "from";
+            arregloTodos[5] = "where";
+            arregloTodos[6] = "into";
+            arregloTodos[7] = "values";
+            arregloTodos[8] = "set";
+            arregloTodos[9] = "create";
+            arregloTodos[10] = "drop";
+            arregloTodos[11] = "alter";
+            arregloTodos[12] = "add";
+            arregloTodos[13] = "column";
+            arregloTodos[14] = "on";
+            arregloTodos[15] = "index";
+            arregloTodos[16] = "user";
+            arregloTodos[17] = "proc";
+            arregloTodos[18] = "procedure";
+            arregloTodos[19] = "database";
+            arregloTodos[20] = "function";
+            arregloTodos[21] = "returns";
+            arregloTodos[22] = "as";
+            arregloTodos[23] = "begin";
+            arregloTodos[24] = "end";
+            arregloTodos[25] = "return";
+            arregloTodos[26] = "case";
+            arregloTodos[27] = "when";
+            arregloTodos[28] = "then";
+            arregloTodos[29] = "else";
+            arregloTodos[30] = "declare";
+            arregloTodos[31] = "exec";
+
 
             try
             {
@@ -283,6 +324,7 @@ namespace ProyectoBaseDatosII.Editor
                     default:
                         break;
                 }
+                colorLetras();
             }
             catch (Exception)
             {
@@ -312,7 +354,50 @@ namespace ProyectoBaseDatosII.Editor
                 ejecutar();
 
             }
+
+            if (Convert.ToInt32(e.KeyData) != Convert.ToInt32(Keys.Enter) && Convert.ToInt32(e.KeyData) != Convert.ToInt32(Keys.Space))
+            {
+
+                colorLetras();
+
+            }
         }
+
+        private void colorLetras()
+        {
+            /*
+            posicion = rtbEditor.SelectionStart;
+            this.rtbEditor.Select(0, rtbEditor.Text.Length);
+            this.rtbEditor.SelectionColor = Color.Black;
+            this.rtbEditor.Select(posicion, 0);
+
+            string[] texto = rtbEditor.Text.Trim().Split();
+            int inicio = 0;
+
+            foreach (string z in texto)
+            {
+                foreach (string x in arregloTodos)
+                {
+                    if (z.Length != 0)
+                    {
+                        if (z.Trim().Equals(x, StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            inicio = rtbEditor.Text.IndexOf(z, inicio);
+                            rtbEditor.Select(inicio, z.Length);
+                            if (rtbEditor.SelectionColor != Color.Blue)
+                            {
+                                rtbEditor.SelectionColor = Color.Blue;
+                                rtbEditor.Select(posicion, 0);
+                                inicio = inicio + 1;
+                            }
+                            
+                        }
+                    }
+                }
+            }
+            */
+        }//fin del metodo colorLetras
+
 
         private void cbDDL_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -381,6 +466,7 @@ namespace ProyectoBaseDatosII.Editor
                     default:
                         break;
                 }
+                colorLetras();
             }
             catch (Exception)
             {
