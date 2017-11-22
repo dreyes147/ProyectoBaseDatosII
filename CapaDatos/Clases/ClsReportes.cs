@@ -17,7 +17,7 @@ namespace CapaDatos.Clases
         {
             try
             {
-                string vInstruccion = "INSERT INTO Reportes(IdSnip, Descipcion, TipoSnippet) values("+ id +", '"+ Descipcion +"', '"+ TipoSnip +"')";
+                string vInstruccion = "INSERT INTO Reportes(IdSnip, Descripcion, TipoSnippet) values("+ id +", '"+ Descipcion +"', '"+ TipoSnip +"')";
                 enlaceWeb.Ejecutar(vInstruccion, "BaseDatos");
             }
             catch(Exception ex)
@@ -28,7 +28,7 @@ namespace CapaDatos.Clases
 
         public DataTable ReportesSnippets()
         {
-            string vInstruccion = "SELECT TOP (3) count(*) Cantidad, Descipcion from Reportes group by Descipcion Order by Cantidad;";
+            string vInstruccion = "SELECT TOP (8) count(*) Cantidad, Descripcion from Reportes group by Descripcion Order by Cantidad DESC;";
             DataTable vResultado = enlaceWeb.Seleccionar(vInstruccion, "BaseDatos");
             return vResultado;
 
@@ -37,7 +37,7 @@ namespace CapaDatos.Clases
         public DataTable ReportesInstrucciones(string tipoInstruccion)
         {
             
-            string vInstruccion = " SELECT TOP (8) count(*) Cantidad, Descipcion from Reportes where TipoSnippet = '"+ tipoInstruccion +"' group by Descipcion Order by Cantidad;";
+            string vInstruccion = " SELECT TOP (8) count(*) Cantidad, Descripcion from Reportes where TipoSnippet = '"+ tipoInstruccion +"' group by Descripcion Order by Cantidad DESC;";
             DataTable vResultado = enlaceWeb.Seleccionar(vInstruccion, "BaseDatos");
             return vResultado;
         }

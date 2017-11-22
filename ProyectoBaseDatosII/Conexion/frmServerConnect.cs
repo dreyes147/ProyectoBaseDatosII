@@ -22,6 +22,7 @@ namespace ProyectoBaseDatosII
         public frmServerConnect()
         {
             InitializeComponent();
+            txtPassword.PasswordChar = '*';
         }
 
         public void iniciarSplashScreen() {
