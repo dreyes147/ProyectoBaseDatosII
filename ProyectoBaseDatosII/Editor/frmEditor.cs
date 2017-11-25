@@ -535,6 +535,7 @@ namespace ProyectoBaseDatosII.Editor
                                         if (MessageBox.Show("¿Desea crear los índices de forma automática?", "información", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                         {
                                             vValidacion.CrearIndex("use " + cbBasesDeDatos.Text);
+                                            MessageBox.Show("Se ha creado el índice de forma satisfactoria", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         }
                                     }
                                 }

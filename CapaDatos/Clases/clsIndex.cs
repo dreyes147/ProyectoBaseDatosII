@@ -40,21 +40,21 @@ namespace CapaDatos.Clases
                 foreach (DataRow vRows in pTablas.Rows)
                 {
                     vSql = string.Empty;
-                    foreach (DataRow vRow in pIndices.Select("vNombreTabla = '" + vRows["vNombreTabla"].ToString() + "'"))
+                    foreach (DataRow vRow in pIndices.Select("NombreTabla = '" + vRows["NombreTabla"].ToString() + "'"))
                     {
                         if (vContador == 0)
                         {
-                            if (vRow["vTipoIndex"].ToString() == "C")
+                            if (vRow["TipoIndex"].ToString() == "C")
                             {
-                                vSql += "CREATE CLUSTERED INDEX ClusteredIndex-" + String.Format("{0:ddMMyyyyHH:mm:ss.ff}", DateTime.Today) + " ON dbo." + vRow["vNombreTabla"].ToString() + " (";
+                                vSql += "CREATE CLUSTERED INDEX [ClusteredIndex" + String.Format("{0:ddMMyyyyHH:mm:ss.ff}", DateTime.Now) + "] ON dbo." + vRow["NombreTabla"].ToString() + " (";
                             }
                             else
                             {
-                                vSql += "CREATE NONCLUSTERED INDEX noClusteredIndex-" + String.Format("{0:ddMMyyyyHH:mm:ss.ff}", DateTime.Today) + " ON dbo." + vRow["vNombreTabla"].ToString() + " (";
+                                vSql += "CREATE NONCLUSTERED INDEX [noClusteredIndex" + String.Format("{0:ddMMyyyyHH:mm:ss.ff}", DateTime.Now) + "] ON dbo." + vRow["NombreTabla"].ToString() + " (";
                             }
                         }
 
-                        vSql += vRow["vNombreCampo"].ToString() + ",";
+                        vSql += vRow["NombreCampo"].ToString() + ",";
                         vContador++;
                     }
                     vContador = 0;
