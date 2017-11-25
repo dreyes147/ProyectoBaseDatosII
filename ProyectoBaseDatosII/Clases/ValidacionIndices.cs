@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using gudusoft.gsqlparser;
 using System.Data;
+using System.ComponentModel;
 
 namespace ProyectoBaseDatosII.Clases
 {
@@ -14,12 +15,14 @@ namespace ProyectoBaseDatosII.Clases
         #region Delcaración de Variables
         DataSet dsDatos;
         List<Tablas> vTablas;
+        List<Tablas> vIndeces;
         #endregion
 
         public ValidacionIndices()
         {
             vTablas = new List<Tablas>();
             dsDatos = new DataSet();
+            vIndeces = new List<Tablas>();
         }
 
         #region Declaración de Método
@@ -146,6 +149,8 @@ namespace ProyectoBaseDatosII.Clases
             List<Tablas> vDatos;
             bool vBandera = false;
             string vResultado = string.Empty;
+            bool vIndexCluster = false;
+            Tablas vIndex;
             try
             {
                 foreach (Tablas vItem in vTablas)
@@ -157,7 +162,14 @@ namespace ProyectoBaseDatosII.Clases
                         vDatos = (from x in pCampos
                                   where x.AliasTabla == vItem.AliasTabla
                                   select x).ToList();
-
+                        if (dtIndex.Select("index_description='clustered located on PRIMARY'").Length > 0)
+                        {
+                            vIndexCluster = true;
+                        }
+                        else
+                        {
+                            vIndexCluster = false;
+                        }
                         foreach (Tablas vItems in vDatos)
                         {
                             foreach (DataRow vRow in dtIndex.Rows)
@@ -174,6 +186,19 @@ namespace ProyectoBaseDatosII.Clases
                             {
                                 vResultado += " El campo " + vItems.NombreCampo + " de la tabla " + vItem.NombreTabla +
                                     "no está contenido en ningún índice\n";
+
+                                vIndex = new Tablas();
+                                vIndex.NombreTabla = vItem.NombreTabla;
+                                vIndex.NombreCampo = vItems.NombreCampo;
+                                if (vIndexCluster)
+                                {
+                                    vIndex.TipoIndex = "NC";
+                                }
+                                else
+                                {
+                                    vIndex.TipoIndex = "C";
+                                }
+                                vIndeces.Add(vIndex);
                             }
                             vBandera = false;
                         } 
@@ -181,6 +206,21 @@ namespace ProyectoBaseDatosII.Clases
                     else
                     {
                         vResultado += "La tabla " + vItem.NombreTabla + " no contiene un índice\n";
+                        vDatos = (from x in pCampos
+                                  where x.AliasTabla == vItem.AliasTabla
+                                  select x).ToList();
+
+                        foreach (Tablas vItems in vDatos)
+                        {
+                            vIndex = new Tablas()
+                            {
+                                NombreTabla = vItem.NombreTabla,
+                                NombreCampo = vItems.NombreCampo,
+                                TipoIndex = "C"
+                            };
+                            vIndeces.Add(vIndex);
+                        }
+
                     }
                 }
             }
@@ -190,6 +230,40 @@ namespace ProyectoBaseDatosII.Clases
             }
             return vResultado;
         }
+
+        public void CrearIndex(string pUser)
+        {
+            DataTable dtTablas = new DataTable();
+            DataTable dtIndex = new DataTable();
+            CapaNegocios.clsIndex vNegocios = new CapaNegocios.clsIndex();
+            try
+            {
+                dtTablas = ConvertToDataTable(vTablas);
+                dtIndex = ConvertToDataTable(vIndeces);
+                vNegocios.CrearIndex(dtTablas, dtIndex, pUser);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message,ex);
+            }
+        }
+
+        private DataTable ConvertToDataTable<T>(IList<T> data)
+        {
+            PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
+            DataTable table = new DataTable();
+            foreach (PropertyDescriptor prop in properties)
+                table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
+            foreach (T item in data)
+            {
+                DataRow row = table.NewRow();
+                foreach (PropertyDescriptor prop in properties)
+                    row[prop.Name] = prop.GetValue(item) ?? DBNull.Value;
+                table.Rows.Add(row);
+            }
+            return table;
+        }
+
         #endregion
     }
 }

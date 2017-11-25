@@ -529,6 +529,14 @@ namespace ProyectoBaseDatosII.Editor
                                 else
                                 {
                                     MessageBox.Show(CapaNegocios.ClsEnviarQuerys.error + "\n" + vIndices);
+                                    if (comando.enviar() == true)
+                                    {
+
+                                        if (MessageBox.Show("¿Desea crear los índices de forma automática?", "información", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                        {
+                                            vValidacion.CrearIndex("use " + cbBasesDeDatos.Text);
+                                        }
+                                    }
                                 }
 
 

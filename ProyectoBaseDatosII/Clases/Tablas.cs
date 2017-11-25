@@ -12,6 +12,7 @@ namespace ProyectoBaseDatosII.Clases
         private string vNombreTabla;
         private string vAliasTabla;
         private string vNombreCampo;
+        private string vTipoIndex;
         #endregion
 
         #region Declaracion de constructor
@@ -20,6 +21,7 @@ namespace ProyectoBaseDatosII.Clases
             vNombreTabla = string.Empty;
             vAliasTabla = string.Empty;
             vNombreCampo = string.Empty;
+            vTipoIndex = string.Empty;
         }
         #endregion
 
@@ -54,6 +56,17 @@ namespace ProyectoBaseDatosII.Clases
             set
             {
                 vNombreCampo = value;
+            }
+        }
+        public string TipoIndex
+        {
+            get
+            {
+                return vTipoIndex;
+            }
+            set
+            {
+                vTipoIndex = value;
             }
         }
         #endregion
