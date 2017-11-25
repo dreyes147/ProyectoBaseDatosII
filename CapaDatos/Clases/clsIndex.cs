@@ -35,6 +35,7 @@ namespace CapaDatos.Clases
             string vSql = string.Empty;
             Conexion.ClsConexionLocal vConexion = new Conexion.ClsConexionLocal();
             int vContador = 0;
+            DateTime vFecha;
             try
             {
                 foreach (DataRow vRows in pTablas.Rows)
@@ -44,13 +45,16 @@ namespace CapaDatos.Clases
                     {
                         if (vContador == 0)
                         {
+                            vFecha = DateTime.Now
                             if (vRow["TipoIndex"].ToString() == "C")
                             {
-                                vSql += "CREATE CLUSTERED INDEX [ClusteredIndex" + String.Format("{0:ddMMyyyyHH:mm:ss.ff}", DateTime.Now) + "] ON dbo." + vRow["NombreTabla"].ToString() + " (";
+                                vSql += "CREATE CLUSTERED INDEX [ClusteredIndex" + String.Format("{0:ddMMyyyyHH:mm:ss.ff}", vFecha) + "] ON dbo." + vRow["NombreTabla"].ToString() + " (";
+                                //Variable aqui
                             }
                             else
                             {
-                                vSql += "CREATE NONCLUSTERED INDEX [noClusteredIndex" + String.Format("{0:ddMMyyyyHH:mm:ss.ff}", DateTime.Now) + "] ON dbo." + vRow["NombreTabla"].ToString() + " (";
+                                vSql += "CREATE NONCLUSTERED INDEX [noClusteredIndex" + String.Format("{0:ddMMyyyyHH:mm:ss.ff}", vFecha) + "] ON dbo." + vRow["NombreTabla"].ToString() + " (";
+                                //Variable aqui
                             }
                         }
 
