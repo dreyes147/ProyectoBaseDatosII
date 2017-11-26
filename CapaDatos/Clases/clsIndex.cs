@@ -45,7 +45,7 @@ namespace CapaDatos.Clases
                     {
                         if (vContador == 0)
                         {
-                            vFecha = DateTime.Now
+                            vFecha = DateTime.Now;
                             if (vRow["TipoIndex"].ToString() == "C")
                             {
                                 vSql += "CREATE CLUSTERED INDEX [ClusteredIndex" + String.Format("{0:ddMMyyyyHH:mm:ss.ff}", vFecha) + "] ON dbo." + vRow["NombreTabla"].ToString() + " (";
