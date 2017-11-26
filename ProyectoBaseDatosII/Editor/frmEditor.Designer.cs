@@ -47,14 +47,14 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.gENERALToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.radEditor = new Telerik.WinControls.UI.Docking.RadDock();
-            this.dwsEditor = new Telerik.WinControls.UI.Docking.DocumentWindow();
-            this.ptbNumeros = new System.Windows.Forms.PictureBox();
-            this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.twsBasesDatos = new Telerik.WinControls.UI.Docking.ToolWindow();
             this.TrvDatos = new System.Windows.Forms.TreeView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.documentContainer1 = new Telerik.WinControls.UI.Docking.DocumentContainer();
             this.documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
+            this.dwsEditor = new Telerik.WinControls.UI.Docking.DocumentWindow();
+            this.ptbNumeros = new System.Windows.Forms.PictureBox();
             this.radThemeManager1 = new Telerik.WinControls.RadThemeManager();
             this.windows8Theme1 = new Telerik.WinControls.Themes.Windows8Theme();
             this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
@@ -76,19 +76,20 @@
             this.lbNumTiempoEstimado = new System.Windows.Forms.Label();
             this.lbDiferencia = new System.Windows.Forms.Label();
             this.lbNumDiferencia = new System.Windows.Forms.Label();
+            this.indicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radEditor)).BeginInit();
             this.radEditor.SuspendLayout();
-            this.dwsEditor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbNumeros)).BeginInit();
+            this.twsBasesDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).BeginInit();
             this.toolTabStrip1.SuspendLayout();
-            this.twsBasesDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).BeginInit();
             this.documentContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).BeginInit();
             this.documentTabStrip1.SuspendLayout();
+            this.dwsEditor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbNumeros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEjecutar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefreshTrv)).BeginInit();
             this.SuspendLayout();
@@ -192,7 +193,8 @@
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.snippetsToolStripMenuItem});
+            this.snippetsToolStripMenuItem,
+            this.indicesToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
@@ -204,7 +206,7 @@
             this.toolStripSeparator2,
             this.gENERALToolStripMenuItem});
             this.snippetsToolStripMenuItem.Name = "snippetsToolStripMenuItem";
-            this.snippetsToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.snippetsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.snippetsToolStripMenuItem.Text = "Snippets";
             // 
             // dDLToolStripMenuItem
@@ -250,49 +252,6 @@
             this.radEditor.Text = "radDock1";
             this.radEditor.ThemeName = "Office2013Light";
             // 
-            // dwsEditor
-            // 
-            this.dwsEditor.Controls.Add(this.rtbEditor);
-            this.dwsEditor.Controls.Add(this.ptbNumeros);
-            this.dwsEditor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.dwsEditor.Location = new System.Drawing.Point(5, 31);
-            this.dwsEditor.Name = "dwsEditor";
-            this.dwsEditor.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            this.dwsEditor.Size = new System.Drawing.Size(783, 433);
-            this.dwsEditor.Text = "Query";
-            this.dwsEditor.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
-            // 
-            // ptbNumeros
-            // 
-            this.ptbNumeros.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.ptbNumeros.BackColor = System.Drawing.Color.White;
-            this.ptbNumeros.Location = new System.Drawing.Point(3, 3);
-            this.ptbNumeros.Name = "ptbNumeros";
-            this.ptbNumeros.Size = new System.Drawing.Size(42, 428);
-            this.ptbNumeros.TabIndex = 1;
-            this.ptbNumeros.TabStop = false;
-            this.ptbNumeros.Paint += new System.Windows.Forms.PaintEventHandler(this.ptbNumeros_Paint);
-            // 
-            // toolTabStrip1
-            // 
-            this.toolTabStrip1.CanUpdateChildIndex = true;
-            this.toolTabStrip1.CausesValidation = false;
-            this.toolTabStrip1.Controls.Add(this.twsBasesDatos);
-            this.toolTabStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolTabStrip1.Name = "toolTabStrip1";
-            // 
-            // 
-            // 
-            this.toolTabStrip1.RootElement.MinSize = new System.Drawing.Size(25, 25);
-            this.toolTabStrip1.SelectedIndex = 0;
-            this.toolTabStrip1.Size = new System.Drawing.Size(206, 469);
-            this.toolTabStrip1.SizeInfo.AbsoluteSize = new System.Drawing.Size(206, 200);
-            this.toolTabStrip1.SizeInfo.SplitterCorrection = new System.Drawing.Size(6, 0);
-            this.toolTabStrip1.TabIndex = 1;
-            this.toolTabStrip1.TabStop = false;
-            this.toolTabStrip1.ThemeName = "Office2013Light";
-            // 
             // twsBasesDatos
             // 
             this.twsBasesDatos.Caption = null;
@@ -328,6 +287,25 @@
             this.imageList1.Images.SetKeyName(1, "cuadricula-de-la-tabla.png");
             this.imageList1.Images.SetKeyName(2, "diseno-de-tres-columnas.png");
             // 
+            // toolTabStrip1
+            // 
+            this.toolTabStrip1.CanUpdateChildIndex = true;
+            this.toolTabStrip1.CausesValidation = false;
+            this.toolTabStrip1.Controls.Add(this.twsBasesDatos);
+            this.toolTabStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolTabStrip1.Name = "toolTabStrip1";
+            // 
+            // 
+            // 
+            this.toolTabStrip1.RootElement.MinSize = new System.Drawing.Size(25, 25);
+            this.toolTabStrip1.SelectedIndex = 0;
+            this.toolTabStrip1.Size = new System.Drawing.Size(206, 469);
+            this.toolTabStrip1.SizeInfo.AbsoluteSize = new System.Drawing.Size(206, 200);
+            this.toolTabStrip1.SizeInfo.SplitterCorrection = new System.Drawing.Size(6, 0);
+            this.toolTabStrip1.TabIndex = 1;
+            this.toolTabStrip1.TabStop = false;
+            this.toolTabStrip1.ThemeName = "Office2013Light";
+            // 
             // documentContainer1
             // 
             this.documentContainer1.Controls.Add(this.documentTabStrip1);
@@ -357,6 +335,30 @@
             this.documentTabStrip1.TabIndex = 0;
             this.documentTabStrip1.TabStop = false;
             this.documentTabStrip1.ThemeName = "Office2013Light";
+            // 
+            // dwsEditor
+            // 
+            this.dwsEditor.Controls.Add(this.rtbEditor);
+            this.dwsEditor.Controls.Add(this.ptbNumeros);
+            this.dwsEditor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.dwsEditor.Location = new System.Drawing.Point(5, 31);
+            this.dwsEditor.Name = "dwsEditor";
+            this.dwsEditor.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
+            this.dwsEditor.Size = new System.Drawing.Size(783, 433);
+            this.dwsEditor.Text = "Query";
+            this.dwsEditor.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
+            // 
+            // ptbNumeros
+            // 
+            this.ptbNumeros.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ptbNumeros.BackColor = System.Drawing.Color.White;
+            this.ptbNumeros.Location = new System.Drawing.Point(3, 3);
+            this.ptbNumeros.Name = "ptbNumeros";
+            this.ptbNumeros.Size = new System.Drawing.Size(42, 428);
+            this.ptbNumeros.TabIndex = 1;
+            this.ptbNumeros.TabStop = false;
+            this.ptbNumeros.Paint += new System.Windows.Forms.PaintEventHandler(this.ptbNumeros_Paint);
             // 
             // openFileDialog1
             // 
@@ -527,6 +529,13 @@
             this.lbNumDiferencia.TabIndex = 19;
             this.lbNumDiferencia.Text = "0";
             // 
+            // indicesToolStripMenuItem
+            // 
+            this.indicesToolStripMenuItem.Name = "indicesToolStripMenuItem";
+            this.indicesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.indicesToolStripMenuItem.Text = "Indices";
+            this.indicesToolStripMenuItem.Click += new System.EventHandler(this.indicesToolStripMenuItem_Click);
+            // 
             // frmEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -563,15 +572,15 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radEditor)).EndInit();
             this.radEditor.ResumeLayout(false);
-            this.dwsEditor.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ptbNumeros)).EndInit();
+            this.twsBasesDatos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).EndInit();
             this.toolTabStrip1.ResumeLayout(false);
-            this.twsBasesDatos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).EndInit();
             this.documentContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).EndInit();
             this.documentTabStrip1.ResumeLayout(false);
+            this.dwsEditor.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ptbNumeros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEjecutar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefreshTrv)).EndInit();
             this.ResumeLayout(false);
@@ -627,5 +636,6 @@
         private System.Windows.Forms.ToolStripMenuItem dDLToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem gENERALToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem indicesToolStripMenuItem;
     }
 }

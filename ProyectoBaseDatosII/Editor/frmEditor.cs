@@ -961,5 +961,11 @@ namespace ProyectoBaseDatosII.Editor
 
             }
         }
+
+        private void indicesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRepIndices frmRep = new frmRepIndices();
+            frmRep.Show();
+        }
     }
 }

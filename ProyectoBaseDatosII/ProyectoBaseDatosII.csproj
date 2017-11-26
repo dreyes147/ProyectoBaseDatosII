@@ -89,6 +89,12 @@
     <Compile Include="Editor\frmGrid.Designer.cs">
       <DependentUpon>frmGrid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editor\frmRepIndices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\frmRepIndices.Designer.cs">
+      <DependentUpon>frmRepIndices.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\frmReportesEspecificos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\frmGrid.resx">
       <DependentUpon>frmGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\frmRepIndices.resx">
+      <DependentUpon>frmRepIndices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\frmReportesEspecificos.resx">
       <DependentUpon>frmReportesEspecificos.cs</DependentUpon>

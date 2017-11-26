@@ -18,11 +18,12 @@ namespace CapaDatos.Conexion
         public static DataTable Datos { get; set; }
         public static string errorDatos { get; set; }
         public static int num { get; set; }
-
+        public static string Instancia { get; set; }
         public static SqlConnection oCN { get; set; }
 
         public void StrWinAutent(string instancia) //string para la conexion con auntentificacion de windows
         {
+            Instancia = instancia;
             oCN = new SqlConnection("Data Source = " + instancia + ";Initial Catalog=master; Integrated Security = True");
         }
 

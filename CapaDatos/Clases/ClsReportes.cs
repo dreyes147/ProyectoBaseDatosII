@@ -42,5 +42,25 @@ namespace CapaDatos.Clases
             return vResultado;
         }
 
+        public void repoIndices(string vNomTabla)
+        {
+            try
+            {
+                string vInstruccion = "insert into tRepoIndices (nomTabla) values ('"+ vNomTabla +"')";
+                enlaceWeb.Ejecutar(vInstruccion,"BaseDatos");
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+        }
+
+        public DataTable ReporteIndices()
+        {
+            string vIntruccion = "select Count(8) Cantidad, nomTabla from tRepoIndices group by nomTabla order by Cantidad DESC";
+            DataTable vResultado = enlaceWeb.Seleccionar(vIntruccion, "BaseDatos");
+            return vResultado;
+        }
+
     }
 }

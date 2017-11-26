@@ -25,5 +25,10 @@ namespace CapaNegocios
             oDTResultado = new DataTable();
             return oDTResultado = enlaceReportes.ReportesInstrucciones(pInstruccion);
         }
+        public DataTable ReporteIndeices()
+        {
+            oDTResultado = new DataTable();
+            return oDTResultado = enlaceReportes.ReporteIndices();
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace CapaDatos.Clases
         }
 
         public DataTable ValidarIndex(string pNombreTabla, string pUser)
-        {
+        {            
             DataTable dtResultado = new DataTable();
             string vSql = string.Empty;
             Conexion.ClsConexionLocal vConexion = new Conexion.ClsConexionLocal();
@@ -31,11 +31,13 @@ namespace CapaDatos.Clases
 
         public void CrearIndex(DataTable pTablas, DataTable pIndices, string pUser)
         {
+            ClsReportes ClsRepo = new ClsReportes();
             DataTable dtResultado = new DataTable();
             string vSql = string.Empty;
             Conexion.ClsConexionLocal vConexion = new Conexion.ClsConexionLocal();
             int vContador = 0;
             DateTime vFecha;
+            string vNomTabla;
             try
             {
                 foreach (DataRow vRows in pTablas.Rows)
@@ -50,14 +52,16 @@ namespace CapaDatos.Clases
                             {
                                 vSql += "CREATE CLUSTERED INDEX [ClusteredIndex" + String.Format("{0:ddMMyyyyHH:mm:ss.ff}", vFecha) + "] ON dbo." + vRow["NombreTabla"].ToString() + " (";
                                 //Variable aqui
+                                vNomTabla = vRow["NombreTabla"].ToString();
                             }
                             else
                             {
                                 vSql += "CREATE NONCLUSTERED INDEX [noClusteredIndex" + String.Format("{0:ddMMyyyyHH:mm:ss.ff}", vFecha) + "] ON dbo." + vRow["NombreTabla"].ToString() + " (";
                                 //Variable aqui
+                                vNomTabla = vRow["NombreTabla"].ToString();
                             }
+                            ClsRepo.repoIndices(vNomTabla);
                         }
-
                         vSql += vRow["NombreCampo"].ToString() + ",";
                         vContador++;
                     }
@@ -65,12 +69,12 @@ namespace CapaDatos.Clases
                     vSql = vSql.TrimEnd(Convert.ToChar(","));
                     vSql += ")";
                     vConexion.ejecutarInsert(pUser + " " + vSql);
-                }
+                }                
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message, ex);
-            }
+            }        
         }
     }
 }
