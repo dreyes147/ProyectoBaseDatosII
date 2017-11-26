@@ -53,6 +53,7 @@ namespace ProyectoBaseDatosII.Editor
             TreeNode vNodoRaiz;
             TreeNode vNodoPadre;
             TreeNode vNodoHijo;
+            TreeNode vNodoHijo2;
             try
             {
                 TrvDatos.Nodes.Clear(); //Se limpia el tree
@@ -68,6 +69,12 @@ namespace ProyectoBaseDatosII.Editor
                         {
                             vNodoHijo = new TreeNode(vItem["Descripcion"].ToString());
                             vNodoHijo.ImageIndex = 1;
+                            foreach(DataRow vRows in dtDatosTreeview.Select("CodigoPadre = " + vItem["Codigo"].ToString()))
+                            {
+                                vNodoHijo2 = new TreeNode(vRows["Descripcion"].ToString());
+                                vNodoHijo2.ImageIndex = 2;
+                                vNodoHijo.Nodes.Add(vNodoHijo2);
+                            }
                             vNodoPadre.Nodes.Add(vNodoHijo);
                         }
                         vNodoRaiz.Nodes.Add(vNodoPadre);

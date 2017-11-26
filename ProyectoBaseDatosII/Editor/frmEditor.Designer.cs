@@ -228,7 +228,7 @@
             // 
             // radEditor
             // 
-            this.radEditor.ActiveWindow = this.dwsEditor;
+            this.radEditor.ActiveWindow = this.twsBasesDatos;
             this.radEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -316,7 +316,7 @@
             this.TrvDatos.Location = new System.Drawing.Point(3, 5);
             this.TrvDatos.Name = "TrvDatos";
             this.TrvDatos.SelectedImageKey = "base-de-datos.png";
-            this.TrvDatos.Size = new System.Drawing.Size(190, 432);
+            this.TrvDatos.Size = new System.Drawing.Size(190, 454);
             this.TrvDatos.TabIndex = 0;
             this.TrvDatos.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TrvDatos_AfterSelect);
             // 
@@ -326,6 +326,7 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "base-de-datos.png");
             this.imageList1.Images.SetKeyName(1, "cuadricula-de-la-tabla.png");
+            this.imageList1.Images.SetKeyName(2, "diseno-de-tres-columnas.png");
             // 
             // documentContainer1
             // 
