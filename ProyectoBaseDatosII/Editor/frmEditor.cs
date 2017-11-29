@@ -69,12 +69,12 @@ namespace ProyectoBaseDatosII.Editor
                         {
                             vNodoHijo = new TreeNode(vItem["Descripcion"].ToString());
                             vNodoHijo.ImageIndex = 1;
-                            foreach(DataRow vRows in dtDatosTreeview.Select("CodigoPadre = " + vItem["Codigo"].ToString()))
-                            {
-                                vNodoHijo2 = new TreeNode(vRows["Descripcion"].ToString());
-                                vNodoHijo2.ImageIndex = 2;
-                                vNodoHijo.Nodes.Add(vNodoHijo2);
-                            }
+                            //foreach(DataRow vRows in dtDatosTreeview.Select("CodigoPadre = " + vItem["Codigo"].ToString()))
+                            //{
+                            //    vNodoHijo2 = new TreeNode(vRows["Descripcion"].ToString());
+                            //    vNodoHijo2.ImageIndex = 2;
+                            //    vNodoHijo.Nodes.Add(vNodoHijo2);
+                            //}
                             vNodoPadre.Nodes.Add(vNodoHijo);
                         }
                         vNodoRaiz.Nodes.Add(vNodoPadre);
@@ -522,10 +522,13 @@ namespace ProyectoBaseDatosII.Editor
                                 cont += 1;
                                 //Enviar consulta
                                 CapaNegocios.ClsEnviarQuerys.query = "use " + cbBasesDeDatos.Text + "; " + arregloQuerys[i];
-                                vIndices = vValidacion.ValidarIndice(arregloQuerys[i], "use " + cbBasesDeDatos.Text);
+                                if (arregloQuerys[i].Contains("where"))
+                                { 
+                                    vIndices = vValidacion.ValidarIndice(arregloQuerys[i], "use " + cbBasesDeDatos.Text);
+                                }
                                 CapaNegocios.ClsEnviarQuerys comando = new CapaNegocios.ClsEnviarQuerys();
 
-                                if (comando.enviar() == true && vIndices == string.Empty)
+                                if (comando.enviar() == true && vIndices == string.Empty && vValidacion.error==string.Empty)
                                 {
                                     radGrid m = new radGrid();
                                     m.Show();
@@ -535,8 +538,8 @@ namespace ProyectoBaseDatosII.Editor
                                 }
                                 else
                                 {
-                                    MessageBox.Show(CapaNegocios.ClsEnviarQuerys.error + "\n" + vIndices);
-                                    if (comando.enviar() == true)
+                                    MessageBox.Show(CapaNegocios.ClsEnviarQuerys.error + "\n" + vIndices+"\n"+ vValidacion.error);
+                                    if (comando.enviar() == true && vValidacion.error==string.Empty)
                                     {
 
                                         if (MessageBox.Show("¿Desea crear los índices de forma automática?", "información", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)

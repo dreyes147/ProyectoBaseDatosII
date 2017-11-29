@@ -10,13 +10,15 @@ using System.ComponentModel;
 
 namespace ProyectoBaseDatosII.Clases
 {
-    class ValidacionIndices
+    public class ValidacionIndices
     {
         #region Delcaración de Variables
         DataSet dsDatos;
         List<Tablas> vTablas;
         List<Tablas> vIndeces;
+        public string error { get; set; }
         #endregion
+
 
         public ValidacionIndices()
         {
@@ -95,7 +97,8 @@ namespace ProyectoBaseDatosII.Clases
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                //throw new Exception(ex.Message);
+                error = ex.Message;
             }
             return vResultado;
         }
@@ -168,7 +171,15 @@ namespace ProyectoBaseDatosII.Clases
                         }
                         else
                         {
-                            vIndexCluster = false;
+                            if (dtIndex.Select("index_description='clustered, unique, primary key located on PRIMARY'").Length > 0)
+                            {
+                                vIndexCluster = true;
+                            }
+                            else
+                            {
+                                vIndexCluster = false;
+                            }
+                            
                         }
                         foreach (Tablas vItems in vDatos)
                         {
